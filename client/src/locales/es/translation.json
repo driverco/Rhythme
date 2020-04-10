@@ -1,0 +1,10 @@
+{
+    "navbar":{
+        "home": "Inicio",
+        "about": "Acerca de"
+    },
+    "home":{
+        "welcomeTitle":"Bienvenido",
+        "welcomeText":"Hola y bienvenido! :) Esta aplicacion le falta agregar un mensaje de bienvenida"
+    }
+}
