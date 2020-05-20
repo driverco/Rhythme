@@ -1,7 +1,10 @@
 {
-    "navbar":{
+    "menu":{
         "home": "Home",
-        "about": "About"
+        "about": "About",
+        "definitions": "Definitions",
+        "player": "Practice"
+
     },
     "home":{
         "welcomeTitle":"Welcome",

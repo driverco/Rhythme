@@ -1,7 +1,9 @@
 {
-    "navbar":{
+    "menu":{
         "home": "Inicio",
-        "about": "Acerca de"
+        "about": "Acerca de",
+        "definitions": "Definiciones",
+        "player": "Practica"
     },
     "home":{
         "welcomeTitle":"Bienvenido",
