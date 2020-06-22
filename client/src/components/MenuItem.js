@@ -1,9 +1,10 @@
 import React, { Component }  from 'react';
+import {Link} from 'react-router-dom';
 
 class MenuItem extends Component {
     render(){
         return (
-            <div className="buttonMenu" id={"menu-"+this.props.id}>{this.props.text}</div>
+            <Link to={this.props.loc}><div className="buttonMenu" id={"menu-"+this.props.id}>{this.props.text}</div></Link>
         );
     };
 }
