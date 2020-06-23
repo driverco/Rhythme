@@ -3,7 +3,10 @@ import React, { Component }  from 'react';
 class Home extends Component {
     render(){
         return (
-            <div>Home</div>
+            <div className="homepage">
+                https://www.free-css.com/free-css-templates/page254/fox
+                
+            </div>
         );
     };
 }

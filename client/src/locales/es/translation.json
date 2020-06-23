@@ -3,7 +3,8 @@
         "home": "Inicio",
         "about": "Acerca de",
         "definitions": "Definiciones",
-        "player": "Practica"
+        "player": "Practica",
+        "multipad": "Multipad"
     },
     "home":{
         "welcomeTitle":"Bienvenido",

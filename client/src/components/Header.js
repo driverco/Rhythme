@@ -1,48 +1,22 @@
-import React, { Component } from "react";
+import React from "react";
 import MenuItem from "./MenuItem";
 import ReactFlagsSelect from "react-flags-select";
 import "react-flags-select/css/react-flags-select.css";
 import { useTranslation } from "react-i18next";
 import i18n from "../i18n";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from '../components/Home';
-import About from '../components/About';
-import Definitions from '../components/Definitions';
-import Player from '../components/Player';
+import Home from "./Home";
+import About from "./About";
+import Definitions from "./Definitions";
+import Player from "./Player";
+import Multipad from "./Multipad";
 
 function Header() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   return (
     <div className="header">
       <div class="headerBackground">
         <div className="App-header">
-          <div className="HeaderTitle">Rhythme</div>
-          <div class="menuContainer">
-            <Router>
-              <Switch>
-                <Route exact path="/">
-                  <Home />
-                </Route>
-                <Route path="/about">
-                  <About />
-                </Route>
-                <Route path="/player">
-                  <Player />
-                </Route>
-                <Route path="/definitions">
-                  <Definitions />
-                </Route>
-              </Switch>
-              <MenuItem loc="/" text={t("menu.home")} id="home" />
-              <MenuItem loc="player" text={t("menu.player")} id="player" />
-              <MenuItem
-                loc="definitions"
-                text={t("menu.definitions")}
-                id="definitions"
-              />
-              <MenuItem loc="about" text={t("menu.about")} id="aboutus" />
-            </Router>
-          </div>
           <ReactFlagsSelect
             countries={["US", "CO"]}
             customLabels={{ US: "EN", CO: "ES" }}
@@ -55,6 +29,34 @@ function Header() {
             optionsSize={14}
             className="flagsList"
           />
+          <div className="HeaderTitle">Rhythme</div>
+          <Router>
+            <div class="menuContainer">
+              <MenuItem loc="/" text={t("menu.home")} id="home" />
+              <MenuItem
+                loc="definitions"
+                text={t("menu.definitions")}
+                id="definitions"
+              />
+              <MenuItem
+                loc="multipad"
+                text={t("menu.multipad")}
+                id="multipad"
+              />
+              <MenuItem loc="player" text={t("menu.player")} id="player" />
+              <MenuItem loc="about" text={t("menu.about")} id="aboutus" />
+            </div>
+            <div className="content">
+              {" "}
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route path="/about" component={About} />
+                <Route path="/player" component={Player} />
+                <Route path="/multipad" component={Multipad} />
+                <Route path="/definitions" component={Definitions} />
+              </Switch>
+            </div>
+          </Router>
         </div>
       </div>
     </div>
@@ -66,6 +68,8 @@ const countryLang = () => {
       return "US";
     case "es":
       return "CO";
+    default:
+      return "US";
   }
 };
 
@@ -76,6 +80,9 @@ const changeLangCountry = (country) => {
       break;
     case "CO":
       i18n.changeLanguage("es");
+      break;
+    default:
+      i18n.changeLanguage("en");
       break;
   }
 };
