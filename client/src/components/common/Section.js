@@ -21,7 +21,7 @@ class Section extends Component {
                     <img className="img-fluid rounded-circle" src={"images/"+img} alt="" />
                 </div>
             </div>
-        )
+        );
     }
     textPart(type, title) {
         return (
@@ -32,7 +32,7 @@ class Section extends Component {
                 </div>
             </div>
 
-        )
+        );
     }
 
 }

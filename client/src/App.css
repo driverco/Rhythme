@@ -1,34 +1,38 @@
-html, 
+html,
 body {
   font-family: 'Covered By Your Grace', cursive;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
 }
 
-.p-tabmenuitem{
+.p-tabmenuitem {
   background: linear-gradient(90deg, #f12711 0%, #f5af19 100%);
 }
-.HeaderTitle{
+
+.HeaderTitle {
   font-size: 1em !important;
   font-weight: bold;
-  color: #FFFFFF;
+  color: #ffffff;
 }
-.flagsList{
- /* position: absolute !important;
+
+.flagsList {
+  /* position: absolute !important;
   left: 250px;
   top: 10px;*/
   color: #e65100;
 }
+
 .flag-select__btn:after {
-  border-top: 5px solid #FFFFFF;
-}
-.flag-select__btn[aria-expanded="true"]:after {
-  border-top: 0 ;
-  border-bottom: 5px solid #FFFFFF ;
-}
-.contentBody{
-  position: absolute;
-  top: 0px;
-  width: 100%;
+  border-top: 5px solid #ffffff;
 }
 
+.flag-select__btn[aria-expanded="true"]:after {
+  border-top: 0;
+  border-bottom: 5px solid #ffffff;
+}
+
+.contentBody {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
