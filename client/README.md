@@ -1,6 +1,6 @@
 Proyecto de Grado Rhythme <br />
 Universidad Antonio Nariño <br />
- - 2020 II
+2020 II
 
 ## Colaboradores
 Diana Paola Rincón Montaña<br />
