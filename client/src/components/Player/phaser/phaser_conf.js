@@ -1,10 +1,10 @@
-import Phaser from 'phaser';
+import Phaser from "phaser";
 
 const gameConfig =
 {
     initialize: true,
     game: {
-      parent: 'phaser-container',
+      parent: "phaser-container",
       width: "100",
       height: "100",
       type: Phaser.AUTO,
@@ -55,7 +55,7 @@ function update(time, delta){
 
 }
 function init(){
-    this.cameras.main.setBackgroundColor('#24252A')
+    this.cameras.main.setBackgroundColor("#24252A")
 }
 function render() {
     // Sprite debug info

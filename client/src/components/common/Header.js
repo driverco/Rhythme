@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 import i18n from "../../i18n";
 import ReactFlagsSelect from "react-flags-select";
 import "react-flags-select/css/react-flags-select.css";
 import { Navbar, Nav } from "react-bootstrap";
 import "./header.css";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 import { NavLink, Link } from "react-router-dom";
 
 
@@ -12,7 +12,7 @@ import { NavLink, Link } from "react-router-dom";
 function Header() {
   const { t } = useTranslation("menu");
   return (
-    <Navbar bg="dark" expand="lg" className="fixed-top navbar-custom">
+    <Navbar  expand="lg" className="navbar-custom fixed-top ">
       <Navbar.Brand ><Link to="/" className="navBrand">RHYTHME!</Link></Navbar.Brand>
 
 

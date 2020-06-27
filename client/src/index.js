@@ -1,8 +1,8 @@
-import React, { Suspense}  from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
-import './i18n';
+import React, { Suspense}  from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
+import "./i18n";
 
 
 
@@ -10,7 +10,7 @@ ReactDOM.render(
   <Suspense fallback={null}>
     <App />
   </Suspense>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 /*
 

@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 import { useTranslation } from "react-i18next";
-import PageHeader from '../common/PageHeader';
+import PageHeader from "../common/PageHeader";
 
 
 function Multipad(){

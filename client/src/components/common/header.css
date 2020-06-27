@@ -1,5 +1,5 @@
 .navbar-custom {
-    background-color: rgba(0, 0, 0, 0.7) !important;
+    background-color: rgba(0, 0, 0, 0.7);
   }
 
   .navbar-custom .navbar-brand {
@@ -7,18 +7,19 @@
     letter-spacing: 0.1rem;
     font-weight: 700;
   }
-  .buttonMenu{
+  .buttonMenu, .buttonMenu:hover{
     width: 80px;
-    color: white !important;
-    text-decoration: none !important;
+    color: white ;
+    text-decoration: none ;
     padding: 10px 0px 5px 0px;
   }
-  .navBrand{
-    color: white !important;
-    text-decoration: none !important;
+  .navBrand, .navBrand:hover{
+    color: white;
+    text-decoration: none ;
   }
   .buttonMenu:hover{
     background: url(../../img/scratch.png);
    
   }
+  
   
