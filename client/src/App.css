@@ -10,25 +10,25 @@ body {
 }
 
 .HeaderTitle {
-  font-size: 1em !important;
+  font-size: 1em;
   font-weight: bold;
-  color: #ffffff;
+  color: #fff;
 }
 
 .flagsList {
   /* position: absolute !important;
   left: 250px;
-  top: 10px;*/
+  top: 10px; */
   color: #e65100;
 }
 
-.flag-select__btn:after {
-  border-top: 5px solid #ffffff;
+.flag-select__btn::after {
+  border-top: 5px solid #fff;
 }
 
-.flag-select__btn[aria-expanded="true"]:after {
+.flag-select__btn[aria-expanded="true"]::after {
   border-top: 0;
-  border-bottom: 5px solid #ffffff;
+  border-bottom: 5px solid #fff;
 }
 
 .contentBody {

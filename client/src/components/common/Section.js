@@ -12,7 +12,7 @@ class Section extends Component {
                 </div>
             </section>
         );
-    };
+    }
 
     imagePart(type, img) {
         return (

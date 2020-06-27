@@ -1,7 +1,7 @@
 import Phaser from "phaser";
 
 function preload() {
-  console.log("preloading assets");
+  /*console.log("preloading assets");*/
   this.load.image("kickDrum", "assets/kickdrum200.png");
   this.load.image("snare", "assets/snare.png");
   this.load.image("floorDrum", "assets/floorDrum.png");
@@ -9,7 +9,7 @@ function preload() {
 
 }
 function create() {
-  console.log("creating Scene");
+  /*console.log("creating Scene");*/
   this.kickDrum = this.add.sprite(350, 450, "kickDrum");
   this.snare = this.add.sprite(200, 350, "snare");
   this.floorDrum = this.add.sprite(520, 450, "floorDrum");
@@ -25,7 +25,7 @@ function create() {
       this.cameras.main.centerY, 
       "Hello World", { 
         font: "40px Arial", 
-        fill: "#ffffff" 
+        fill: "#fff" 
       }
     );
     this.helloWorld.setOrigin(0.5);
