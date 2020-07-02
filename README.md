@@ -1,0 +1,2 @@
+# Rhythme
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/14c50cc923544754be05477f631c3957)](https://app.codacy.com/manual/driverco/Rhythme?utm_source=github.com&utm_medium=referral&utm_content=driverco/Rhythme&utm_campaign=Badge_Grade_Dashboard)
