@@ -15,6 +15,15 @@ var kickSound;
 var timer;
 var snare;
 
+function playClick() {
+  clickSound.play();
+}
+function playSnare() {
+  snareSound.play();
+}
+function playKick() {
+  kickSound.play();
+}
 
 class exampleScene1 extends Phaser.Scene {
   // build constructor
@@ -66,15 +75,5 @@ class exampleScene1 extends Phaser.Scene {
   }
  
 }
-function playClick() {
-  clickSound.play();
-}
-function playSnare() {
-  snareSound.play();
-}
-function playKick() {
-  kickSound.play();
-}
-
 
 export default exampleScene1;
