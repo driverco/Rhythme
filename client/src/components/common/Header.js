@@ -1,19 +1,43 @@
-import React from 'react';
+import React from "react";
 import i18n from "../../i18n";
 import ReactFlagsSelect from "react-flags-select";
 import "react-flags-select/css/react-flags-select.css";
 import { Navbar, Nav } from "react-bootstrap";
-import "./header.css";
-import { useTranslation } from 'react-i18next';
+import "./Header.css";
+import { useTranslation } from "react-i18next";
 import { NavLink, Link } from "react-router-dom";
 
 
+const countryLang = () => {
+  switch (i18n.language) {
+    case "en":
+      return "US";
+    case "es":
+      return "CO";
+    default:
+      return "US";
+  }
+};
+
+const changeLangCountry = (country) => {
+  switch (country) {
+    case "US":
+      i18n.changeLanguage("en");
+      break;
+    case "CO":
+      i18n.changeLanguage("es");
+      break;
+    default:
+      i18n.changeLanguage("en");
+      break;
+  }
+};
 
 function Header() {
   const { t } = useTranslation("menu");
   return (
-    <Navbar bg="dark" expand="lg" className="fixed-top navbar-custom">
-      <Navbar.Brand ><Link to="/" className="navBrand">RHYTHME!</Link></Navbar.Brand>
+    <Navbar  expand="lg" className="navbar-custom fixed-top ">
+      <Navbar.Brand ><Link to="/" className="navBrand"><img  src="images/Rhythme.svg" className="brandLogo" alt="Rhythme"/> RHYTHME!</Link></Navbar.Brand>
 
 
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -42,29 +66,6 @@ function Header() {
   );
 }
 
-const countryLang = () => {
-  switch (i18n.language) {
-    case "en":
-      return "US";
-    case "es":
-      return "CO";
-    default:
-      return "US";
-  }
-};
 
-const changeLangCountry = (country) => {
-  switch (country) {
-    case "US":
-      i18n.changeLanguage("en");
-      break;
-    case "CO":
-      i18n.changeLanguage("es");
-      break;
-    default:
-      i18n.changeLanguage("en");
-      break;
-  }
-};
 
 export default Header;

@@ -1,0 +1,59 @@
+header.masthead {
+  position: relative;
+  overflow: hidden;
+  padding-top: calc(4rem + 72px);
+  padding-bottom: 1rem;
+  background: linear-gradient(0deg, #ff6a00 0%, #ee0979 100%);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: scroll;
+  background-size: cover;
+}
+
+header.masthead .masthead-content {
+  z-index: 1;
+  position: relative;
+}
+
+header.masthead .masthead-content .masthead-heading {
+  font-size: 4rem;
+}
+
+header.masthead .masthead-content .masthead-subheading {
+  font-size: 2rem;
+}
+
+header.masthead .bg-circle {
+  z-index: 0;
+  position: absolute;
+  border-radius: 100%;
+  background: linear-gradient(0deg, #ee0979 0%, #ff6a00 100%);
+}
+
+header.masthead .bg-circle-1 {
+  height: 50rem;
+  width: 50rem;
+  bottom: -25rem;
+  left: -25rem;
+}
+
+header.masthead .bg-circle-2 {
+  height: 30rem;
+  width: 30rem;
+  top: -15rem;
+  right: -15rem;
+}
+
+header.masthead .bg-circle-3 {
+  height: 15rem;
+  width: 15rem;
+  bottom: -8rem;
+  right: 5%;
+}
+
+header.masthead .bg-circle-4 {
+  height: 20rem;
+  width: 20rem;
+  top: 5rem;
+  right: 27%;
+}

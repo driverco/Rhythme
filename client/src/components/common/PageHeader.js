@@ -1,4 +1,5 @@
-import React, { Component }  from 'react';
+import React, { Component }  from "react";
+import "./PageHeader.css";
 
 class PageHeader extends Component {
     render(){
@@ -16,7 +17,7 @@ class PageHeader extends Component {
             <div className="bg-circle-4 bg-circle"></div>
         </header>
         );
-    };
+    }
 }
 
 export default PageHeader;

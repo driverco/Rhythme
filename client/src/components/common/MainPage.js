@@ -1,11 +1,12 @@
 import React from "react";
-import Home from "../Home/Home";
-import About from "../About/About";
-import Definitions from "../Definitions/Definitions";
-import Player from "../Player/Player";
-import Multipad from "../Multipad/Multipad";
+import Home from "../home/Home";
+import About from "../about/About";
+import Definitions from "../definitions/Definitions";
+import Player from "../player/Player";
+import Multipad from "../multipad/Multipad";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./Header";
+import Footer from "./Footer";
 
 
 function MainPage() {
@@ -22,6 +23,7 @@ function MainPage() {
           <Route path="/multipad" component={Multipad} />
           <Route path="/definitions" component={Definitions} />
         </Switch>
+        <Footer />
       </div>
     </Router>
   );

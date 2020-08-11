@@ -1,6 +1,6 @@
-import React  from 'react';
-import './App.css';
-import MainPage from './components/common/MainPage';
+import React  from "react";
+import "./App.css";
+import MainPage from "./components/common/MainPage";
 
 
 
