@@ -20,30 +20,30 @@ class exampleScene1 extends Phaser.Scene {
   // build constructor
   constructor() {
     // create identifier for class scene
-    super({ key: 'MainScene' });
+    super({ key: "MainScene" });
   }
 
   preload() {
-    this.load.image('snare', SnareImg);
-    this.load.audio('snareAudio', [SnareAudioOgg, SnareAudioMp3, SnareAudioWav ]);
-    this.load.audio('kickAudio', [KickAudioOgg, KickAudioMp3, KickAudioWav]);
-    this.load.audio('clickAudio', ClickAudio);
+    this.load.image("snare", SnareImg);
+    this.load.audio("snareAudio", [SnareAudioOgg, SnareAudioMp3, SnareAudioWav ]);
+    this.load.audio("kickAudio", [KickAudioOgg, KickAudioMp3, KickAudioWav]);
+    this.load.audio("clickAudio", ClickAudio);
   }
 
   create() {
     //  Hook to a specific key without creating a new Key object (in this case the A key)
-    this.input.keyboard.on('keydown-A', function (event) {
+    this.input.keyboard.on("keydown-A", function (event) {
       playSnare();
     });
-    this.input.keyboard.on('keydown-G', function (event) {
+    this.input.keyboard.on("keydown-G", function (event) {
       playKick();
     });
 
 
-    snare = this.add.sprite(400, 300, 'snare').setInteractive();
-    clickSound = this.sound.add('clickAudio');
-    snareSound = this.sound.add('snareAudio');
-    kickSound = this.sound.add('kickAudio');
+    snare = this.add.sprite(400, 300, "snare").setInteractive();
+    clickSound = this.sound.add("clickAudio");
+    snareSound = this.sound.add("snareAudio");
+    kickSound = this.sound.add("kickAudio");
     clickSound.allowMultiple = true;
     timer = this.time.addEvent({
       delay: 500,                // ms
@@ -51,16 +51,16 @@ class exampleScene1 extends Phaser.Scene {
       loop: true
     });
 
-    snare.on('pointerdown', function (pointer) {
+    snare.on("pointerdown", function (pointer) {
       playSnare();
       this.setTint(0xff0000);
     });
 
-    snare.on('pointerout', function (pointer) {
+    snare.on("pointerout", function (pointer) {
       this.clearTint();
     });
 
-    snare.on('pointerup', function (pointer) {
+    snare.on("pointerup", function (pointer) {
       this.clearTint();
     });
   }
