@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 class Section extends Component {
     render() {
@@ -43,6 +43,6 @@ Section.propTypes = {
     title: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
     img: PropTypes.string.isRequired
-}
+};
 
 export default Section;

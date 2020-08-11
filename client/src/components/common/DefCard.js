@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Card, Button, CardHeader, CardBody, CardText, CardImg } from "reactstrap";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import "./DefCard.css";
 
 class DefCard extends Component {
@@ -24,6 +24,6 @@ DefCard.propTypes = {
   img: PropTypes.string.isRequired,
   linkTo: PropTypes.string.isRequired,
   linkText: PropTypes.string.isRequired
-}
+};
 
 export default DefCard;

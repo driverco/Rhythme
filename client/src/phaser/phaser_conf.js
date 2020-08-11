@@ -7,7 +7,7 @@ const game = {
   height: "100",
   type: Phaser.AUTO,
   scene: [MainScene]
-}
+};
 
 const gameConfig =
 {
