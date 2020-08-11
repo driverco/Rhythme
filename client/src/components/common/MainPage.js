@@ -6,6 +6,7 @@ import Player from "../player/Player";
 import Multipad from "../multipad/Multipad";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./Header";
+import Footer from "./Footer";
 
 
 function MainPage() {
@@ -22,6 +23,7 @@ function MainPage() {
           <Route path="/multipad" component={Multipad} />
           <Route path="/definitions" component={Definitions} />
         </Switch>
+        <Footer />
       </div>
     </Router>
   );

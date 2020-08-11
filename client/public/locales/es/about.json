@@ -1,4 +1,13 @@
 {
     "welcomeTitle":"Equipo Proyecto Rhythme",
-    "welcomeSubtitle":"Conoce nuestro equipo"
+    "welcomeSubtitle":"Conoce nuestro equipo",
+    "diana":{
+        "content":"Estudiante de último semestre de ingeniería de sistemas."
+    },
+    "wilmer":{
+        "content":"Estudiante de último semestre de ingeniería de sistemas."
+    },
+    "wilson":{
+        "content":"Director del propyecto de grado, Maestría1 maestría2, maestría3, maestría4, maestría5"
+    }
 }

@@ -10,10 +10,10 @@
 
 .buttonMenu,
 .buttonMenu:hover {
-  width: 80px;
+  /*width: 120px;*/
   color: white;
   text-decoration: none;
-  padding: 10px 0 5px 0;
+  padding: 0 10px 5px 10px;
 }
 
 .navBrand,
@@ -24,4 +24,9 @@
 
 .buttonMenu:hover {
   background: url(../../img/scratch.png);
+}
+
+.brandLogo{
+  width: 50px;
+
 }

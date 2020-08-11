@@ -6,7 +6,7 @@ function preload() {
   this.load.image("snare", "assets/snare.png");
   this.load.image("floorDrum", "assets/floorDrum.png");
   this.load.image("cymbal", "assets/cymbal.png");
-
+  this.load.audio('sfx', 'assets/audio/click.wav');
 }
 function create() {
   /*console.log("creating Scene");*/
@@ -18,6 +18,12 @@ function create() {
   this.snare.setScale(0.25);
   this.floorDrum.setScale(0.25);
   this.cymbal.setScale(0.3);
+  
+  /*fx = this.game.add.audio('sfx');*/
+  /*fx.allowMultiple = true;*/
+  /*fx.addMarker('click', 0, 1.0);*/
+  makeButton('click', 100, 100);
+
 
   /*
   this.helloWorld = this.add.text(
@@ -45,24 +51,43 @@ function render() {
 
 }
 
+const game = {
+  parent: "phaser-container",
+  width: "100",
+  height: "100",
+  type: Phaser.AUTO,
+  scene: {
+    preload,
+    create,
+    init,
+    update,
+    render
+  }
+}
 
 const gameConfig =
 {
   initialize: true,
-  game: {
-    parent: "phaser-container",
-    width: "100",
-    height: "100",
-    type: Phaser.AUTO,
-    scene: {
-      preload,
-      create,
-      init,
-      update,
-      render
-    }
-  }
+  game
 };
 
+
+function makeButton(name, x, y) {
+
+  var button = game.add.button(x, y, 'snare', click, this, 0, 1, 2);
+  button.name = name;
+  button.scale.set(2, 1.5);
+  button.smoothed = false;
+
+  var text = this.add.bitmapText(x, y + 7, 'nokia', name, 16);
+  text.x += (button.width / 2) - (text.textWidth / 2);
+
+}
+
+function click(button) {
+
+/*fx.play(button.name);*/
+
+}
 
 export default gameConfig;

@@ -37,7 +37,7 @@ function Header() {
   const { t } = useTranslation("menu");
   return (
     <Navbar  expand="lg" className="navbar-custom fixed-top ">
-      <Navbar.Brand ><Link to="/" className="navBrand">RHYTHME!</Link></Navbar.Brand>
+      <Navbar.Brand ><Link to="/" className="navBrand"><img  src="images/Rhythme.svg" className="brandLogo" alt="Rhythme"/> RHYTHME!</Link></Navbar.Brand>
 
 
       <Navbar.Toggle aria-controls="basic-navbar-nav" />

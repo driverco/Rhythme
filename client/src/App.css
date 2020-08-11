@@ -3,10 +3,8 @@ body {
   font-family: 'Covered By Your Grace', cursive;
   margin: 0;
   padding: 0;
-}
+  font-size: 1.3em;
 
-.p-tabmenuitem {
-  background: linear-gradient(90deg, #f12711 0%, #f5af19 100%);
 }
 
 .HeaderTitle {

@@ -8,6 +8,8 @@ Wilmer Rodríguez Camargo
 ## Director
 Wilson Javier Forero Romero
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/14c50cc923544754be05477f631c3957)](https://app.codacy.com/manual/driverco/Rhythme?utm_source=github.com&utm_medium=referral&utm_content=driverco/Rhythme&utm_campaign=Badge_Grade_Dashboard)
+
 ## Datos del proyecto
 
 este proyecto se creó con [Create React App](https://github.com/facebook/create-react-app).

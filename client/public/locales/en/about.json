@@ -1,4 +1,13 @@
 {
     "welcomeTitle":"Project Rhythme Team",
-    "welcomeSubtitle":"Meet our team members"
+    "welcomeSubtitle":"Meet our team members",
+    "diana":{
+        "content":"Last semester engineer student"
+    },
+    "wilmer":{
+        "content":"Last semester engineer student"
+    },
+    "wilson":{
+        "content":"Project's director, skilled guru and master of the dark arts"
+    }
 }

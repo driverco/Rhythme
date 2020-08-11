@@ -1,4 +1,37 @@
 {
     "welcomeTitle":"Aprende",
-    "welcomeSubtitle":"Aquí tienes algunos conceptos que te ayudarán en tu Aprendizaje"
+    "welcomeSubtitle":"Aquí tienes algunos conceptos que te ayudarán en tu Aprendizaje",
+    "linkText":"Ver más",
+    "def1":{
+        "title":"Beat",
+        "content":"Beat beat beat"
+    },
+    "def2":{
+        "title":"Speed",
+        "content":"Beat beat beat"
+    },
+    "def3":{
+        "title":"Musical Time",
+        "content":"Beat beat beat"
+    },
+    "def4":{
+        "title":"BPM",
+        "content":"Beat beat beat"
+    },
+    "def5":{
+        "title":"Figures 1",
+        "content":"Beat beat beat"
+    },
+    "def6":{
+        "title":"Figures 2",
+        "content":"Beat beat beat"
+    },
+    "def7":{
+        "title":"Figures 3",
+        "content":"Beat beat beat"
+    },
+    "def8":{
+        "title":"Figures 4",
+        "content":"Beat beat beat"
+    }
 }

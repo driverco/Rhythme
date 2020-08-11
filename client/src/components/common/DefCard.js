@@ -1,19 +1,29 @@
-import React from "react";
-import { Card, Button, CardHeader, CardFooter, CardBody,
-    CardTitle, CardText } from "reactstrap";
+import React, { Component } from "react";
+import { Card, Button, CardHeader, CardBody, CardText, CardImg } from "reactstrap";
+import PropTypes from 'prop-types';
+import "./DefCard.css";
 
-const DefCard = (props) => {
-  return (
-       <Card>
-        <CardHeader tag="h3">Featured</CardHeader>
+class DefCard extends Component {
+  render() {
+    return (
+      <Card>
+        <CardHeader className="cardHeader">{this.props.title}</CardHeader>
+        <CardImg top width="100%" src={this.props.img} alt="Card image cap" />
         <CardBody>
-          <CardTitle>Special Title Treatment</CardTitle>
-          <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-          <Button>Go somewhere</Button>
+          <CardText>{this.props.content}</CardText>
+          <Button>{this.props.linkText}</Button>
         </CardBody>
-        <CardFooter className="text-muted">Footer</CardFooter>
       </Card>
-  );
-};
+    );
+  }
+}
+
+DefCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+  img: PropTypes.string.isRequired,
+  linkTo: PropTypes.string.isRequired,
+  linkText: PropTypes.string.isRequired
+}
 
 export default DefCard;
