@@ -1,7 +1,13 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { Row, Col, Container } from "reactstrap";
 import PageHeader from "../common/PageHeader";
-import Section from "../common/Section";
+import DefCard from "../common/DefCard";
+import ProjectImg from "../../img/Descripción-Rhythme.jpg";
+import PosterImg from "../../img/Poster.jpg";
+import TeamImg from "../../img/Team.jpg";
+
+
 
 
 function About() {
@@ -9,9 +15,19 @@ function About() {
     return (
         <React.Fragment>
             <PageHeader header={t("welcomeTitle")} subheader={t("welcomeSubtitle")} />
-            <Section type="0" title="Diana Paola Rinc&oacute;n" img="Diana2.jpg" content={t("diana.content")}/>
-            <Section type="1" title="Wilmer Rodr&iacute;guez Camargo" img="Keanu-Reeves1.jpg" content={t("wilmer.content")} />
-            <Section type="0" title="Director: Wilson Javier Forero" img="maleModel1.jpg" content={t("wilson.content")} />
+            <Container fluid={false}>
+                <Row>
+                    <Col sm="3">
+                        <DefCard title={t("poster.title")} content={t("poster.content")} linkText={t("linkText")} linkTo="https://drincon28.github.io/Poster/" linkExternal={true} img={PosterImg} />
+                    </Col>
+                    <Col sm="3">
+                        <DefCard title={t("project.title")} content={t("project.content")} linkText={t("linkText")} linkTo="project" img={ProjectImg} />
+                    </Col>
+                    <Col sm="3">
+                        <DefCard title={t("team.title")} content={t("team.content")} linkText={t("linkText")} linkTo="team" img={TeamImg} />
+                    </Col>
+                </Row>
+            </Container>
         </React.Fragment>
     );
 }

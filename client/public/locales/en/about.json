@@ -1,6 +1,8 @@
 {
     "welcomeTitle":"Project Rhythme Team",
     "welcomeSubtitle":"Meet our team members",
+    "linkText":"See More",
+
     "diana":{
         "content":"Last semester engineer student"
     },
@@ -9,5 +11,17 @@
     },
     "wilson":{
         "content":"Project's director, skilled guru and master of the dark arts"
+    },
+    "poster":{
+        "title":"Poster",
+        "content":"Presentación del Poster del proyecto"
+    },
+    "project":{
+        "title":"Project",
+        "content":"Project Data, Vision and Facts"
+    },
+    "team":{
+        "title":"Project Team",
+        "content":"Meet Our Team"
     }
 }
