@@ -2,3 +2,6 @@
   background-color: #c6c6c6;
   color: #f73b3b;
 }
+.navLink:hover{
+  text-decoration: none;
+}
