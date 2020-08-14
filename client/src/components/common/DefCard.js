@@ -1,45 +1,34 @@
-import React, { Component } from "react";
+import React from "react";
 import { Card, Button, CardHeader, CardBody, CardText, CardImg } from "reactstrap";
 import { NavLink } from "react-router-dom";
-import PropTypes from "prop-types";
 import "./DefCard.css";
 
-class DefCard extends Component {
-  render() {
-    let link;
-    if (this.props.linkExternal) {
-      link = <a id={this.props.linkTo} href={this.props.linkTo} className="navLink">{CardRet(this.props)}</a>;
-    } else {
-      link = <NavLink to={this.props.linkTo} id={this.props.linkTo} className="navLink">{CardRet(this.props)}</NavLink>;
-    }
-    function CardRet(props) {
-      return (
-        <Card>
-          <CardHeader className="cardHeader">{props.title}</CardHeader>
-          <CardImg top width="100%" src={props.img} alt="Card image cap" />
-          <CardBody>
-            <CardText>{props.content}</CardText>
-            <Button>{props.linkText}</Button>
-          </CardBody>
-        </Card>
-      );
-    }
-
+function DefCard(title, content, linkText, linkTo, img, linkExternal) {
+  let link;
+  if (linkExternal) {
+    link = <a id={linkTo} href={linkTo} className="navLink">{CardRet(title, content, linkText, img)}</a>;
+  } else {
+    link = <NavLink to={linkTo} id={linkTo} className="navLink">{CardRet(title, content, linkText, img)}</NavLink>;
+  }
+  function CardRet(title, content, linkText, img) {
     return (
-      <React.Fragment>
-        {link}
-      </React.Fragment>
+      <Card>
+        <CardHeader className="cardHeader">{title}</CardHeader>
+        <CardImg top width="100%" src={img} alt="Card image cap" />
+        <CardBody>
+          <CardText>{content}</CardText>
+          <Button>{linkText}</Button>
+        </CardBody>
+      </Card>
     );
   }
+
+  return (
+    <React.Fragment>
+      {link}
+    </React.Fragment>
+  );
 }
 
-DefCard.propTypes = {
-  title: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
-  img: PropTypes.string.isRequired,
-  linkTo: PropTypes.string.isRequired,
-  linkText: PropTypes.string.isRequired,
-  linkExternal: PropTypes.bool
-};
 
 export default DefCard;

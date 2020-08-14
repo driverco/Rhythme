@@ -7,7 +7,6 @@ import "./Header.css";
 import { useTranslation } from "react-i18next";
 import { NavLink, Link } from "react-router-dom";
 
-
 const countryLang = () => {
   switch (i18n.language) {
     case "en":
@@ -36,8 +35,8 @@ const changeLangCountry = (country) => {
 function Header() {
   const { t } = useTranslation("menu");
   return (
-    <Navbar  expand="lg" className="navbar-custom fixed-top ">
-      <Navbar.Brand ><Link to="/" className="navBrand"><img  src="images/Rhythme.svg" className="brandLogo" alt="Rhythme"/> RHYTHME!</Link></Navbar.Brand>
+    <Navbar expand="lg" className="navbar-custom fixed-top ">
+      <Navbar.Brand ><Link to="/" className="navBrand"><img src="images/Rhythme.svg" className="brandLogo" alt="Rhythme" /> RHYTHME!</Link></Navbar.Brand>
 
 
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -65,7 +64,5 @@ function Header() {
 
   );
 }
-
-
 
 export default Header;

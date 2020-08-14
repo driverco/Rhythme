@@ -8,11 +8,11 @@ function Home() {
     const { t } = useTranslation("home");
     return (
         <React.Fragment>
-            <PageHeader header={t("welcomeTitle")} subheader= {t("welcomeSubtitle")}/>
-            <Section type="0" title={t("section1.title")} content={t("section1.content")} img="kid_drums.jpg"/>
-            <Section type="1" title={t("section2.title")} content={t("section2.content")}  img="kid_drums.jpg"/>
-            <Section type="0" title={t("section3.title")} content={t("section3.content")}  img="kid_drums.jpg"/>
-            <Section type="1" title={t("section4.title")} content={t("section4.content")}  img="kid_drums.jpg"/>
+            {PageHeader(t("welcomeTitle"),t("welcomeSubtitle"))}
+            {Section("0",t("section1.title"),t("section1.content"),"kid_drums.jpg")}
+            {Section("1",t("section2.title"),t("section2.content"),"kid_drums.jpg")}
+            {Section("0",t("section3.title"),t("section3.content"),"kid_drums.jpg")}
+            {Section("1",t("section4.title"),t("section4.content"),"kid_drums.jpg")}
         </React.Fragment>
     );
 }

@@ -8,42 +8,38 @@ import BPM from "../../img/Música-bpm.png";
 import TimeSignatures from "../../img/TimeSignatures-main_Full.jpg";
 import Accent from "../../img/Acento.jpg";
 
-
-
-
-
 function Definitions() {
     const { t } = useTranslation("definitions");
     return (
         <React.Fragment>
-            <PageHeader header={t("welcomeTitle")} subheader={t("welcomeSubtitle")} />
+            {PageHeader(t("welcomeTitle"), t("welcomeSubtitle"))}
             <Container fluid={false}>
                 <Row>
                     <Col sm="3">
-                        <DefCard title={t("def1.title")} content={t("def1.content")} linkText={t("linkText")} linkTo="def1" img={Beat} />
+                        {DefCard(t("def1.title"), t("def1.content"), t("linkText"), "def1", Beat, false)}
                     </Col>
                     <Col sm="3">
-                        <DefCard title={t("def2.title")} content={t("def2.content")} linkText={t("linkText")} linkTo="def2" img={BPM} />
+                        {DefCard(t("def2.title"), t("def2.content"), t("linkText"), "def2", BPM, false)}
                     </Col>
                     <Col sm="3">
-                        <DefCard title={t("def3.title")} content={t("def3.content")} linkText={t("linkText")} linkTo="def3" img={TimeSignatures} />
+                        {DefCard(t("def3.title"), t("def3.content"), t("linkText"), "def3", TimeSignatures, false)}
                     </Col>
                     <Col sm="3">
-                        <DefCard title={t("def4.title")} content={t("def4.content")} linkText={t("linkText")} linkTo="def4" img={Accent} />
+                        {DefCard(t("def4.title"), t("def4.content"), t("linkText"), "def4", Accent, false)}
                     </Col>
                 </Row>
                 <Row>
                     <Col sm="3">
-                        <DefCard title={t("def5.title")} content={t("def5.content")} linkText={t("linkText")} linkTo="def5" img="kid_drums.jpg" />
+                        {DefCard(t("def5.title"), t("def5.content"), t("linkText"), "def5", "kid_drums.jpg", false)}
                     </Col>
                     <Col sm="3">
-                        <DefCard title={t("def6.title")} content={t("def6.content")} linkText={t("linkText")} linkTo="def6" img="kid_drums.jpg" />
+                        {DefCard(t("def6.title"), t("def6.content"), t("linkText"), "def6", "kid_drums.jpg", false)}
                     </Col>
                     <Col sm="3">
-                        <DefCard title={t("def7.title")} content={t("def7.content")} linkText={t("linkText")} linkTo="def7" img="kid_drums.jpg" />
+                        {DefCard(t("def7.title"), t("def7.content"), t("linkText"), "def7", "kid_drums.jpg", false)}
                     </Col>
                     <Col sm="3">
-                        <DefCard title={t("def8.title")} content={t("def8.content")} linkText={t("linkText")} linkTo="def8" img="kid_drums.jpg" />
+                        {DefCard(t("def8.title"), t("def8.content"), t("linkText"), "def8", "kid_drums.jpg", false)}
                     </Col>
 
                 </Row>

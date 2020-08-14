@@ -7,24 +7,21 @@ import ProjectImg from "../../img/Descripción-Rhythme.jpg";
 import PosterImg from "../../img/Poster.jpg";
 import TeamImg from "../../img/Team.jpg";
 
-
-
-
 function About() {
     const { t } = useTranslation("about");
     return (
         <React.Fragment>
-            <PageHeader header={t("welcomeTitle")} subheader={t("welcomeSubtitle")} />
+            {PageHeader(t("welcomeTitle"), t("welcomeSubtitle"))}
             <Container fluid={false}>
                 <Row>
                     <Col sm="3">
-                        <DefCard title={t("poster.title")} content={t("poster.content")} linkText={t("linkText")} linkTo="https://drincon28.github.io/Poster/" linkExternal={true} img={PosterImg} />
+                        {DefCard(t("poster.title"), t("poster.content"), t("linkText"), "https://drincon28.github.io/Poster/", PosterImg, true)}
                     </Col>
                     <Col sm="3">
-                        <DefCard title={t("project.title")} content={t("project.content")} linkText={t("linkText")} linkTo="project" img={ProjectImg} />
+                        {DefCard(t("project.title"), t("project.content"), t("linkText"), "project", ProjectImg, false)}
                     </Col>
                     <Col sm="3">
-                        <DefCard title={t("team.title")} content={t("team.content")} linkText={t("linkText")} linkTo="team" img={TeamImg} />
+                        {DefCard(t("team.title"), t("team.content"), t("linkText"), "team", TeamImg, false)}
                     </Col>
                 </Row>
             </Container>

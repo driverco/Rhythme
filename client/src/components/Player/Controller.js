@@ -1,8 +1,8 @@
 import React from "react";
 /*import { useTranslation } from "react-i18next";*/
 import { ButtonGroup, Button, InputGroup, InputGroupAddon, Input } from "reactstrap";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlay, faPause, faFastBackward, faList } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlay, faPause, faFastBackward, faList } from "@fortawesome/free-solid-svg-icons";
 
 
 function Controller() {
@@ -18,7 +18,7 @@ function Controller() {
                     <FontAwesomeIcon icon={faPause} />
                 </Button>
                 <InputGroup size="lg">
-                    <Input placeholder="Speed" min={20} max={300} type="number" step="1" bsSize="lg" defaultValue={20} />
+                    <Input placeholder="Speed" min={20} max={300} type="number" step="1" bsSize="lg" defaultValue={80} />
                     <InputGroupAddon addonType="append">BPM</InputGroupAddon>
                 </InputGroup>
                 <InputGroup size="lg">

@@ -3,14 +3,14 @@ import { useTranslation } from "react-i18next";
 import PageHeader from "../common/PageHeader";
 
 
-function Multipad(){
+function Multipad() {
     const { t } = useTranslation("multipad");
-        return (
-            <React.Fragment>
-            <PageHeader header={t("welcomeTitle")} subheader= {t("welcomeSubtitle")}/>
+    return (
+        <React.Fragment>
+            {PageHeader(t("welcomeTitle"), t("welcomeSubtitle"))}
             asdfasdfasdf
-           </React.Fragment>
-        );
+        </React.Fragment>
+    );
 }
 
 export default Multipad;
