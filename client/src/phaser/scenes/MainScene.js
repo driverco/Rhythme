@@ -12,12 +12,12 @@ import KickAudioWav from "../assets/audio/kick.wav";
 var clickSound;
 var snareSound;
 var kickSound;
-var timer;
+/*var timer;*/
 var snare;
 
-function playClick() {
-  clickSound.play();
-}
+/*function playClick() {
+  //clickSound.play();
+}*/
 function playSnare() {
   snareSound.play();
 }
@@ -54,11 +54,11 @@ class exampleScene1 extends Phaser.Scene {
     snareSound = this.sound.add("snareAudio");
     kickSound = this.sound.add("kickAudio");
     clickSound.allowMultiple = true;
-    timer = this.time.addEvent({
+    /*timer = this.time.addEvent({
       delay: 500,                // ms
       callback: playClick,
       loop: true
-    });
+    });*/
 
     snare.on("pointerdown", function (pointer) {
       playSnare();

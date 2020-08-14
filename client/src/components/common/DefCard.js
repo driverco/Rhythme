@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Card, Button, CardHeader, CardBody, CardText, CardImg } from "reactstrap";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./DefCard.css";
 
@@ -8,7 +8,7 @@ class DefCard extends Component {
   render() {
     let link;
     if (this.props.linkExternal) {
-      link = <a target="_blank" id={this.props.linkTo} href={this.props.linkTo} className="navLink">{CardRet(this.props)}</a>;
+      link = <a id={this.props.linkTo} href={this.props.linkTo} className="navLink">{CardRet(this.props)}</a>;
     } else {
       link = <NavLink to={this.props.linkTo} id={this.props.linkTo} className="navLink">{CardRet(this.props)}</NavLink>;
     }

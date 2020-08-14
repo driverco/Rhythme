@@ -15,7 +15,7 @@ function Player() {
             <PageHeader header={t("welcomeTitle")} subheader={t("welcomeSubtitle")} />
             <Controller />
             <div id="phaser-container" className="PhaserContainer">
-                <IonPhaser game={game} initialize={initialize}  />
+              <IonPhaser game={game} initialize={initialize}  />
             </div>
 
         </React.Fragment>

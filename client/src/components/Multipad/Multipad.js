@@ -8,6 +8,7 @@ function Multipad(){
         return (
             <React.Fragment>
             <PageHeader header={t("welcomeTitle")} subheader= {t("welcomeSubtitle")}/>
+            asdfasdfasdf
            </React.Fragment>
         );
 }
