@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
-import Controller from "./Controller";
+import ControllerReducer from "./ControllerReducer";
 
 
 export default combineReducers({
-    Controller
+    ControllerReducer
 });

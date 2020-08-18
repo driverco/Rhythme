@@ -1,4 +1,23 @@
 {
-    "welcomeTitle":"Practica!",
-    "welcomeSubtitle":"Aqui puedes practicar tus patrones"
+    "welcomeTitle": "Practica!",
+    "welcomeSubtitle": "Aqui puedes practicar tus patrones",
+    "numberofinstruments":"Número de Intrumentos",
+    "speed": "Velocidad",
+    "timeSignaure":"Compás",
+    "difficulty": "Dificultad",
+    "easy": "fácil",
+    "medium": "medio",
+    "hard": "dificil",
+    "loadPattern":"Cargar Patrón",
+    "status": {
+        "status": "Estado",
+        "speed": "Velocidad",
+        "playing": "Reproduciendo",
+        "stopped": "Detenido"
+    },
+    "pattern": {
+        "pattern": "Patrón",
+        "select": "Selecciona el patrón que quieres ejecutar"
+    }
+
 }

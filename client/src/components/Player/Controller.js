@@ -1,35 +1,44 @@
 import React from "react";
 /*import { useTranslation } from "react-i18next";*/
-import { ButtonGroup, Button, InputGroup, InputGroupAddon, Input } from "reactstrap";
+import { ButtonGroup, Button, InputGroup, InputGroupAddon, Input, Collapse } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPause, faFastBackward, faList } from "@fortawesome/free-solid-svg-icons";
-
+import { useSelector, useDispatch } from "react-redux";
+import { changeBPM, playPause, rewind, togllePatternView } from "../../redux/actions/ControllerActions";
+import Patterns from "./Patterns";
 
 function Controller() {
-    /* const { t } = useTranslation("player");*/
+    const bpm = useSelector(Store => Store.ControllerReducer.bpm);
+    const playingState = useSelector(Store => Store.ControllerReducer.playingState);
+    const pattern = useSelector(Store => Store.ControllerReducer.pattern);
+    const patternViewOpen = useSelector(Store => Store.ControllerReducer.patternViewOpen);
+    const dispatch = useDispatch();
+    /*const { t } = useTranslation("player");*/
+
     return (
         <React.Fragment>
             <ButtonGroup size="lg">
-                <Button>
+                <Button onClick={() => dispatch(rewind())}>
                     <FontAwesomeIcon icon={faFastBackward} />
                 </Button>
-                <Button>
-                    <FontAwesomeIcon icon={faPlay} />
-                    <FontAwesomeIcon icon={faPause} />
+                <Button onClick={() => dispatch(playPause())}>
+                    {(playingState === 0 ? <FontAwesomeIcon icon={faPlay} /> : <FontAwesomeIcon icon={faPause} />)}
                 </Button>
                 <InputGroup size="lg">
-                    <Input placeholder="Speed" min={20} max={300} type="number" step="1" bsSize="lg" defaultValue={80} />
+                    <Input id="bpm" placeholder="Speed" min={20} max={300} type="number" step="1" bsSize="lg" defaultValue={bpm} onChange={(e) => dispatch(changeBPM(e.target.value))} />
                     <InputGroupAddon addonType="append">BPM</InputGroupAddon>
                 </InputGroup>
                 <InputGroup size="lg">
-                    <InputGroupAddon addonType="append">Pattern</InputGroupAddon>
-                    <Input placeholder="Pattern" type="string" bsSize="lg" disabled defaultValue="rock" />
+                    <Input placeholder="Pattern" type="string" bsSize="lg" disabled value={pattern.name} />
                 </InputGroup>
-                <Button>
+                <Button onClick={() => dispatch(togllePatternView())}>
                     <FontAwesomeIcon icon={faList} />
                 </Button>
             </ButtonGroup>
-        </React.Fragment>
+            <Collapse isOpen={patternViewOpen}>
+                {Patterns()}
+            </Collapse>
+        </React.Fragment >
     );
 }
 

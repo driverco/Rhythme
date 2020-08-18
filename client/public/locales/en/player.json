@@ -1,4 +1,23 @@
 {
-    "welcomeTitle":"Player!",
-    "welcomeSubtitle":"Here you can practice your patterns"
+    "welcomeTitle": "Player!",
+    "welcomeSubtitle": "Here you can practice your patterns",
+    "numberofinstruments":"Number of Intruments",
+    "speed": "Speed",
+    "timeSignaure":"Time Signature",
+    "difficulty": "Difficulty",
+    "easy": "easy",
+    "medium": "medium",
+    "hard": "hard",
+    "loadPattern":"Load Pattern",
+    "status": {
+        "status": "Status",
+        "speed": "Speed",
+        "playing": "Playing",
+        "stopped": "Stopped"
+    },
+    "pattern": {
+        "pattern": "Pattern",
+        "select": "Select the pattern you want to play"
+    }
+
 }
