@@ -1,14 +1,11 @@
-import { PLAYPAUSE, REWIND, CHANGEBPM,TOGGLEPATTERNVIEW, SETPATTERN, SETPATTERNDISPLAY } from "../actions/ControllerActions";
-
-export const STOP = 0;
-export const PLAYING = 1;
+import { PLAYPAUSE, REWIND, CHANGEBPM,TOGGLEPATTERNVIEW, SETPATTERN, SETPATTERNDISPLAY, STOP, PLAYING } from "../actions/ControllerActions";
 
 const initialState = {
     playingState: STOP,
-    bpm:60,
-    pattern:{"name":"rock", "difficulty":"easy", "numberInstr":1,"timeSignaure":"2/4","bpm":60,"instruments":[{"type":"snare","patternCode":"001000100010"}]},
-    patternDisplay:{"name":"rock", "difficulty":"easy", "numberInstr":1,"timeSignaure":"2/4","bpm":60,"instruments":[{"type":"snare","patternCode":"001000100010"}]},
-    patternViewOpen: false
+    bpm:120,
+    pattern:{"name":"rock8", "difficulty":"hard", "timeSignature":"4/4","bpm":120,"instruments":[{"type":"snare","patternCode":"001000100010"}, {"type": "kick","patternCode": "1000000101000000"}, {"type": "cymbal","patternCode": "1000000101000000"}, {"type": "floor","patternCode": "1000000101000000"}]},    patternDisplay:{"name":"rock", "difficulty":"easy", "timeSignaure":"2/4","bpm":60,"instruments":[{"type":"snare","patternCode":"001000100010"}]},
+    patternViewOpen: false,
+    keyPress:["A","F","J","L"]
 }
 
 export const reducer = (state = initialState, action) => {

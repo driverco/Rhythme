@@ -24,7 +24,7 @@ function Patterns() {
                             return (
                                 <ListGroupItem key={patternData.name} className="PatternList" onClick={() => dispatch(setPatternDisplay(patternData))}>
                                     {patternData.name}&nbsp;{"(" + patternData.timeSignaure + ")"}&nbsp;{patternData.bpm + " BPM"}&nbsp;
-                                    {getNumberInstrBadge(patternData.numberInstr)}&nbsp;
+                                    {getNumberInstrBadge(patternData.instruments.length)}&nbsp;
                                     {getDifficultyBadge(patternData.difficulty, t)}&nbsp;
                                 </ListGroupItem>);
                         })}
@@ -72,16 +72,16 @@ function getPatternCard(pattern, t, dispatch) {
         <Card body inverse color={colorCard} className="PatternCard">
             <CardTitle>{pattern.name}</CardTitle>
             <Row>{t("difficulty") + ": " + t(pattern.difficulty)}</Row>
-            <Row>{t("speed") + ": " + t(pattern.bpm) + " BPM"}</Row>
-            <Row>{t("timeSignaure") + ": " + t(pattern.timeSignaure)}</Row>
-            <Row>{t("numberofinstruments") + ": " + t(pattern.numberInstr)}</Row>
+            <Row>{t("speed") + ": " + pattern.bpm + " BPM"}</Row>
+            <Row>{t("timeSignaure") + ": " + pattern.timeSignaure}</Row>
+            <Row>{t("numberofinstruments") + ": " + pattern.instruments.length}</Row>
             {pattern.instruments.map((instrument) => {
                 return (
                     <Row key={instrument.type} ><Col>{t(instrument.type) + ": "}</Col><Col>{getPatternLinePrev(instrument.patternCode)}</Col></Row>
                 )
             })}
 
-            <Button color="secondary" onClick={() => dispatch(setPattern(pattern))}>{t("loadPattern")}</Button>
+            <Button color="secondary" onClick={() => {dispatch(setPattern(pattern)); document.getElementById("bpm").value = pattern.bpm}}>{t("loadPattern")}</Button>
         </Card>);
 }
 

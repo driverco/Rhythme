@@ -4,6 +4,8 @@ export const CHANGEBPM = "CHANGEBPM"
 export const TOGGLEPATTERNVIEW = "TOGGLEPATTERNVIEW"
 export const SETPATTERN = "SETPATTERN"
 export const SETPATTERNDISPLAY = "SETPATTERNDISPLAY"
+export const STOP = 0
+export const PLAYING = 1
 
 
 export const playPause = () => ({

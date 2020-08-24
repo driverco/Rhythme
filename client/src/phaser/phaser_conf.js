@@ -1,18 +1,26 @@
 import Phaser from "phaser";
 import MainScene from "./scenes/MainScene";
 
-const game = {
+const config = {
   parent: "phaser-container",
-  width: "100",
-  height: "100",
+  width: 1000,
+  height: 425,
+  scene: [MainScene],
+  physics: {
+    default: 'arcade',
+    arcade: {
+      gravity: false,
+      debug: true
+    }
+  },
   type: Phaser.AUTO,
-  scene: [MainScene]
+  backgroundColor: "#f63a3b"
 };
-
+/*
 const gameConfig =
 {
   initialize: true,
   game
-};
+};*/
 
-export default gameConfig;
+export default config;
