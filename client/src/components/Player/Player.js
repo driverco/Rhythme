@@ -14,7 +14,6 @@ function Player() {
             {PageHeader(t("welcomeTitle"), t("welcomeSubtitle"))}
             <Controller />
             <div id="phaser-container" className="PhaserContainer">
-                {/* <IonPhaser id="ionphaserGame" game={game} initialize={initialize} />*/}
                 <PhaserGame />
             </div>
             <Status />
