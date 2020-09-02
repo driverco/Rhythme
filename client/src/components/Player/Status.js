@@ -2,7 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Row, Col, Input } from "reactstrap";
 import { useSelector } from 'react-redux';
-import { PLAYING, STOP } from "../../redux/actions/ControllerActions";
+import { PLAYING, STOP, PAUSE } from "../../redux/actions/ControllerActions";
 
 
 function Status() {
@@ -33,6 +33,7 @@ function getPlayingStateText(playingState, t) {
     switch (playingState){
         case PLAYING: return(t("status.playing"));
         case STOP: return(t("status.stopped"));
+        case PAUSE: return(t("status.pause"));
         default: return(t("status.none"));
     }
 }

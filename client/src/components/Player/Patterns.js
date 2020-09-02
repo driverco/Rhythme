@@ -23,7 +23,7 @@ function Patterns() {
                         {patternsData.map((patternData) => {
                             return (
                                 <ListGroupItem key={patternData.name} className="PatternList" onClick={() => dispatch(setPatternDisplay(patternData))}>
-                                    {patternData.name}&nbsp;{"(" + patternData.timeSignaure + ")"}&nbsp;{patternData.bpm + " BPM"}&nbsp;
+                                    {patternData.name}&nbsp;{"(" + patternData.timeSignature + ")"}&nbsp;{patternData.bpm + " BPM"}&nbsp;
                                     {getNumberInstrBadge(patternData.instruments.length)}&nbsp;
                                     {getDifficultyBadge(patternData.difficulty, t)}&nbsp;
                                 </ListGroupItem>);
