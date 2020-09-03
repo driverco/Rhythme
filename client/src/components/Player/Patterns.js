@@ -73,7 +73,7 @@ function getPatternCard(pattern, t, dispatch) {
             <CardTitle>{pattern.name}</CardTitle>
             <Row>{t("difficulty") + ": " + t(pattern.difficulty)}</Row>
             <Row>{t("speed") + ": " + pattern.bpm + " BPM"}</Row>
-            <Row>{t("timeSignaure") + ": " + pattern.timeSignaure}</Row>
+            <Row>{t("timeSignaure") + ": " + pattern.timeSignature}</Row>
             <Row>{t("numberofinstruments") + ": " + pattern.instruments.length}</Row>
             {pattern.instruments.map((instrument) => {
                 return (

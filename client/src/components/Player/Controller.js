@@ -1,19 +1,21 @@
 import React from "react";
-/*import { useTranslation } from "react-i18next";*/
+import { useTranslation } from "react-i18next";
 import { ButtonGroup, Button, InputGroup, InputGroupAddon, Input, Collapse } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPause, faFastBackward, faList } from "@fortawesome/free-solid-svg-icons";
 import { useSelector, useDispatch } from "react-redux";
-import { changeBPM, playPause, rewind, togllePatternView, PLAYING } from "../../redux/actions/ControllerActions";
+import { changeBPM, playPause, rewind, togllePatternView, PLAYING, toggleDemoPlay, setRepeatTimes } from "../../redux/actions/ControllerActions";
 import Patterns from "./Patterns";
 
 function Controller() {
     const bpm = useSelector(Store => Store.ControllerReducer.bpm);
     const playingState = useSelector(Store => Store.ControllerReducer.playingState);
+    const repeatTimes = useSelector(Store => Store.ControllerReducer.repeatTimes);
     const pattern = useSelector(Store => Store.ControllerReducer.pattern);
     const patternViewOpen = useSelector(Store => Store.ControllerReducer.patternViewOpen);
+    const demoPlay = useSelector(Store => Store.ControllerReducer.demoPlay);
     const dispatch = useDispatch();
-    /*const { t } = useTranslation("player");*/
+    const { t } = useTranslation("player");
 
     return (
         <React.Fragment>
@@ -34,6 +36,13 @@ function Controller() {
                 <Button onClick={() => dispatch(togllePatternView())}>
                     <FontAwesomeIcon icon={faList} />
                 </Button>
+                <InputGroup size="lg">
+                    <Input id="repeatTimes" placeholder="Speed" min={1} max={16} type="number" step="1" bsSize="lg" defaultValue={repeatTimes} onChange={(e) => dispatch(setRepeatTimes(e.target.value))} />
+                    <InputGroupAddon addonType="append">{t("repeaTimes")}</InputGroupAddon>
+                </InputGroup>
+                <ButtonGroup>
+                    <Button outline  color="secondary" onClick={() => dispatch(toggleDemoPlay())} active={demoPlay}>{t("demoPlay")}</Button>
+                </ButtonGroup>
             </ButtonGroup>
             <Collapse isOpen={patternViewOpen}>
                 {Patterns()}

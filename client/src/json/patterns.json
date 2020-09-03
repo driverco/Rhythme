@@ -96,16 +96,16 @@
         "bpm": 120,
         "instruments": [{
             "type": "snare",
-            "patternCode": "0010001000100000"
+            "patternCode": "1111111111111111"
         }, {
             "type": "kick",
-            "patternCode": "1000000101000000"
+            "patternCode": "1111111111111111"
         }, {
             "type": "cymbal",
-            "patternCode": "1000000101000000"
+            "patternCode": "1111111111111111"
         }, {
             "type": "floor",
-            "patternCode": "1000000101000000"
+            "patternCode": "1111111111111111"
         }]
     },
     {
