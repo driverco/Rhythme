@@ -1,32 +1,36 @@
-import { PLAYPAUSE, REWIND, CHANGEBPM,TOGGLEPATTERNVIEW, SETPATTERN, SETPATTERNDISPLAY, STOP, PLAYING, PAUSE, TOGGLEDEMOPLAY, SETREPEATTIMES } from "../actions/ControllerActions";
+import { PLAYSTOP, CHANGEBPM, TOGGLEPATTERNVIEW, SETPATTERN, SETPATTERNDISPLAY, STOP, PLAYING, TOGGLEDEMOPLAY, SETREPEATTIMES, FINISHED, ENDGAME } from "../actions/ControllerActions";
 
 const initialState = {
     playingState: STOP,
-    bpm:120,
-    repeatTimes:1,
-    demoPlay:false,
-    pattern:{"name":"rock8", "difficulty":"hard", "timeSignature":"4/4","bpm":120,"instruments":[{"type":"snare","patternCode":"1111111111111111"}, {"type": "kick","patternCode": "1000000101000000"}, {"type": "cymbal","patternCode": "1010101010101010"}, {"type": "floor","patternCode": "0001000100010001"}]},    
-    patternDisplay:{"name":"rock", "difficulty":"easy", "timeSignature":"2/4","bpm":60,"instruments":[{"type":"snare","patternCode":"001000100010"}]},
+    bpm: 120,
+    repeatTimes: 1,
+    demoPlay: false,
+    pattern: { "name": "rock8", "difficulty": "hard", "timeSignature": "4/4", "bpm": 120, "instruments": [{ "type": "snare", "patternCode": "1111111111111111" }, { "type": "kick", "patternCode": "1000000101000000" }, { "type": "cymbal", "patternCode": "1010101010101010" }, { "type": "floor", "patternCode": "0001000100010001" }] },
+    patternDisplay: { "name": "rock", "difficulty": "easy", "timeSignature": "2/4", "bpm": 60, "instruments": [{ "type": "snare", "patternCode": "001000100010" }] },
     patternViewOpen: false,
-    keyPress:["A","F","J","L"]
+    keyPress: ["A", "F", "J", "L"]
 }
 
 export const reducer = (state = initialState, action) => {
-    if (action.type === PLAYPAUSE) {
+    if (action.type === PLAYSTOP) {
         let newPlayingState = state.playingState;
-        if (state.playingState === PAUSE||state.playingState === STOP)
+        let patternViewOpen = state.patternViewOpen;
+        if (state.playingState === FINISHED || state.playingState === STOP) {
             newPlayingState = PLAYING;
+            patternViewOpen = false;
+        }
         else
             newPlayingState = STOP;
         return {
             ...state,
-            playingState: newPlayingState
+            playingState: newPlayingState,
+            patternViewOpen: patternViewOpen
         }
     }
-    if (action.type === REWIND) {
+    if (action.type === ENDGAME) {
         return {
             ...state,
-            playingState: STOP
+            playingState: FINISHED
         }
     }
     if (action.type === CHANGEBPM) {
@@ -44,7 +48,7 @@ export const reducer = (state = initialState, action) => {
     if (action.type === SETPATTERN) {
         return {
             ...state,
-            bpm:action.pattern.bpm,
+            bpm: action.pattern.bpm,
             pattern: action.pattern
         }
     }
@@ -67,8 +71,8 @@ export const reducer = (state = initialState, action) => {
         }
     }
 
-    
-    
+
+
 
 
     return state;

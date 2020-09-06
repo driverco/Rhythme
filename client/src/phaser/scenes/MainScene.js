@@ -22,7 +22,7 @@ import FloorAudioMp3 from "../assets/audio/floor.mp3";
 import FloorAudioOgg from "../assets/audio/floor.ogg";
 import FloorAudioWav from "../assets/audio/floor.wav";
 import Store from "../../redux/Store";
-import { STOP, PLAYING, PAUSE } from "../../redux/actions/ControllerActions";
+import { STOP, PLAYING, FINISHED, endGame } from "../../redux/actions/ControllerActions";
 
 var playingState, changeState, timePLay, nextClickTime, bpm, restartTime, countTimes;
 
@@ -74,6 +74,7 @@ class MainScene extends Phaser.Scene {
         this.calcNextClickTime();
       }
     });
+    
     playingState = Store.getState().ControllerReducer.playingState;
     this.pattern = Store.getState().ControllerReducer.pattern;
     changeState = playingState;
@@ -105,13 +106,17 @@ class MainScene extends Phaser.Scene {
         changeState = playingState;
         this.setSpeed();
       }
-      if (playingState === STOP || playingState === PAUSE) {
+      if (playingState === STOP || playingState === FINISHED) {
         countText.setText("Ready");
         restartTime = 0;
         countTimes = 0;
         this.setSpeed();
         changeState = playingState;
       }
+      if (playingState === FINISHED) {
+        countText.setText("Finish");
+      }
+      
     }
     if (playingState === PLAYING){
       countText.depth = 1;
@@ -212,6 +217,8 @@ class MainScene extends Phaser.Scene {
   endPattern(inst, bar) {
     this.destroyBar(inst, bar);
     //*acabar el juego aquiiiiiii */
+    Store.dispatch(endGame());
+
   }
 
   beatPlay(inst, beat) {

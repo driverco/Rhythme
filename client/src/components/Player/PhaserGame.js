@@ -5,7 +5,7 @@ import config from "../../phaser/gameConfig";
 
 export default class PhaserGame extends React.Component {
   componentDidMount() {
-	var game = new Phaser.Game(config);
+	new Phaser.Game(config);
   }
   shouldComponentUpdate() {
     return false

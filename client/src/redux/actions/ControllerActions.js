@@ -1,5 +1,5 @@
-export const PLAYPAUSE = "PLAYPAUSE"
-export const REWIND = "REWIND"
+export const PLAYSTOP = "PLAYSTOP"
+export const ENDGAME = "ENDGAME"
 export const CHANGEBPM = "CHANGEBPM"
 export const TOGGLEPATTERNVIEW = "TOGGLEPATTERNVIEW"
 export const SETPATTERN = "SETPATTERN"
@@ -8,14 +8,14 @@ export const TOGGLEDEMOPLAY = "TOGGLEDEMOPLAY"
 export const SETREPEATTIMES = "SETREPEATTIMES"
 export const STOP = 0
 export const PLAYING = 1
-export const PAUSE = 2
+export const FINISHED = 2
 
 
-export const playPause = () => ({
-    type: PLAYPAUSE
+export const playStop = () => ({
+    type: PLAYSTOP
 });
-export const rewind = () => ({
-    type: REWIND
+export const endGame = () => ({
+    type: ENDGAME
 });
 export const changeBPM = (bpm) => ({
     type: CHANGEBPM,
