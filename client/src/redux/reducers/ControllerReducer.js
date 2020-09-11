@@ -1,11 +1,20 @@
-import { PLAYSTOP, CHANGEBPM, TOGGLEPATTERNVIEW, SETPATTERN, SETPATTERNDISPLAY, STOP, PLAYING, TOGGLEDEMOPLAY, SETREPEATTIMES, FINISHED, ENDGAME } from "../actions/ControllerActions";
+import { PLAYSTOP, CHANGEBPM, TOGGLEPATTERNVIEW, SETPATTERN, SETPATTERNDISPLAY, STOP, PLAYING, TOGGLEDEMOPLAY, SETREPEATTIMES, FINISHED, ENDGAME, RESTART } from "../actions/ControllerActions";
 
 const initialState = {
     playingState: STOP,
-    bpm: 120,
+    bpm: 60,
     repeatTimes: 1,
     demoPlay: false,
-    pattern: { "name": "rock8", "difficulty": "hard", "timeSignature": "4/4", "bpm": 120, "instruments": [{ "type": "snare", "patternCode": "1111111111111111" }, { "type": "kick", "patternCode": "1000000101000000" }, { "type": "cymbal", "patternCode": "1010101010101010" }, { "type": "floor", "patternCode": "0001000100010001" }] },
+    pattern: { 
+        "name": "basic1",
+        "difficulty": "easy",
+        "timeSignature": "2/4",
+        "bpm": 60,
+        "instruments": [{
+            "type": "snare",
+            "patternCode": "1111111111111111"
+        }]
+    },
     patternDisplay: { "name": "rock", "difficulty": "easy", "timeSignature": "2/4", "bpm": 60, "instruments": [{ "type": "snare", "patternCode": "001000100010" }] },
     patternViewOpen: false,
     keyPress: ["A", "F", "J", "L"]
@@ -49,7 +58,9 @@ export const reducer = (state = initialState, action) => {
         return {
             ...state,
             bpm: action.pattern.bpm,
-            pattern: action.pattern
+            pattern: action.pattern,
+            patternViewOpen: !state.patternViewOpen,
+            playingState: RESTART
         }
     }
     if (action.type === SETPATTERNDISPLAY) {

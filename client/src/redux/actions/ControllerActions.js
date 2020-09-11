@@ -9,6 +9,7 @@ export const SETREPEATTIMES = "SETREPEATTIMES"
 export const STOP = 0
 export const PLAYING = 1
 export const FINISHED = 2
+export const RESTART = 3
 
 
 export const playStop = () => ({

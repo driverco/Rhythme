@@ -6,6 +6,8 @@ import CymbalImg from "../assets/cymbal100.png";
 import CircleImg from "../assets/circle50.png";
 import BgSquareImg from "../assets/bg.png";
 import BarraImg from "../assets/barra.png";
+import BarraFullImg from "../assets/barrafull.png";
+import ContainerImg from "../assets/container.png";
 
 
 import ClickAudio from "../assets/audio/click.wav";
@@ -22,11 +24,19 @@ import FloorAudioMp3 from "../assets/audio/floor.mp3";
 import FloorAudioOgg from "../assets/audio/floor.ogg";
 import FloorAudioWav from "../assets/audio/floor.wav";
 import Store from "../../redux/Store";
-import { STOP, PLAYING, FINISHED, endGame } from "../../redux/actions/ControllerActions";
+import { STOP, PLAYING, FINISHED, endGame, RESTART, playStop } from "../../redux/actions/ControllerActions";
 
 var playingState, changeState, timePLay, nextClickTime, bpm, restartTime, countTimes;
 
-let beats, bars, endBars, inst1, inst2, inst3, inst4, demoPlay, repeatTimes, countText;
+let beats, bars, endBars, inst1, inst2, inst3, inst4, container1, container2, container3, container4, failBar, successBar, demoPlay, repeatTimes, countText, timeNum, timeDen;
+let score = {
+  perfect: 0,
+  good: 0,
+  regular: 0,
+  miss: 0,
+  failkeypress: 0
+};
+
 
 class MainScene extends Phaser.Scene {
 
@@ -38,12 +48,14 @@ class MainScene extends Phaser.Scene {
   }
   preload() {
     this.load.image("barraimg", BarraImg);
+    this.load.image("barrafullimg", BarraFullImg);
     this.load.image("snareimg", SnareImg);
     this.load.image("kickimg", KickImg);
     this.load.image("floorimg", FloorImg);
     this.load.image("cymbalimg", CymbalImg);
     this.load.image("circleimg", CircleImg);
     this.load.image("bgsquareimg", BgSquareImg);
+    this.load.image("containerimg", ContainerImg);
 
     this.load.audio("snareAudio", [SnareAudioOgg, SnareAudioMp3, SnareAudioWav]);
     this.load.audio("kickAudio", [KickAudioOgg, KickAudioMp3, KickAudioWav]);
@@ -51,12 +63,34 @@ class MainScene extends Phaser.Scene {
     this.load.audio("floorAudio", [FloorAudioOgg, FloorAudioMp3, FloorAudioWav]);
     this.load.audio("clickAudio", ClickAudio);
   }
+  instPlay(inst) {
+    inst.audio.play();
+    if (playingState === PLAYING) {
+      if (!(typeof inst.beat === "undefined")) {
+        if (Phaser.Geom.Intersects.RectangleToRectangle(inst.getBounds(), inst.beat.getBounds())) {
+          console.log(Phaser.Math.Distance.Between(inst.beat.getCenter().x, 0, successBar.getCenter().x, 0));
+          if (Phaser.Math.Distance.Between(inst.beat.getCenter().x, 0, successBar.getCenter().x, 0) < 15) {score.perfect = score.perfect + 1; inst.container.setTint(0x00ff00);}
+          else if (Phaser.Math.Distance.Between(inst.beat.getCenter().x, 0, successBar.getCenter().x, 0) < 45) {score.good = score.good + 1;inst.container.setTint(0xaaaa00);}
+          else if (Phaser.Math.Distance.Between(inst.beat.getCenter().x, 0, successBar.getCenter().x, 0) < 85) {score.regular = score.regular + 1;inst.container.setTint(0xaa0000);}
+          else {score.miss = score.miss + 1;inst.container.setTint(0xff0000);}
+          inst.beat.destroy();
+          inst.beat = undefined;
+          
+        }
+      } else {
+        console.log("fail keypress");
+        score.failkeypress = score.failkeypress + 1;
+      }
+    }
+  }
 
   create() {
     beats = this.physics.add.group();
     bars = this.physics.add.group();
     endBars = this.physics.add.group();
     this.pattern = Store.getState().ControllerReducer.pattern;
+    timeNum = this.pattern.timeSignature[0];
+    timeDen = this.pattern.timeSignature[2];
     bpm = Store.getState().ControllerReducer.bpm;
     repeatTimes = Store.getState().ControllerReducer.repeatTimes;
     demoPlay = Store.getState().ControllerReducer.demoPlay;
@@ -66,43 +100,109 @@ class MainScene extends Phaser.Scene {
       demoPlay = Store.getState().ControllerReducer.demoPlay;
       repeatTimes = Store.getState().ControllerReducer.repeatTimes;
       this.pattern = Store.getState().ControllerReducer.pattern;
+      timeNum = this.pattern.timeSignature[0];
+      timeDen = this.pattern.timeSignature[2];
       if (playingState === STOP) {
         this.loadPattern();
         timePLay = 0;
         nextClickTime = 0;
         countTimes = 0;
         this.calcNextClickTime();
+        inst1.beat = undefined;
+        inst2.beat = undefined;
+        inst3.beat = undefined;
+        inst4.beat = undefined;
+        score.perfect = 0;
+        score.good = 0;
+        score.regular = 0;
+        score.miss = 0;
+        score.failkeypress = 0;
+        inst1.container.clearTint();
+        inst2.container.clearTint();
+        inst3.container.clearTint();
+        inst4.container.clearTint();
       }
     });
-    
+
     playingState = Store.getState().ControllerReducer.playingState;
-    this.pattern = Store.getState().ControllerReducer.pattern;
     changeState = playingState;
-    this.widthBoard = 235 + 480;
-    inst1 = this.physics.add.sprite(110, 5, "bgsquareimg").setInteractive();
-    inst2 = this.physics.add.sprite(110, 110, "bgsquareimg").setInteractive();
-    inst3 = this.physics.add.sprite(110, 215, "bgsquareimg").setInteractive();
-    inst4 = this.physics.add.sprite(110, 320, "bgsquareimg").setInteractive();
-    this.timeText = this.add.text(100, 200);
+    this.widthBoard = 210 + 22 + 480;
+    inst1 = this.physics.add.sprite(190, 5, "bgsquareimg").setAlpha(0).setInteractive();
+    inst2 = this.physics.add.sprite(190, 110, "bgsquareimg").setAlpha(0).setInteractive();
+    inst3 = this.physics.add.sprite(190, 215, "bgsquareimg").setAlpha(0).setInteractive();
+    inst4 = this.physics.add.sprite(190, 320, "bgsquareimg").setAlpha(0).setInteractive();
+    inst1.beat = undefined;
+    inst2.beat = undefined;
+    inst3.beat = undefined;
+    inst4.beat = undefined;
+    container1 = this.add.sprite(5, 5, "containerimg");
+    container2 = this.add.sprite(5, 110, "containerimg");
+    container3 = this.add.sprite(5, 215, "containerimg");
+    container4 = this.add.sprite(5, 320, "containerimg");
+    container1.setOrigin(0);
+    container2.setOrigin(0);
+    container3.setOrigin(0);
+    container4.setOrigin(0);
+
+    inst1.container = container1;
+    inst2.container = container2;
+    inst3.container = container3;
+    inst4.container = container4;
+    
+    inst1.validateBeat = this.instPlay;
+    this.input.keyboard.on("keydown-" + Store.getState().ControllerReducer.keyPress[0], function (event) {
+      inst1.validateBeat(inst1);
+    });
+    if (this.pattern.instruments.length > 1) {
+      this.input.keyboard.on("keydown-" + Store.getState().ControllerReducer.keyPress[1], function (event) {
+        inst1.validateBeat(inst2);
+      });
+    }
+    if (this.pattern.instruments.length > 2) {
+      this.input.keyboard.on("keydown-" + Store.getState().ControllerReducer.keyPress[2], function (event) {
+        inst1.validateBeat(inst3);
+      });
+    }
+    if (this.pattern.instruments.length > 3) {
+      this.input.keyboard.on("keydown-" + Store.getState().ControllerReducer.keyPress[3], function (event) {
+        inst1.validateBeat(inst4);
+      });
+    }
+
+    failBar = this.physics.add.sprite(0, 0, "barrafullimg").setInteractive();
+    successBar = this.physics.add.sprite(210, 0, "barrafullimg").setInteractive();
+    this.timeText = this.add.text(100, 200, "", { fill: "#000" });
     timePLay = 0;
     nextClickTime = 0;
     restartTime = 0;
     countTimes = 0;
     this.calcNextClickTime();
 
-    inst1.setOrigin(0);
-    inst2.setOrigin(0);
-    inst3.setOrigin(0);
-    inst4.setOrigin(0);
+    inst1.setOrigin(0.5, 0);
+    inst2.setOrigin(0.5, 0);
+    inst3.setOrigin(0.5, 0);
+    inst4.setOrigin(0.5, 0);
+    failBar.setOrigin(0);
+    successBar.setOrigin(0);
+    inst1.displayWidth = 175;
+    inst2.displayWidth = 175;
+    inst3.displayWidth = 175;
+    inst4.displayWidth = 175;
 
     this.loadPattern();
-    countText = this.add.text(220, 100 , "Ready", { font: "bold 90px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" });
-
+    countText = this.add.text(220, 100, "Ready", { font: "bold 90px Arial", fill: "#000", boundsAlignH: "center", boundsAlignV: "middle" });
+    
   }
 
   update(time, delta) {
+    /*    if (!(typeof inst1.beat === "undefined"))
+          inst1.beat.setTint(0xff0000);*/
+    if (playingState === RESTART) {
+      Store.dispatch(playStop());
+      this.scene.restart();
+    }
     if (changeState !== playingState) {
-      if (playingState === PLAYING && restartTime > (60000 * 3 / bpm)) {
+      if (playingState === PLAYING && timeNum - 1 < countTimes) { /*(60000 * (timeNum) / bpm) */
         changeState = playingState;
         this.setSpeed();
       }
@@ -116,25 +216,29 @@ class MainScene extends Phaser.Scene {
       if (playingState === FINISHED) {
         countText.setText("Finish");
       }
-      
+
     }
-    if (playingState === PLAYING){
+    failBar.depth = 1;
+    successBar.depth = 1;
+    if (playingState === PLAYING) {
       countText.depth = 1;
-     if (countTimes<=4) countText.setText(countTimes+"/4");
-     else countText.setText("");
-      if (restartTime > (60000 * 3 / bpm)) {
+
+      if (countTimes <= timeNum) countText.setText(countTimes + "/" + timeDen);
+      else countText.setText("");
+      if (restartTime > (60000 * (timeNum - 1) / bpm)) {
         timePLay += delta;
       } else {
         restartTime = restartTime + delta;
       }
     }
-    if (restartTime + timePLay > nextClickTime) {
-      countTimes++ ;
+    if (restartTime + timePLay > nextClickTime && countTimes <= timeNum) {
+      countTimes++;
       this.calcNextClickTime();
       this.clickAudio.play();
     }
     this.timeText.depth = 1;
-    /*this.timeText.setText('Time: ' + time + '\nDelta: ' + delta + '\ntimePLay: ' + timePLay + '\nrestartTime: ' + restartTime + '\nnextClickTime: ' + nextClickTime+ '\ncountTimes: ' + countTimes);*/
+    /*this.timeText.setText('timeNum: ' + timeNum + ' \ninst.beat: ' + (!(typeof inst1.beat === "undefined") ? Phaser.Geom.Intersects.RectangleToRectangle(inst1.getBounds(), inst1.beat.getBounds()) : "false") + '\nDelta: ' + delta + '\ntimePLay: ' + timePLay + '\nrestartTime: ' + restartTime + '\nnextClickTime: ' + nextClickTime + '\ncountTimes: ' + countTimes);*/
+    this.timeText.setText('perfect: ' + score.perfect + '\ngood: ' + score.good + '\nregular: ' + score.regular + ' \nmiss: ' + score.miss + '\nfailkeypress: ' + score.failkeypress);
 
   }
   calcNextClickTime() {
@@ -143,57 +247,22 @@ class MainScene extends Phaser.Scene {
 
   loadPattern() {
     this.clearObjArray();
-    this.createRects();
     this.pattern.instruments.forEach((instrument, index) => {
-      switch (instrument.type) {
-        case "snare": 
-        switch (index){
-          case 0: inst1.audio = this.sound.add("snareAudio");break;
-          case 1: inst2.audio = this.sound.add("snareAudio");break;
-          case 2: inst3.audio = this.sound.add("snareAudio");break;
-          case 3: inst4.audio = this.sound.add("snareAudio");break;
-          default:break;
-        }
-          this.loadInst(inst1, this.snareAudio, "snare", index, Store.getState().ControllerReducer.keyPress[index]);
-          break;
-        case "kick": 
-        switch (index){
-          case 0: inst1.audio = this.sound.add("kickAudio");break;
-          case 1: inst2.audio = this.sound.add("kickAudio");break;
-          case 2: inst3.audio = this.sound.add("kickAudio");break;
-          case 3: inst4.audio = this.sound.add("kickAudio");break;
-          default:break;
-        }
-          this.loadInst(inst2, this.kickAudio, "kick", index, Store.getState().ControllerReducer.keyPress[index]);
-          break;
-        case "cymbal": 
-        switch (index){
-          case 0: inst1.audio = this.sound.add("cymbalAudio");break;
-          case 1: inst2.audio = this.sound.add("cymbalAudio");break;
-          case 2: inst3.audio = this.sound.add("cymbalAudio");break;
-          case 3: inst4.audio = this.sound.add("cymbalAudio");break;
-          default:break;
-        }
-          this.loadInst(inst3, this.cymbalAudio, "cymbal", index, Store.getState().ControllerReducer.keyPress[index]);
-          break;
-        case "floor": 
-        switch (index){
-          case 0: inst1.audio = this.sound.add("floorAudio");break;
-          case 1: inst2.audio = this.sound.add("floorAudio");break;
-          case 2: inst3.audio = this.sound.add("floorAudio");break;
-          case 3: inst4.audio = this.sound.add("floorAudio");break;
-          default:break;
-        }
-          this.loadInst(inst4, this.floorAudio, "floor", index, Store.getState().ControllerReducer.keyPress[index]);
-          break;
+      switch (index) {
+        case 0: inst1.audio = this.sound.add(instrument.type + "Audio"); break;
+        case 1: inst2.audio = this.sound.add(instrument.type + "Audio"); break;
+        case 2: inst3.audio = this.sound.add(instrument.type + "Audio"); break;
+        case 3: inst4.audio = this.sound.add(instrument.type + "Audio"); break;
         default: break;
       }
+      this.loadInst(instrument.type, index, Store.getState().ControllerReducer.keyPress[index]);
       this.loadPatternCode(index, instrument.patternCode);
     });
     this.clickAudio = this.sound.add("clickAudio");
-    this.physics.add.overlap([inst1, inst2, inst3, inst4], beats, this.beatPlay, null, this);
-    this.physics.add.overlap([inst1, inst2, inst3, inst4], bars, this.destroyBar, null, this);
-    this.physics.add.overlap([inst1, inst2, inst3, inst4], endBars, this.endPattern, null, this);
+    this.physics.add.overlap([inst1, inst2, inst3, inst4], beats, this.beatOver, null, this);
+    this.physics.add.overlap(failBar, bars, this.destroyBar, null, this);
+    this.physics.add.overlap(failBar, endBars, this.endPattern, null, this);
+    this.physics.add.overlap(failBar, beats, this.beatFail, null, this);
 
   }
 
@@ -203,8 +272,8 @@ class MainScene extends Phaser.Scene {
     for (let i = 1; i <= repeatTimes; i++) {
       patternCodeArray.forEach((beat, index) => {
         if (beat === "1") beats.create(posX, 55 + (105 * patternIndex), "circleimg");
-        if (index % 8 === 0) bars.create(posX - 65, 55 + (105 * patternIndex), "barraimg");
-        posX += 120;
+        if (index % (timeNum * 2) === 0) bars.create(posX - 120, 55 + (105 * patternIndex), "barraimg");
+        posX += 240;
       });
     }
     endBars.create(posX, 55 + (105 * patternIndex), "barraimg");
@@ -221,35 +290,30 @@ class MainScene extends Phaser.Scene {
 
   }
 
-  beatPlay(inst, beat) {
-    beat.setActive(false).setVisible(false);
-    beat.disableBody(true, true);
-    if (demoPlay) inst.audio.play();
-    console.log('Elapsed seconds: ' + (timePLay + restartTime));
+  beatOver(inst, beat) {
+    if (demoPlay) {
+      inst.audio.play();
+      beat.setActive(false).setVisible(false);
+      beat.disableBody(true, true);
+    }
+    inst.beat = beat;
+    /*console.log('Elapsed seconds: ' + (timePLay + restartTime));*/
   }
 
-  loadInst(inst, audio, type, index, keyPress) {
-    inst = this.physics.add.sprite(110, 5 + (105 * index), type + "img").setInteractive();
-    inst.setActive(true).setVisible(true);
+
+  beatFail(failbar, beat) {
+    beat.setActive(false).setVisible(false);
+    beat.disableBody(true, true);
+    beat.destroy();
+    score.miss = score.miss + 1;
+    console.log('fail:');
+  }
+
+  loadInst(type, index, keyPress) {
+    let inst = this.physics.add.sprite(110, 5 + (105 * index), type + "img").setInteractive();
     inst.setOrigin(0);
-    inst.index = index;
-    audio = this.sound.add(type + "Audio");
-    inst.on("pointerdown", (pointer) => {
-      console.log("playingState:" + playingState + ":changeState:" + changeState);
-      audio.play();
-      inst.setTint(0xff0000);
-    });
-    inst.on("pointerout", (pointer) => {
-      inst.clearTint();
-    });
-    inst.on("pointerup", (pointer) => {
-      inst.clearTint();
-    });
-    var style = { font: "bold 90px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" };
+    var style = { font: "bold 90px Arial", fill: "#000", boundsAlignH: "center", boundsAlignV: "middle" };
     this.add.text(20, 10 + (105 * index), keyPress, style);
-    this.input.keyboard.on("keydown-" + keyPress, function (event) {
-      audio.play();
-    });
   }
 
   clearObjArray() {
@@ -260,7 +324,7 @@ class MainScene extends Phaser.Scene {
 
   setSpeed() {
     console.log("set speed");
-    const speed = (playingState === PLAYING ? -(bpm * 4) : 0);
+    const speed = (playingState === PLAYING ? -(bpm * 8) : 0);
     beats.children.iterate((objbeat) => {
       objbeat.body.velocity.x = speed;
     });
@@ -270,31 +334,6 @@ class MainScene extends Phaser.Scene {
     endBars.children.iterate((objbeat) => {
       objbeat.body.velocity.x = speed;
     });
-  }
-
-  /*create the rectangle of the background*/
-  createRects() {
-    var container1 = this.add.rectangle(5, 5, 990, 100, 0x000000);
-    var container2 = this.add.rectangle(5, 110, 990, 100, 0x000000);
-    var container3 = this.add.rectangle(5, 215, 990, 100, 0x000000);
-    var container4 = this.add.rectangle(5, 320, 990, 100, 0x000000);
-    container1.setOrigin(0);
-    container2.setOrigin(0);
-    container3.setOrigin(0);
-    container4.setOrigin(0);
-    var lineCenter1 = this.add.rectangle(210, 55, 790, 2, 0xaacccc);
-    var lineCenter2 = this.add.rectangle(210, 160, 790, 2, 0xaacccc);
-    var lineCenter3 = this.add.rectangle(210, 265, 790, 2, 0xaacccc);
-    var lineCenter4 = this.add.rectangle(210, 370, 790, 2, 0xaacccc);
-    lineCenter1.setOrigin(0);
-    lineCenter2.setOrigin(0);
-    lineCenter3.setOrigin(0);
-    lineCenter4.setOrigin(0);
-    var linedivide1 = this.add.rectangle(105, 0, 5, 450, 0xffffff);
-    linedivide1.setOrigin(0);
-    var linedivide2 = this.add.rectangle(210, 0, 5, 450, 0xffffff);
-    linedivide2.setOrigin(0);
-
   }
 
 }

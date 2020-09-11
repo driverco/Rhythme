@@ -1,53 +1,53 @@
 [{
-        "name": "rock",
+        "name": "basic1",
         "difficulty": "easy",
         "timeSignature": "2/4",
         "bpm": 60,
         "instruments": [{
             "type": "snare",
-            "patternCode": "001000100010"
+            "patternCode": "1010101010101010"
         }]
     },
     {
-        "name": "rock1",
+        "name": "basic2",
         "difficulty": "easy",
         "timeSignature": "3/4",
         "bpm": 80,
         "instruments": [{
             "type": "snare",
-            "patternCode": "001000100010"
+            "patternCode": "110010110010"
         }]
     },
     {
-        "name": "rock2",
+        "name": "basic3",
         "difficulty": "easy",
         "timeSignature": "4/4",
         "bpm": 100,
         "instruments": [{
-            "type": "snare",
-            "patternCode": "0010001000100000"
-        }, {
             "type": "kick",
-            "patternCode": "1000000101000000"
+            "patternCode": "1000100010001000"
+        }, {
+            "type": "snare",
+            "patternCode": "0010001000100010"
         }]
     },
     {
-        "name": "rock3",
+        "name": "basicRock1",
         "difficulty": "medium",
         "timeSignature": "4/4",
         "bpm": 60,
         "instruments": [{
-            "type": "snare",
-            "patternCode": "0010001000100000"
-        }, {
             "type": "kick",
-            "patternCode": "1000000101000000"
+            "patternCode": "1001100010011000"
+        }, {
+            "type": "snare",
+            "patternCode": "0010001000100010"
         }]
     },
     {
         "name": "rock4",
         "difficulty": "medium",
-        "timeSignature": "6/8",
+        "timeSignature": "3/4",
         "bpm": 80,
         "instruments": [{
             "type": "snare",
@@ -111,7 +111,7 @@
     {
         "name": "rock8",
         "difficulty": "hard",
-        "timeSignature": "6/8",
+        "timeSignature": "4/4",
         "bpm": 160,
         "instruments": [{
             "type": "snare",
