@@ -9,11 +9,15 @@
     "medium": "medium",
     "hard": "hard",
     "loadPattern":"Load Pattern",
+    "demoPlay":"Demo PLay",
+    "repeatTimes":"Times",
     "status": {
         "status": "Status",
         "speed": "Speed",
         "playing": "Playing",
-        "stopped": "Stopped"
+        "finish": "Finished",
+        "stopped": "Stopped",
+        "timeSignature": "Time Signature"
     },
     "pattern": {
         "pattern": "Pattern",

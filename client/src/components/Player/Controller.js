@@ -2,9 +2,9 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { ButtonGroup, Button, InputGroup, InputGroupAddon, Input, Collapse } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay, faPause, faList } from "@fortawesome/free-solid-svg-icons";
+import { faPlay, faPause, faList, faStepBackward } from "@fortawesome/free-solid-svg-icons";
 import { useSelector, useDispatch } from "react-redux";
-import { changeBPM, playStop, togllePatternView, PLAYING, toggleDemoPlay, setRepeatTimes } from "../../redux/actions/ControllerActions";
+import { changeBPM, playStop, togllePatternView, PLAYING, toggleDemoPlay, setRepeatTimes, FINISHED } from "../../redux/actions/ControllerActions";
 import Patterns from "./Patterns";
 
 function Controller() {
@@ -21,7 +21,7 @@ function Controller() {
         <React.Fragment>
             <ButtonGroup size="lg">
                 <Button onClick={() => dispatch(playStop())}>
-                    {(playingState === PLAYING ? <FontAwesomeIcon icon={faPause} /> : <FontAwesomeIcon icon={faPlay} />)}
+                    {(playingState === PLAYING ? <FontAwesomeIcon icon={faPause} /> : (playingState === FINISHED ?<FontAwesomeIcon icon={faStepBackward}/>:<FontAwesomeIcon icon={faPlay} />))}
                 </Button>
                 <InputGroup size="lg">
                     <Input id="bpm" placeholder="Speed" min={20} max={300} type="number" step="1" bsSize="lg" disabled={playingState === PLAYING} defaultValue={bpm} onChange={(e) => dispatch(changeBPM(e.target.value))} />

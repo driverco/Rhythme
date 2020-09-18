@@ -24,7 +24,7 @@ export const reducer = (state = initialState, action) => {
     if (action.type === PLAYSTOP) {
         let newPlayingState = state.playingState;
         let patternViewOpen = state.patternViewOpen;
-        if (state.playingState === FINISHED || state.playingState === STOP) {
+        if (state.playingState === STOP) {
             newPlayingState = PLAYING;
             patternViewOpen = false;
         }

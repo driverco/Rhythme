@@ -9,11 +9,15 @@
     "medium": "medio",
     "hard": "dificil",
     "loadPattern":"Cargar Patrón",
+    "demoPlay":"Demostración",
+    "repeatTimes":"Repeticiones",
     "status": {
         "status": "Estado",
         "speed": "Velocidad",
         "playing": "Reproduciendo",
-        "stopped": "Detenido"
+        "finish": "Terminado",
+        "stopped": "Detenido",
+        "timeSignature": "Compás"
     },
     "pattern": {
         "pattern": "Patrón",
