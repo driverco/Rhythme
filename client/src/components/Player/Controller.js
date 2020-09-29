@@ -4,7 +4,7 @@ import { ButtonGroup, Button, InputGroup, InputGroupAddon, Input, Collapse } fro
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPause, faList, faStepBackward } from "@fortawesome/free-solid-svg-icons";
 import { useSelector, useDispatch } from "react-redux";
-import { changeBPM, playStop, togllePatternView, PLAYING, toggleDemoPlay, setRepeatTimes, FINISHED } from "../../redux/actions/ControllerActions";
+import { changeBPM, playStop, togglePatternView, PLAYING, toggleDemoPlay, setRepeatTimes, FINISHED } from "../../redux/actions/ControllerActions";
 import Patterns from "./Patterns";
 
 function Controller() {
@@ -16,6 +16,7 @@ function Controller() {
     const demoPlay = useSelector(Store => Store.ControllerReducer.demoPlay);
     const dispatch = useDispatch();
     const { t } = useTranslation("player");
+
 
     return (
         <React.Fragment>
@@ -30,7 +31,7 @@ function Controller() {
                 <InputGroup size="lg">
                     <Input placeholder="Pattern" type="string" bsSize="lg" disabled value={pattern.name} />
                 </InputGroup>
-                <Button disabled={playingState === PLAYING} onClick={() => dispatch(togllePatternView())}>
+                <Button disabled={playingState === PLAYING} onClick={() => dispatch(togglePatternView())}>
                     <FontAwesomeIcon icon={faList} />
                 </Button>
                 <InputGroup size="lg">

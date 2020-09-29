@@ -1,4 +1,4 @@
-import { PLAYSTOP, CHANGEBPM, TOGGLEPATTERNVIEW, SETPATTERN, SETPATTERNDISPLAY, STOP, PLAYING, TOGGLEDEMOPLAY, SETREPEATTIMES, FINISHED, ENDGAME, RESTART } from "../actions/ControllerActions";
+import { PLAYSTOP, CHANGEBPM, TOGGLEPATTERNVIEW, TOGGLEPATTERNEDIT, SETPATTERN, SETPATTERNDISPLAY, STOP, PLAYING, TOGGLEDEMOPLAY, SETREPEATTIMES, FINISHED, ENDGAME, RESTART, SETPATTERNDISPLAYTIMESIGNATURE } from "../actions/ControllerActions";
 
 const initialState = {
     playingState: STOP,
@@ -17,6 +17,7 @@ const initialState = {
     },
     patternDisplay: { "name": "rock", "difficulty": "easy", "timeSignature": "2/4", "bpm": 60, "instruments": [{ "type": "snare", "patternCode": "001000100010" }] },
     patternViewOpen: false,
+    patternEditOpen: false,
     keyPress: ["A", "F", "J", "L"]
 }
 
@@ -54,6 +55,12 @@ export const reducer = (state = initialState, action) => {
             patternViewOpen: !state.patternViewOpen
         }
     }
+    if (action.type === TOGGLEPATTERNEDIT) {
+        return {
+            ...state,
+            patternEditOpen: !state.patternEditOpen
+        }
+    }
     if (action.type === SETPATTERN) {
         return {
             ...state,
@@ -67,6 +74,15 @@ export const reducer = (state = initialState, action) => {
         return {
             ...state,
             patternDisplay: action.pattern
+        }
+    }
+    if (action.type === SETPATTERNDISPLAYTIMESIGNATURE) {
+        return {
+            ...state,
+            patternDisplay: [
+                ...state.patternDisplay,
+                ...action.timeSignature
+              ]
         }
     }
     if (action.type === TOGGLEDEMOPLAY) {
