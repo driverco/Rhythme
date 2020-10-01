@@ -5,7 +5,6 @@ export const TOGGLEPATTERNVIEW = "TOGGLEPATTERNVIEW"
 export const TOGGLEPATTERNEDIT = "TOGGLEPATTERNEDIT"
 export const SETPATTERN = "SETPATTERN"
 export const SETPATTERNDISPLAY = "SETPATTERNDISPLAY"
-export const SETPATTERNDISPLAYTIMESIGNATURE = "SETPATTERNDISPLAYTIMESIGNATURE"
 export const TOGGLEDEMOPLAY = "TOGGLEDEMOPLAY"
 export const SETREPEATTIMES = "SETREPEATTIMES"
 export const STOP = 0
@@ -37,10 +36,6 @@ export const setPattern = (pattern) => ({
 export const setPatternDisplay = (pattern) => ({
     type: SETPATTERNDISPLAY,
     pattern
-});
-export const setPatternDisplaTimeSignature= (timeSignature) => ({
-    type: SETPATTERNDISPLAYTIMESIGNATURE,
-    timeSignature
 });
 export const toggleDemoPlay = () => ({
     type: TOGGLEDEMOPLAY

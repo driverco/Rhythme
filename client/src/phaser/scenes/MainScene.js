@@ -132,7 +132,7 @@ class MainScene extends Phaser.Scene {
         finishText = this.add.text(150, 0, "Results: \nHits Perfect: " + score.perfect + "\nHits Good: " + score.good + "\nHits Regular: " + score.regular + " \nMiss: " + score.miss + "\nFails: " + score.failkeypress, { font: "bold 40px Arial", fill: "#000", boundsAlignH: "center", boundsAlignV: "middle" });
             finishRect.depth = 2;
         finishText.depth = 2;
-      }
+      }      
     });
     finishRect = this.add.rectangle(0, 0, 0, 0, 0xffffff);
     finishText = this.add.rectangle(0, 0, 0, 0, 0xffffff);

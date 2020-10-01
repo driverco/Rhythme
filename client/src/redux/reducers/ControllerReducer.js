@@ -18,7 +18,9 @@ const initialState = {
     patternDisplay: { "name": "rock", "difficulty": "easy", "timeSignature": "2/4", "bpm": 60, "instruments": [{ "type": "snare", "patternCode": "001000100010" }] },
     patternViewOpen: false,
     patternEditOpen: false,
-    keyPress: ["A", "F", "J", "L"]
+    keyPress: ["A", "F", "J", "L"],
+    typeOfInstruments: ["snare", "kick", "cymbal", "floor"]
+
 }
 
 export const reducer = (state = initialState, action) => {
@@ -74,15 +76,6 @@ export const reducer = (state = initialState, action) => {
         return {
             ...state,
             patternDisplay: action.pattern
-        }
-    }
-    if (action.type === SETPATTERNDISPLAYTIMESIGNATURE) {
-        return {
-            ...state,
-            patternDisplay: [
-                ...state.patternDisplay,
-                ...action.timeSignature
-              ]
         }
     }
     if (action.type === TOGGLEDEMOPLAY) {
