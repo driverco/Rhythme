@@ -1,28 +1,28 @@
-.PatternBox{
+.PatternBox {
     background-color: #e6e6e6;
-    color:#6c757d;
+    color: #6c757d;
     padding: 1em;
 }
-.PatternList{
+.PatternList {
     padding: 0.1em;
-    font-size:1em;
+    font-size: 1em;
     font-weight: lighter;
 }
-.PatternBadge{
+.PatternBadge {
     font-weight: lighter;
 }
-.prevBeat{
+.prevBeat {
     width: 0.5em;
     height: 1em;
     border: #ffffff 1px solid;
     float: left;
 }
-.prevOn{
+.prevOn {
     background-color: crimson;
 }
-.prevOff{
+.prevOff {
     background-color: #ffffff;
 }
-.EditPatternLink{
-    color:#ffffff;
+.EditPatternLink {
+    color: #ffffff;
 }
