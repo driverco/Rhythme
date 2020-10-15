@@ -9,6 +9,15 @@ import patternsData from "../../json/patterns.json";
 import { setPattern, setPatternDisplay, togglePatternEdit } from "../../redux/actions/ControllerActions";
 
 
+function getDifficultyColor(difficulty) {
+    switch (difficulty) {
+        case "easy": return ("success");
+        case "medium": return ("primary");
+        case "hard": return ("danger");
+        default: return ("none");
+    }
+}
+
 function getPatternLinePrev(patternCode) {
     const items = [];
 
@@ -32,6 +41,9 @@ function getDifficultyBadge(difficulty, t) {
 }
 
 function getPatternCard(patternDisplay, t, dispatch, patternEditOpen, onChangeTimeSignature, onChangeEditBPM, onChangeNumInstruments) {
+    function editPattern(dispatch) {
+        dispatch(togglePatternEdit());
+    }
     const colorCard = getDifficultyColor(patternDisplay.difficulty);
     return (
         <Card body inverse color={colorCard} className="PatternCard">
@@ -62,15 +74,12 @@ function getPatternCard(patternDisplay, t, dispatch, patternEditOpen, onChangeTi
             {patternDisplay.instruments.map((instrument, index) => {
                 return (
                     <Row key={instrument.type + index} ><Col>{t(instrument.type) + ": "}</Col><Col>{getPatternLinePrev(instrument.patternCode)}</Col></Row>
-                )
+                );
             })}
 
             <Button color="secondary" onClick={() => { dispatch(setPattern(patternDisplay)); document.getElementById("bpm").value = patternDisplay.bpm; }}>{t("loadPattern")}</Button>{" "}
 
         </Card>);
-    function editPattern(dispatch) {
-        dispatch(togglePatternEdit());
-    }
 }
 
 function Patterns() {
@@ -99,12 +108,12 @@ function Patterns() {
     function onChangeNumInstruments(e) {
         let pat = patternDisplay;
         if (pat.instruments.length > e.target.value) {
-            pat.instruments = pat.instruments.slice(0, e.target.value)
+            pat.instruments = pat.instruments.slice(0, e.target.value);
         } else {
             while (pat.instruments.length < e.target.value) {
                 pat.instruments.push({
-                    "type": typeOfInstruments[Math.floor(Math.random() * 4) ],
-                    "patternCode":pat.instruments[0].patternCode
+                    "type": typeOfInstruments[Math.floor(Math.random() * 4)],
+                    "patternCode": pat.instruments[0].patternCode
                 });
             }
         }
@@ -149,20 +158,13 @@ function Patterns() {
 
                             {patternDisplay.instruments.map((instrument, index) => {
                                 return (
-                                    <Row key={instrument.type + index} ><Col sm="3"><Input type="select" name="instrumentSelect" id="timeSignatureSelect"  value={instrument.type} onChange={(e) => onChangeTypeofInstrument(e, index)}>  
-                                    {typeOfInstruments.map((typeOfInstrument, index2) =>
-                                        <option key={index2} value={typeOfInstrument}>
-                                         {typeOfInstrument}
-                                        </option>)} </Input></Col><Col sm="9">{getPatternLinePrev(instrument.patternCode)}</Col></Row>
+                                    <Row key={instrument.type + index} ><Col sm="3"><Input type="select" name="instrumentSelect" id="timeSignatureSelect" value={instrument.type} onChange={(e) => onChangeTypeofInstrument(e, index)}>
+                                        {typeOfInstruments.map((typeOfInstrument, index2) =>
+                                            <option key={index2} value={typeOfInstrument}>
+                                                {typeOfInstrument}
+                                            </option>)} </Input></Col><Col sm="9">{getPatternLinePrev(instrument.patternCode)}</Col></Row>
                                 );
                             })}
-
-
-
-
-
-
-
 
                         </Card>
                     </Collapse>
@@ -175,13 +177,5 @@ function Patterns() {
             </Row>
         </div >
     );
-}
-function getDifficultyColor(difficulty) {
-    switch (difficulty) {
-        case "easy": return ("success");
-        case "medium": return ("primary");
-        case "hard": return ("danger");
-        default: return ("none");
-    }
 }
 export default Patterns;
