@@ -76,7 +76,7 @@ class MainScene extends Phaser.Scene {
           else if (Phaser.Math.Distance.Between(inst.beat.getCenter().x, 0, successBar.getCenter().x, 0) < 85) { score.regular = score.regular + 1; inst.container.setTint(0xaa0000); }
           else { score.miss = score.miss + 1; inst.container.setTint(0xff0000); }
           inst.beat.destroy();
-          inst.beat = undefined;
+          inst.beat = void 0;
 
         }
       } else {
@@ -110,10 +110,10 @@ class MainScene extends Phaser.Scene {
         nextClickTime = 0;
         countTimes = 0;
         this.calcNextClickTime();
-        inst1.beat = undefined;
-        inst2.beat = undefined;
-        inst3.beat = undefined;
-        inst4.beat = undefined;
+        inst1.beat = void 0;
+        inst2.beat = void 0;
+        inst3.beat = void 0;
+        inst4.beat = void 0;
         score.perfect = 0;
         score.good = 0;
         score.regular = 0;
@@ -145,10 +145,10 @@ class MainScene extends Phaser.Scene {
     inst2 = this.physics.add.sprite(190, 110, "bgsquareimg").setAlpha(0).setInteractive();
     inst3 = this.physics.add.sprite(190, 215, "bgsquareimg").setAlpha(0).setInteractive();
     inst4 = this.physics.add.sprite(190, 320, "bgsquareimg").setAlpha(0).setInteractive();
-    inst1.beat = undefined;
-    inst2.beat = undefined;
-    inst3.beat = undefined;
-    inst4.beat = undefined;
+    inst1.beat = void 0;
+    inst2.beat = void 0;
+    inst3.beat = void 0;
+    inst4.beat = void 0;
     container1 = this.add.sprite(5, 5, "containerimg");
     container2 = this.add.sprite(5, 110, "containerimg");
     container3 = this.add.sprite(5, 215, "containerimg");
@@ -238,7 +238,7 @@ class MainScene extends Phaser.Scene {
       countText.depth = 1;
 
       if (countTimes <= timeNum) {countText.setText(countTimes + "/" + timeDen);}
-      else countText.setText("");
+      else { countText.setText("");}
       if (restartTime > (60000 * (timeNum - 1) / bpm)) {
         timePLay += delta;
       } else {
@@ -285,8 +285,8 @@ class MainScene extends Phaser.Scene {
     let posX = this.widthBoard;
     for (let i = 1; i <= repeatTimes; i++) {
       patternCodeArray.forEach((beat, index) => {
-        if (beat === "1") beats.create(posX, 55 + (105 * patternIndex), "circleimg");
-        if (index % (timeNum * 2) === 0) bars.create(posX - 120, 55 + (105 * patternIndex), "barraimg");
+        if (beat === "1") { beats.create(posX, 55 + (105 * patternIndex), "circleimg");}
+        if (index % (timeNum * 2) === 0) { bars.create(posX - 120, 55 + (105 * patternIndex), "barraimg");}
         posX += 240;
       });
     }

@@ -43,7 +43,7 @@ function Controller() {
                 </ButtonGroup>
             </ButtonGroup>
             <Collapse isOpen={patternViewOpen}>
-                {Patterns()}
+                {new Patterns()}
             </Collapse>
         </React.Fragment >
     );

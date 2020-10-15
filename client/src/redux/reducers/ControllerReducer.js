@@ -5,7 +5,7 @@ const initialState = {
     bpm: 60,
     repeatTimes: 1,
     demoPlay: false,
-    pattern: { 
+    pattern: {
         "name": "basic1",
         "difficulty": "easy",
         "timeSignature": "2/4",
@@ -24,74 +24,69 @@ const initialState = {
 };
 
 export const reducer = (state = initialState, action) => {
-    if (action.type === PLAYSTOP) {
-        let newPlayingState = state.playingState;
-        let patternViewOpen = state.patternViewOpen;
-        if (state.playingState === STOP) {
-            newPlayingState = PLAYING;
-            patternViewOpen = false;
-        }
-        else{
-            newPlayingState = STOP;
-        }
-        return {
-            ...state,
-            playingState: newPlayingState,
-            patternViewOpen
-        }
-    }
-    else if (action.type === ENDGAME) {
-        return {
-            ...state,
-            playingState: FINISHED
-        }
-    }
-    else if (action.type === CHANGEBPM) {
-        return {
-            ...state,
-            bpm: action.bpm
-        }
-    }
-    else if (action.type === TOGGLEPATTERNVIEW) {
-        return {
-            ...state,
-            patternViewOpen: !state.patternViewOpen
-        }
-    }
-    else if (action.type === TOGGLEPATTERNEDIT) {
-        return {
-            ...state,
-            patternEditOpen: !state.patternEditOpen
-        }
-    }
-    else if (action.type === SETPATTERN) {
-        return {
-            ...state,
-            bpm: action.pattern.bpm,
-            pattern: action.pattern,
-            patternViewOpen: !state.patternViewOpen,
-            playingState: RESTART
-        }
-    }
-    else if (action.type === SETPATTERNDISPLAY) {
-        return {
-            ...state,
-            patternDisplay: action.pattern
-        }
-    }
-    else if (action.type === TOGGLEDEMOPLAY) {
-        return {
-            ...state,
-            demoPlay: !state.demoPlay
-        }
-    }
-    else if (action.type === SETREPEATTIMES) {
-        return {
-            ...state,
-            repeatTimes: action.repeatTimes
-        }
-    }
+    switch (action.type) {
+        case PLAYSTOP:
+            let newPlayingState = state.playingState;
+            let patternViewOpen = state.patternViewOpen;
+            if (state.playingState === STOP) {
+                newPlayingState = PLAYING;
+                patternViewOpen = false;
+            }
+            else {
+                newPlayingState = STOP;
+            }
+            return {
+                ...state,
+                playingState: newPlayingState,
+                patternViewOpen
+            }
+        case ENDGAME:
+            return {
+                ...state,
+                playingState: FINISHED
+            }
+        case CHANGEBPM:
+            return {
+                ...state,
+                bpm: action.bpm
+            }
 
-    return state;
+        case TOGGLEPATTERNVIEW:
+            return {
+                ...state,
+                patternViewOpen: !state.patternViewOpen
+            }
+        case TOGGLEPATTERNEDIT:
+            return {
+                ...state,
+                patternEditOpen: !state.patternEditOpen
+            }
+        case SETPATTERN:
+            return {
+                ...state,
+                bpm: action.pattern.bpm,
+                pattern: action.pattern,
+                patternViewOpen: !state.patternViewOpen,
+                playingState: RESTART
+            }
+        case SETPATTERNDISPLAY:
+            return {
+                ...state,
+                patternDisplay: action.pattern
+            }
+        case TOGGLEDEMOPLAY:
+            return {
+                ...state,
+                demoPlay: !state.demoPlay
+            }
+        case SETREPEATTIMES:
+            return {
+                ...state,
+                repeatTimes: action.repeatTimes
+            }
+
+        default:
+            return state;
+    }
 }
 export default reducer;
