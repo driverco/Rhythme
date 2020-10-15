@@ -1,16 +1,16 @@
-export const PLAYSTOP = "PLAYSTOP"
-export const ENDGAME = "ENDGAME"
-export const CHANGEBPM = "CHANGEBPM"
-export const TOGGLEPATTERNVIEW = "TOGGLEPATTERNVIEW"
-export const TOGGLEPATTERNEDIT = "TOGGLEPATTERNEDIT"
-export const SETPATTERN = "SETPATTERN"
-export const SETPATTERNDISPLAY = "SETPATTERNDISPLAY"
-export const TOGGLEDEMOPLAY = "TOGGLEDEMOPLAY"
-export const SETREPEATTIMES = "SETREPEATTIMES"
-export const STOP = 0
-export const PLAYING = 1
-export const FINISHED = 2
-export const RESTART = 3
+export const PLAYSTOP = "PLAYSTOP";
+export const ENDGAME = "ENDGAME";
+export const CHANGEBPM = "CHANGEBPM";
+export const TOGGLEPATTERNVIEW = "TOGGLEPATTERNVIEW";
+export const TOGGLEPATTERNEDIT = "TOGGLEPATTERNEDIT";
+export const SETPATTERN = "SETPATTERN";
+export const SETPATTERNDISPLAY = "SETPATTERNDISPLAY";
+export const TOGGLEDEMOPLAY = "TOGGLEDEMOPLAY";
+export const SETREPEATTIMES = "SETREPEATTIMES";
+export const STOP = 0;
+export const PLAYING = 1;
+export const FINISHED = 2;
+export const RESTART = 3;
 
 
 export const playStop = () => ({

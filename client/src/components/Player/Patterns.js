@@ -8,7 +8,7 @@ import "./Patterns.css";
 import patternsData from "../../json/patterns.json";
 import { setPattern, setPatternDisplay, togglePatternEdit } from "../../redux/actions/ControllerActions";
 
-function Patterns() {
+function patterns() {
 
     const patternDisplay = useSelector(Store => Store.ControllerReducer.patternDisplay);
     const patternEditOpen = useSelector(Store => Store.ControllerReducer.patternEditOpen);
@@ -102,8 +102,8 @@ function Patterns() {
         dispatch(togglePatternEdit());
     }
     function onChangeTypeofInstrument(e, index) {
-        console.log(e.target.value);
-        console.log(index);
+        /*console.log(e.target.value);
+        console.log(index);*/
         let pat = patternDisplay;
         pat.instruments[index].type = e.target.value;
         dispatch(setPatternDisplay(pat));
@@ -187,4 +187,4 @@ function getPatternCard(patternDisplay, t, dispatch, patternEditOpen, onChangeTi
 
 
 
-export default Patterns;
+export default patterns;

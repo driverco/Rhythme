@@ -7,7 +7,7 @@ const config = {
   scene: [MainScene],
   type: Phaser.AUTO,
   physics: {
-		default: 'arcade',
+		default: "arcade",
 		arcade: {
       debug: false,
       enableBody: true,
