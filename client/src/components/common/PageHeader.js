@@ -1,7 +1,7 @@
 import React from "react";
 import "./PageHeader.css";
 
-function PageHeader(header, subheader) {
+function pageHeader(header, subheader) {
     return (
         <header className="masthead text-center text-white">
             <div className="masthead-content">
@@ -19,4 +19,4 @@ function PageHeader(header, subheader) {
 }
 
 
-export default PageHeader;
+export default pageHeader;

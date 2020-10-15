@@ -1,6 +1,6 @@
 import React from "react";
 
-function Section(type, title, content, img) {
+function section(type, title, content, img) {
     return (
         <section>
             <div className="container">
@@ -33,4 +33,4 @@ function textPart(type, title, content) {
     );
 }
 
-export default Section;
+export default section;
