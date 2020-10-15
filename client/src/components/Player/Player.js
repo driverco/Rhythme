@@ -7,7 +7,7 @@ import Status from "./Status";
 import PhaserGame from "./PhaserGame";
 
 
-function player() {
+function Player() {
     const { t } = useTranslation("player");
     return (
         <React.Fragment>
@@ -21,4 +21,4 @@ function player() {
     );
 }
 
-export default player;
+export default Player;

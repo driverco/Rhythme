@@ -8,12 +8,12 @@ import { changeBPM, playStop, togglePatternView, PLAYING, toggleDemoPlay, setRep
 import Patterns from "./Patterns";
 
 function Controller() {
-    const bpm = useSelector(Store => Store.ControllerReducer.bpm);
-    const playingState = useSelector(Store => Store.ControllerReducer.playingState);
-    const repeatTimes = useSelector(Store => Store.ControllerReducer.repeatTimes);
-    const pattern = useSelector(Store => Store.ControllerReducer.pattern);
-    const patternViewOpen = useSelector(Store => Store.ControllerReducer.patternViewOpen);
-    const demoPlay = useSelector(Store => Store.ControllerReducer.demoPlay);
+    const bpm = useSelector((Store) => Store.ControllerReducer.bpm);
+    const playingState = useSelector((Store) => Store.ControllerReducer.playingState);
+    const repeatTimes = useSelector((Store) => Store.ControllerReducer.repeatTimes);
+    const pattern = useSelector((Store) => Store.ControllerReducer.pattern);
+    const patternViewOpen = useSelector((Store) => Store.ControllerReducer.patternViewOpen);
+    const demoPlay = useSelector((Store) => Store.ControllerReducer.demoPlay);
     const dispatch = useDispatch();
     const { t } = useTranslation("player");
 

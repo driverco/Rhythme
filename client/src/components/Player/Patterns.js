@@ -8,7 +8,7 @@ import "./Patterns.css";
 import patternsData from "../../json/patterns.json";
 import { setPattern, setPatternDisplay, togglePatternEdit } from "../../redux/actions/ControllerActions";
 
-function patterns() {
+function Patterns() {
 
     const patternDisplay = useSelector(Store => Store.ControllerReducer.patternDisplay);
     const patternEditOpen = useSelector(Store => Store.ControllerReducer.patternEditOpen);
@@ -187,4 +187,4 @@ function getPatternCard(patternDisplay, t, dispatch, patternEditOpen, onChangeTi
 
 
 
-export default patterns;
+export default Patterns;

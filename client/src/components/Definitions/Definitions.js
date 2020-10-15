@@ -8,7 +8,7 @@ import BPM from "../../img/Música-bpm.png";
 import TimeSignatures from "../../img/TimeSignatures-main_Full.jpg";
 import Accent from "../../img/Acento.jpg";
 
-function definitions() {
+function Definitions() {
     const { t } = useTranslation("definitions");
     return (
         <React.Fragment>
@@ -48,4 +48,4 @@ function definitions() {
     );
 }
 
-export default definitions;
+export default Definitions;

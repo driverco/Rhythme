@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import pageHeader from "../common/PageHeader";
 
 
-function multipad() {
+function Multipad() {
     const { t } = useTranslation("multipad");
     return (
         <React.Fragment>
@@ -13,4 +13,4 @@ function multipad() {
     );
 }
 
-export default multipad;
+export default Multipad;

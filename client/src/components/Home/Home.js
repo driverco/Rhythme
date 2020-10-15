@@ -4,7 +4,7 @@ import pageHeader from "../common/PageHeader";
 import section from "../common/Section";
 
 
-function home() {
+function Home() {
     const { t } = useTranslation("home");
     return (
         <React.Fragment>
@@ -17,4 +17,4 @@ function home() {
     );
 }
 
-export default home;
+export default Home;

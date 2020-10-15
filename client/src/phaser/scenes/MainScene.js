@@ -70,7 +70,7 @@ class MainScene extends Phaser.Scene {
     if (playingState === PLAYING) {
       if (!(typeof inst.beat === "undefined")) {
         if (Phaser.Geom.Intersects.RectangleToRectangle(inst.getBounds(), inst.beat.getBounds())) {
-          console.log(Phaser.Math.Distance.Between(inst.beat.getCenter().x, 0, successBar.getCenter().x, 0));
+          /*console.log(Phaser.Math.Distance.Between(inst.beat.getCenter().x, 0, successBar.getCenter().x, 0));*/
           if (Phaser.Math.Distance.Between(inst.beat.getCenter().x, 0, successBar.getCenter().x, 0) < 15) { score.perfect = score.perfect + 1; inst.container.setTint(0x00ff00); }
           else if (Phaser.Math.Distance.Between(inst.beat.getCenter().x, 0, successBar.getCenter().x, 0) < 45) { score.good = score.good + 1; inst.container.setTint(0xaaaa00); }
           else if (Phaser.Math.Distance.Between(inst.beat.getCenter().x, 0, successBar.getCenter().x, 0) < 85) { score.regular = score.regular + 1; inst.container.setTint(0xaa0000); }
@@ -80,7 +80,7 @@ class MainScene extends Phaser.Scene {
 
         }
       } else {
-        console.log("fail keypress");
+        /*console.log("fail keypress");*/
         score.failkeypress = score.failkeypress + 1;
       }
     }
@@ -321,7 +321,7 @@ class MainScene extends Phaser.Scene {
     beat.disableBody(true, true);
     beat.destroy();
     score.miss = score.miss + 1;
-    console.log('fail:');
+    /*console.log('fail:');*/
   }
 
   loadInst(type, index, keyPress) {
@@ -338,7 +338,7 @@ class MainScene extends Phaser.Scene {
   }
 
   setSpeed() {
-    console.log("set speed");
+    /*console.log("set speed");*/
     const speed = (playingState === PLAYING ? -(bpm * 8) : 0);
     beats.children.iterate((objbeat) => {
       objbeat.body.velocity.x = speed;

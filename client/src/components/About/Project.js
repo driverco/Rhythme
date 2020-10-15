@@ -2,7 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import pageHeader from "../common/PageHeader";
 
-function project() {
+function Project() {
     const { t } = useTranslation("about");
     return (
         <React.Fragment>
@@ -12,4 +12,4 @@ function project() {
     );
 }
 
-export default project;
+export default Project;

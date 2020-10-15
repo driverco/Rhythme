@@ -7,7 +7,7 @@ import ProjectImg from "../../img/Descripción-Rhythme.jpg";
 import PosterImg from "../../img/Poster.jpg";
 import TeamImg from "../../img/Team.jpg";
 
-function about() {
+function About() {
     const { t } = useTranslation("about");
     return (
         <React.Fragment>
@@ -29,4 +29,4 @@ function about() {
     );
 }
 
-export default about;
+export default About;

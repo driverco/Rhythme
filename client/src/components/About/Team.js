@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import section from "../common/Section";
 import pageHeader from "../common/PageHeader";
 
-function team() {
+function Team() {
     const { t } = useTranslation("about");
     return (
         <React.Fragment>
@@ -15,4 +15,4 @@ function team() {
     );
 }
 
-export default team;
+export default Team;
