@@ -15,6 +15,6 @@ const config = {
     }
   },
   backgroundColor: "#C6C6C6"
-}
+};
 
 export default config;

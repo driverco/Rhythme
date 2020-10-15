@@ -21,7 +21,7 @@ const initialState = {
     keyPress: ["A", "F", "J", "L"],
     typeOfInstruments: ["snare", "kick", "cymbal", "floor"]
 
-}
+};
 
 export const reducer = (state = initialState, action) => {
     if (action.type === PLAYSTOP) {
@@ -31,39 +31,40 @@ export const reducer = (state = initialState, action) => {
             newPlayingState = PLAYING;
             patternViewOpen = false;
         }
-        else
+        else{
             newPlayingState = STOP;
+        }
         return {
             ...state,
             playingState: newPlayingState,
-            patternViewOpen: patternViewOpen
+            patternViewOpen
         }
     }
-    if (action.type === ENDGAME) {
+    else if (action.type === ENDGAME) {
         return {
             ...state,
             playingState: FINISHED
         }
     }
-    if (action.type === CHANGEBPM) {
+    else if (action.type === CHANGEBPM) {
         return {
             ...state,
             bpm: action.bpm
         }
     }
-    if (action.type === TOGGLEPATTERNVIEW) {
+    else if (action.type === TOGGLEPATTERNVIEW) {
         return {
             ...state,
             patternViewOpen: !state.patternViewOpen
         }
     }
-    if (action.type === TOGGLEPATTERNEDIT) {
+    else if (action.type === TOGGLEPATTERNEDIT) {
         return {
             ...state,
             patternEditOpen: !state.patternEditOpen
         }
     }
-    if (action.type === SETPATTERN) {
+    else if (action.type === SETPATTERN) {
         return {
             ...state,
             bpm: action.pattern.bpm,
@@ -72,28 +73,24 @@ export const reducer = (state = initialState, action) => {
             playingState: RESTART
         }
     }
-    if (action.type === SETPATTERNDISPLAY) {
+    else if (action.type === SETPATTERNDISPLAY) {
         return {
             ...state,
             patternDisplay: action.pattern
         }
     }
-    if (action.type === TOGGLEDEMOPLAY) {
+    else if (action.type === TOGGLEDEMOPLAY) {
         return {
             ...state,
             demoPlay: !state.demoPlay
         }
     }
-    if (action.type === SETREPEATTIMES) {
+    else if (action.type === SETREPEATTIMES) {
         return {
             ...state,
             repeatTimes: action.repeatTimes
         }
     }
-
-
-
-
 
     return state;
 }

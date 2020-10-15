@@ -237,7 +237,7 @@ class MainScene extends Phaser.Scene {
     if (playingState === PLAYING) {
       countText.depth = 1;
 
-      if (countTimes <= timeNum) countText.setText(countTimes + "/" + timeDen);
+      if (countTimes <= timeNum) {countText.setText(countTimes + "/" + timeDen);}
       else countText.setText("");
       if (restartTime > (60000 * (timeNum - 1) / bpm)) {
         timePLay += delta;

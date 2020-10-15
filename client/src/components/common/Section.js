@@ -1,17 +1,5 @@
 import React from "react";
 
-function section(type, title, content, img) {
-    return (
-        <section>
-            <div className="container">
-                <div className="row align-items-center">
-                    {imagePart(type, img)}
-                    {textPart(type, title, content)}
-                </div>
-            </div>
-        </section>
-    );
-}
 function imagePart(type, img) {
     return (
         <div className={"col-lg-6 order-lg-" + (type === "0" ? "2" : "1")}>
@@ -33,4 +21,18 @@ function textPart(type, title, content) {
     );
 }
 
-export default section;
+
+function Section(type, title, content, img) {
+    return (
+        <section>
+            <div className="container">
+                <div className="row align-items-center">
+                    {imagePart(type, img)}
+                    {textPart(type, title, content)}
+                </div>
+            </div>
+        </section>
+    );
+}
+
+export default Section;

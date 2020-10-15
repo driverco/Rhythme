@@ -5,12 +5,8 @@ import "./DefCard.css";
 
 function DefCard(title, content, linkText, linkTo, img, linkExternal) {
   let link;
-  if (linkExternal) {
-    link = <a id={linkTo} href={linkTo} className="navLink">{CardRet(title, content, linkText, img)}</a>;
-  } else {
-    link = <NavLink to={linkTo} id={linkTo} className="navLink">{CardRet(title, content, linkText, img)}</NavLink>;
-  }
-  function CardRet(title, content, linkText, img) {
+
+  function cardRet(title, content, linkText, img) {
     return (
       <Card>
         <CardHeader className="cardHeader">{title}</CardHeader>
@@ -22,7 +18,11 @@ function DefCard(title, content, linkText, linkTo, img, linkExternal) {
       </Card>
     );
   }
-
+  if (linkExternal) {
+    link = <a id={linkTo} href={linkTo} className="navLink">{cardRet(title, content, linkText, img)}</a>;
+  } else {
+    link = <NavLink to={linkTo} id={linkTo} className="navLink">{cardRet(title, content, linkText, img)}</NavLink>;
+  }
   return (
     <React.Fragment>
       {link}
