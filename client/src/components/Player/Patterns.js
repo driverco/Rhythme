@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { ListGroup, ListGroupItem, Row, Col, Badge, Card, CardTitle, Button, Collapse, CardLink, Input } from "reactstrap";
+import { ListGroup, ListGroupItem, Row, Col, Badge, Card, CardTitle, Button, Collapse, CardLink, Input, ButtonGroup, ButtonToggle } from "reactstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
@@ -30,6 +30,23 @@ function getPatternLinePrev(patternCode) {
     }
     return (<React.Fragment>{items}</React.Fragment>);
 }
+function getPatternLineEdit(numBeats, instrumentNumber, patternCode) {
+    let mainComp = [];
+    for (var j = 0; j < patternCode.length/(numBeats[0]*2); j++) {
+        let items = [];
+        for (var i = j*(numBeats[0]*2); i <(j+1)*(numBeats[0]*2); i++) {
+            items.push(<ButtonToggle key={"patt" + i} outline color="primary" active={(patternCode.charAt(i) === "0")?false:true} onClick={()=>console.log(instrumentNumber+"-"+i)} ></ButtonToggle>);
+        }
+        mainComp.push(<ButtonGroup >{items}</ButtonGroup>);
+    }
+    
+    return ( 
+        <React.Fragment >{mainComp}</React.Fragment>
+    /*<ButtonGroup>{numBeats[0]}-{instrumentNumber}{items}</ButtonGroup>*/
+    );
+}
+
+
 
 
 function getNumberInstrBadge(numberInstr) {
@@ -162,7 +179,7 @@ function Patterns() {
                                         {typeOfInstruments.map((typeOfInstrument, index2) =>
                                             <option key={index2} value={typeOfInstrument}>
                                                 {typeOfInstrument}
-                                            </option>)} </Input></Col><Col sm="9">{getPatternLinePrev(instrument.patternCode)}</Col></Row>
+                                            </option>)} </Input></Col><Col sm="9">{getPatternLineEdit(patternDisplay.timeSignature,index, instrument.patternCode)}</Col></Row>
                                 );
                             })}
 

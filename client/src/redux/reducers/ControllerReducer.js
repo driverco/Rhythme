@@ -18,7 +18,7 @@ const initialState = {
     patternDisplay: { "name": "rock", "difficulty": "easy", "timeSignature": "2/4", "bpm": 60, "instruments": [{ "type": "snare", "patternCode": "001000100010" }] },
     patternViewOpen: false,
     patternEditOpen: false,
-    keyPress: ["A", "F", "J", "L"],
+    keyPress: ["Q", "R", "U", "P"],
     typeOfInstruments: ["snare", "kick", "cymbal", "floor"]
 
 };

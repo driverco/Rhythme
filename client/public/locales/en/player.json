@@ -1,5 +1,5 @@
 {
-    "welcomeTitle": "Player!",
+    "welcomeTitle": "",
     "welcomeSubtitle": "Here you can practice your patterns",
     "numberofinstruments":"Number of Intruments",
     "speed": "Speed",
@@ -22,6 +22,17 @@
     "pattern": {
         "pattern": "Pattern",
         "select": "Select the pattern you want to play"
-    }
+    },
+    "playerSelect": {
+        "title":"",
+        "subtitle":"¿Quieres practicar o aprender como usar la herramienta?",
+        "practice": "Practice",
+        "practiceContent": "Practice the Patterns from the site or edit your own"
+    },
+    "manualCard": {
+        "title":"How To",
+        "content":"Learn How to use the site",
+        "linktext":"Go to manual"
+     }
 
 }
