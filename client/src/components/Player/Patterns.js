@@ -3,10 +3,10 @@ import { useTranslation } from "react-i18next";
 import { ListGroup, ListGroupItem, Row, Col, Badge, Card, CardTitle, Button, Collapse, CardLink, Input, ButtonGroup, ButtonToggle } from "reactstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit } from "@fortawesome/free-solid-svg-icons";
+import { faEdit, faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import "./Patterns.css";
 import patternsData from "../../json/patterns.json";
-import { setPattern, setPatternDisplay, togglePatternEdit } from "../../redux/actions/ControllerActions";
+import { setPattern, setPatternDisplay, togglePatternEdit, togglePatternBeat, addMusicalTime } from "../../redux/actions/ControllerActions";
 
 
 function getDifficultyColor(difficulty) {
@@ -30,24 +30,6 @@ function getPatternLinePrev(patternCode) {
     }
     return (<React.Fragment>{items}</React.Fragment>);
 }
-function getPatternLineEdit(numBeats, instrumentNumber, patternCode) {
-    let mainComp = [];
-    for (var j = 0; j < patternCode.length/(numBeats[0]*2); j++) {
-        let items = [];
-        for (var i = j*(numBeats[0]*2); i <(j+1)*(numBeats[0]*2); i++) {
-            items.push(<ButtonToggle key={"patt" + i} outline color="primary" active={(patternCode.charAt(i) === "0")?false:true} onClick={()=>console.log(instrumentNumber+"-"+i)} ></ButtonToggle>);
-        }
-        mainComp.push(<ButtonGroup >{items}</ButtonGroup>);
-    }
-    
-    return ( 
-        <React.Fragment >{mainComp}</React.Fragment>
-    /*<ButtonGroup>{numBeats[0]}-{instrumentNumber}{items}</ButtonGroup>*/
-    );
-}
-
-
-
 
 function getNumberInstrBadge(numberInstr) {
     return (<Badge color="secondary" className="PatternBadge">{numberInstr}</Badge>);
@@ -102,10 +84,12 @@ function getPatternCard(patternDisplay, t, dispatch, patternEditOpen, onChangeTi
 function Patterns() {
 
     const patternDisplay = useSelector((Store) => Store.ControllerReducer.patternDisplay);
+    const changed = useSelector((Store) => Store.ControllerReducer.changed);
     const patternEditOpen = useSelector((Store) => Store.ControllerReducer.patternEditOpen);
     const typeOfInstruments = useSelector((Store) => Store.ControllerReducer.typeOfInstruments);
     const dispatch = useDispatch();
     const { t } = useTranslation("player");
+    console.log(changed);
 
     function onChangeTimeSignature(e) {
         let pat = patternDisplay;
@@ -118,9 +102,6 @@ function Patterns() {
         let pat = patternDisplay;
         pat.bpm = e.target.value;
         dispatch(setPatternDisplay(pat));
-        dispatch(togglePatternEdit());
-        dispatch(togglePatternEdit());
-
     }
     function onChangeNumInstruments(e) {
         let pat = patternDisplay;
@@ -139,14 +120,28 @@ function Patterns() {
         dispatch(togglePatternEdit());
     }
     function onChangeTypeofInstrument(e, index) {
-        /*console.log(e.target.value);
-        console.log(index);*/
         let pat = patternDisplay;
         pat.instruments[index].type = e.target.value;
         dispatch(setPatternDisplay(pat));
         dispatch(togglePatternEdit());
         dispatch(togglePatternEdit());
     }
+    function getPatternLineEdit(numBeats, instrumentNumber, patternCode) {
+        let mainComp = [];
+        for (var j = 0; j < patternCode.length / (numBeats[0] * 2); j++) {
+            let items = [];
+            for (var i = j * (numBeats[0] * 2); i < (j + 1) * (numBeats[0] * 2); i++) {
+                items.push(<ButtonToggle key={"patt" + j + ":" + i} outline color="primary" active={(patternCode.charAt(i) === "0") ? false : true} indexbeat={i} onClick={(e) => dispatch(togglePatternBeat(instrumentNumber, e.target.getAttribute("indexbeat")))} ></ButtonToggle>);
+            }
+            mainComp.push(<ButtonGroup key= {"comp"+j} >{items}</ButtonGroup>);
+        }
+
+        return (
+            <React.Fragment >{mainComp}</React.Fragment>
+            /*<ButtonGroup>{numBeats[0]}-{instrumentNumber}{items}</ButtonGroup>*/
+        );
+    }
+
 
     return (
         <div className="PatternBox">
@@ -156,7 +151,7 @@ function Patterns() {
                 </Col>
             </Row>
             <Row>
-                <Col xs="6">
+                <Col xs="8">
                     <Collapse isOpen={!patternEditOpen}>
                         <ListGroup className="PatternList" >
                             {patternsData.map((patternData) => {
@@ -171,22 +166,23 @@ function Patterns() {
                     </Collapse>
                     <Collapse isOpen={patternEditOpen}>
                         <Card body className="PatternEdit">
-                            <CardTitle>{JSON.stringify(patternDisplay)}  </CardTitle>
-
+                        <CardTitle>{patternDisplay.name}
+                                <Button close onClick={() => dispatch(togglePatternEdit())} />
+                            </CardTitle>
                             {patternDisplay.instruments.map((instrument, index) => {
                                 return (
-                                    <Row key={instrument.type + index} ><Col sm="3"><Input type="select" name="instrumentSelect" id="timeSignatureSelect" value={instrument.type} onChange={(e) => onChangeTypeofInstrument(e, index)}>
+                                    <Row key={instrument.type + index} ><Col sm="2"><Input type="select" name="instrumentSelect" id="timeSignatureSelect" value={instrument.type} onChange={(e) => onChangeTypeofInstrument(e, index)}>
                                         {typeOfInstruments.map((typeOfInstrument, index2) =>
                                             <option key={index2} value={typeOfInstrument}>
                                                 {typeOfInstrument}
-                                            </option>)} </Input></Col><Col sm="9">{getPatternLineEdit(patternDisplay.timeSignature,index, instrument.patternCode)}</Col></Row>
+                                            </option>)} </Input></Col><Col sm="9">{getPatternLineEdit(patternDisplay.timeSignature, index, instrument.patternCode)}</Col><Col><FontAwesomeIcon icon={faPlusCircle} onClick={() => dispatch(addMusicalTime()) } /></Col></Row>
                                 );
                             })}
 
                         </Card>
                     </Collapse>
                 </Col>
-                <Col xs="6">
+                <Col xs="4">
                     <Collapse isOpen={true} >
                         {getPatternCard(patternDisplay, t, dispatch, patternEditOpen, onChangeTimeSignature, onChangeEditBPM, onChangeNumInstruments)}
                     </Collapse>

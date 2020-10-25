@@ -1,4 +1,4 @@
-import { PLAYSTOP, CHANGEBPM, TOGGLEPATTERNVIEW, TOGGLEPATTERNEDIT, SETPATTERN, SETPATTERNDISPLAY, STOP, PLAYING, TOGGLEDEMOPLAY, SETREPEATTIMES, FINISHED, ENDGAME, RESTART } from "../actions/ControllerActions";
+import { PLAYSTOP, CHANGEBPM, TOGGLEPATTERNVIEW, TOGGLEPATTERNEDIT, SETPATTERN, SETPATTERNDISPLAY, TOGGLEPATTERNBEAT, ADDMUSICALTIME, STOP, PLAYING, TOGGLEDEMOPLAY, SETREPEATTIMES, FINISHED, ENDGAME, RESTART } from "../actions/ControllerActions";
 
 const initialState = {
     playingState: STOP,
@@ -19,7 +19,8 @@ const initialState = {
     patternViewOpen: false,
     patternEditOpen: false,
     keyPress: ["Q", "R", "U", "P"],
-    typeOfInstruments: ["snare", "kick", "cymbal", "floor"]
+    typeOfInstruments: ["snare", "kick", "cymbal", "floor"],
+    changed: false
 
 };
 
@@ -72,7 +73,8 @@ export const reducer = (state = initialState, action) => {
         case SETPATTERNDISPLAY:
             return {
                 ...state,
-                patternDisplay: action.pattern
+                patternDisplay: action.pattern,
+                changed: !state.changed
             }
         case TOGGLEDEMOPLAY:
             return {
@@ -85,8 +87,34 @@ export const reducer = (state = initialState, action) => {
                 repeatTimes: action.repeatTimes
             }
 
+        case TOGGLEPATTERNBEAT:
+            let instrumentPattern = state.patternDisplay.instruments[action.instrumentNumber].patternCode;
+            let chars = instrumentPattern.split('');
+            chars[action.beatPos] = (chars[action.beatPos] === "0" ? "1" : "0");
+            instrumentPattern = chars.join('');
+            let patternDisplayNew = state.patternDisplay;
+            patternDisplayNew.instruments[action.instrumentNumber].patternCode = instrumentPattern;
+            return {
+                ...state,
+                patternDisplay: patternDisplayNew,
+                changed: !state.changed
+            }
+        case ADDMUSICALTIME:
+            patternDisplayNew = state.patternDisplay;
+            state.patternDisplay.instruments.map(function (inst, index) {
+                patternDisplayNew.instruments[index].patternCode = inst.patternCode + "0".repeat(state.patternDisplay.timeSignature[0] * 2);
+                return "";
+            });
+
+            return {
+                ...state,
+                patternDisplay: patternDisplayNew,
+                changed: !state.changed
+            }
+
+
         default:
             return state;
-    }
+    };
 }
 export default reducer;

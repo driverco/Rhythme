@@ -9,8 +9,8 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Team from "../about/Team";
 import Project from "../about/Project";
-import PlayerSelect from "../player/PlayerSelect"
-import UserManual from "../player/UserManual"
+import PlayerSelect from "../player/PlayerSelect";
+import UserManual from "../player/UserManual";
 
 
 function MainPage() {
