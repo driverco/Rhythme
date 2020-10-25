@@ -1,0 +1,130 @@
+[{
+        "name": "basic1",
+        "difficulty": "easy",
+        "timeSignature": "2/4",
+        "bpm": 60,
+        "instruments": [{
+            "type": "snare",
+            "patternCode": "1010101010101010"
+        }]
+    },
+    {
+        "name": "basic2",
+        "difficulty": "easy",
+        "timeSignature": "3/4",
+        "bpm": 80,
+        "instruments": [{
+            "type": "snare",
+            "patternCode": "110010110010"
+        }]
+    },
+    {
+        "name": "basic3",
+        "difficulty": "easy",
+        "timeSignature": "4/4",
+        "bpm": 100,
+        "instruments": [{
+            "type": "kick",
+            "patternCode": "1000100010001000"
+        }, {
+            "type": "snare",
+            "patternCode": "0010001000100010"
+        }]
+    },
+    {
+        "name": "basicRock1",
+        "difficulty": "medium",
+        "timeSignature": "4/4",
+        "bpm": 60,
+        "instruments": [{
+            "type": "kick",
+            "patternCode": "1001100010011000"
+        }, {
+            "type": "snare",
+            "patternCode": "0010001000100010"
+        }]
+    },
+    {
+        "name": "rock4",
+        "difficulty": "medium",
+        "timeSignature": "3/4",
+        "bpm": 80,
+        "instruments": [{
+            "type": "snare",
+            "patternCode": "0010001000100000"
+        }, {
+            "type": "kick",
+            "patternCode": "1000000101000000"
+        }]
+    },
+    {
+        "name": "rock5",
+        "difficulty": "medium",
+        "timeSignature": "4/4",
+        "bpm": 100,
+        "instruments": [{
+            "type": "snare",
+            "patternCode": "0010001000100000"
+        }, {
+            "type": "kick",
+            "patternCode": "1000000101000000"
+        }, {
+            "type": "cymbal",
+            "patternCode": "1000000101000000"
+        }]
+    },
+    {
+        "name": "rock6",
+        "difficulty": "hard",
+        "timeSignature": "3/4",
+        "bpm": 80,
+        "instruments": [{
+            "type": "snare",
+            "patternCode": "0010001000100000"
+        }, {
+            "type": "kick",
+            "patternCode": "1000000101000000"
+        }, {
+            "type": "cymbal",
+            "patternCode": "1000000101000000"
+        }]
+    },
+    {
+        "name": "rock7",
+        "difficulty": "hard",
+        "timeSignature": "4/4",
+        "bpm": 120,
+        "instruments": [{
+            "type": "snare",
+            "patternCode": "1111111111111111"
+        }, {
+            "type": "kick",
+            "patternCode": "1111111111111111"
+        }, {
+            "type": "cymbal",
+            "patternCode": "1111111111111111"
+        }, {
+            "type": "floor",
+            "patternCode": "1111111111111111"
+        }]
+    },
+    {
+        "name": "rock8",
+        "difficulty": "hard",
+        "timeSignature": "4/4",
+        "bpm": 160,
+        "instruments": [{
+            "type": "snare",
+            "patternCode": "0010001000100000"
+        }, {
+            "type": "kick",
+            "patternCode": "1000000101000000"
+        }, {
+            "type": "cymbal",
+            "patternCode": "1000000101000000"
+        }, {
+            "type": "floor",
+            "patternCode": "1000000101000000"
+        }]
+    }
+]

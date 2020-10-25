@@ -9,23 +9,26 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Team from "../about/Team";
 import Project from "../about/Project";
+import PlayerSelect from "../player/PlayerSelect";
+import UserManual from "../player/UserManual";
 
 
 function MainPage() {
 
   return (
-
     <Router>
       <Header />
       <div className="contentBody">
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/about" component={About} />
-          <Route path="/player" component={Player} />
+          <Route path="/practice" component={Player} />
+          <Route path="/practiceSelect" component={PlayerSelect} />
           <Route path="/multipad" component={Multipad} />
           <Route path="/definitions" component={Definitions} />
           <Route path="/team" component={Team} />
           <Route path="/project" component={Project} />
+          <Route path="/userManual" component={UserManual} />
         </Switch>
         <Footer />
       </div>

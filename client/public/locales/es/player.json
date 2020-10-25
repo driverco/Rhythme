@@ -1,4 +1,37 @@
 {
-    "welcomeTitle":"Practica!",
-    "welcomeSubtitle":"Aqui puedes practicar tus patrones"
+    "welcomeTitle": "",
+    "welcomeSubtitle": "Aquí puedes practicar tus patrones",
+    "numberofinstruments":"Número de Intrumentos",
+    "speed": "Velocidad",
+    "timeSignaure":"Compás",
+    "difficulty": "Dificultad",
+    "easy": "fácil",
+    "medium": "medio",
+    "hard": "dificil",
+    "loadPattern":"Cargar Patrón",
+    "demoPlay":"Demostración",
+    "repeatTimes":"Repeticiones",
+    "status": {
+        "status": "Estado",
+        "speed": "Velocidad",
+        "playing": "Reproduciendo",
+        "finish": "Terminado",
+        "stopped": "Detenido",
+        "timeSignature": "Compás"
+    },
+    "pattern": {
+        "pattern": "Patrón",
+        "select": "Selecciona el patrón que quieres ejecutar"
+    },
+    "playerSelect": {
+        "title":"",
+        "subtitle":"¿Quieres practicar o aprender como usar la herramienta?",
+        "practice": "Practica",
+        "practiceContent": "Practica los patrones del sitio o edita el tuyo"
+    },
+    "manualCard": {
+        "title":"Como usar",
+        "content":"Aprende a usar el sitio",
+        "linktext":"ir al manual"
+     }
 }
