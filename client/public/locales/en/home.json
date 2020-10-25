@@ -1,4 +1,20 @@
 {
     "welcomeTitle":"Rhythme!",
-    "welcomeSubtitle":"Will help you in your musical learning path"
+    "welcomeSubtitle":"Will help you in your musical learning path",
+    "section1":{
+        "title":"How this will help you?",
+        "content":"by having a perfect feedback about you precision you will have better and better timing. Also you can change the speed of you exercises, with this you can adjust the exercise to your level."
+    },
+    "section2":{
+        "title":"How this will help you?",
+        "content":"by having a perfect feedback about you precision you will have better and better timing. Also you can change the speed of you exercises, with this you can adjust the exercise to your level."
+    },
+    "section3":{
+        "title":"How this will help you?",
+        "content":"by having a perfect feedback about you precision you will have better and better timing. Also you can change the speed of you exercises, with this you can adjust the exercise to your level."
+    },
+    "section4":{
+        "title":"How this will help you?",
+        "content":"by having a perfect feedback about you precision you will have better and better timing. Also you can change the speed of you exercises, with this you can adjust the exercise to your level."
+    }
 }

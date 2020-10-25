@@ -1,4 +1,26 @@
 {
-    "welcomeTitle":"Rhythme!",
-    "welcomeSubtitle":"Will help you in your musical learning path"
+    "welcomeTitle":"Proyecto Rhythme",
+    "welcomeSubtitle":"Conoce nuestro equipo, el proyecto y la presentación",
+    "linkText":"Ver más",
+    "diana":{
+        "content":"Estudiante de último semestre de ingeniería de sistemas."
+    },
+    "wilmer":{
+        "content":"Estudiante de último semestre de ingeniería de sistemas."
+    },
+    "wilson":{
+        "content":"Director del prosyecto de grado, Maestría1 maestría2, maestría3, maestría4, maestría5"
+    },
+    "poster":{
+        "title":"Poster",
+        "content":"Presentación del Poster del proyecto"
+    },
+    "project":{
+        "title":"Datos del Proyecto",
+        "content":"Conoce nuestro Proyecto, motivación y visión"
+    },
+    "team":{
+        "title":"Equipo de Trabajo",
+        "content":"Conoce nuestro Equipo"
+    }
 }

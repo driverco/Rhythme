@@ -1,4 +1,38 @@
 {
-    "welcomeTitle":"Rhythme!",
-    "welcomeSubtitle":"Will help you in your musical learning path"
+    "welcomeTitle":"First Learn",
+    "welcomeSubtitle":"Here are some definitions to help you",
+    "linkText":"Go to definition",
+    "def1":{
+        "title":"Beat",
+        "content":"Learn about the basic unit of rhythm"
+    },
+    "def2":{
+        "title":"Speed",
+        "content":"Fast, Slow, and how to identify it"
+    },
+    "def3":{
+        "title":"Time Signature",
+        "content":"Set the diferent lenght and accent of your play"
+    },
+    "def4":{
+        "title":"Accent",
+        "content":"Know the diferent beat types"
+    },
+    "def5":{
+        "title":"Figures 1",
+        "content":"Beat beat beat"
+    },
+    "def6":{
+        "title":"Figures 2",
+        "content":"Beat beat beat"
+    },
+    "def7":{
+        "title":"Figures 3",
+        "content":"Beat beat beat"
+    },
+    "def8":{
+        "title":"Figures 4",
+        "content":"Beat beat beat"
+    }
+
 }
