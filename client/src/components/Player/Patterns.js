@@ -89,7 +89,8 @@ function Patterns() {
     const typeOfInstruments = useSelector((Store) => Store.ControllerReducer.typeOfInstruments);
     const dispatch = useDispatch();
     const { t } = useTranslation("player");
-    console.log(changed);
+    
+    if (changed);
 
     function onChangeTimeSignature(e) {
         let pat = patternDisplay;

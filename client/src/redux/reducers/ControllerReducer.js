@@ -89,9 +89,9 @@ export const reducer = (state = initialState, action) => {
 
         case TOGGLEPATTERNBEAT:
             let instrumentPattern = state.patternDisplay.instruments[action.instrumentNumber].patternCode;
-            let chars = instrumentPattern.split('');
+            let chars = instrumentPattern.split("");
             chars[action.beatPos] = (chars[action.beatPos] === "0" ? "1" : "0");
-            instrumentPattern = chars.join('');
+            instrumentPattern = chars.join("");
             let patternDisplayNew = state.patternDisplay;
             patternDisplayNew.instruments[action.instrumentNumber].patternCode = instrumentPattern;
             return {
