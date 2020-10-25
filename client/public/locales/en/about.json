@@ -4,24 +4,24 @@
     "linkText":"See More",
 
     "diana":{
-        "content":"Last semester engineer student"
+        "content":"Last semester engineer student, product owner of the proyect"
     },
     "wilmer":{
-        "content":"Last semester engineer student"
+        "content":"Last semester engineer student, developer and architect"
     },
     "wilson":{
-        "content":"Project's director, skilled guru and master of the dark arts"
+        "content":"Project's director"
     },
     "poster":{
         "title":"Poster",
-        "content":"Presentación del Poster del proyecto"
+        "content":"See Our Proyect's poster"
     },
     "project":{
         "title":"Project",
-        "content":"Project Data, Vision and Facts"
+        "content":"Project data, vision and facts"
     },
     "team":{
-        "title":"Project Team",
-        "content":"Meet Our Team"
+        "title":"Project team",
+        "content":"Meet our team"
     }
 }

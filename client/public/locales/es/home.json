@@ -3,18 +3,22 @@
     "welcomeSubtitle": "Te ayudaremos en tu aprendizaje musical",
     "section1":{
         "title":"¿Como te ayudamos?",
-        "content":"tendrás retroalimentación inmediata acerca de la precisión de tus golpes. tambien podras cambiar la velocidad de tus ejercicios para ajustarte al nivel que posees actualmente."
+        "content":"tendrás retroalimentación inmediata acerca de la precisión de tus golpes. tambien podras cambiar la velocidad de tus ejercicios para ajustarte al nivel que posees actualmente.",
+        "linkDesc":"Practica"
     },
     "section2":{
-        "title":"How this will help you?",
-        "content":"by having a perfect feedback about you precision you will have better and better timing. Also you can change the speed of you exercises, with this you can adjust the exercise to your level."
+        "title":"¿Quieres Aprender conceptos básicos de ritmo?",
+        "content":"En nuestro sitio tienes acceso a explicaciones multimedia de ritmo. Ven, revisalas.",
+        "linkDesc":"Definiciones"
     },
     "section3":{
-        "title":"How this will help you?",
-        "content":"by having a perfect feedback about you precision you will have better and better timing. Also you can change the speed of you exercises, with this you can adjust the exercise to your level."
+        "title":"Multipad",
+        "content":"Te enseñamos a construir un multipad para que practiques mas fácil.",
+        "linkDesc":"Multipad"
     },
     "section4":{
-        "title":"How this will help you?",
-        "content":"by having a perfect feedback about you precision you will have better and better timing. Also you can change the speed of you exercises, with this you can adjust the exercise to your level."
+        "title":"Nuestro Proyecto",
+        "content":"Este proyecto está orientado a ser una ayuda para los estudiantes de rítmo especialmente entre 4 a 12 años.",
+        "linkDesc":"Proyecto"
     }
 }
