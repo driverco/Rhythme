@@ -4,6 +4,8 @@ import About from "../about/About";
 import Definitions from "../definitions/Definitions";
 import Player from "../player/Player";
 import Multipad from "../multipad/Multipad";
+import ArduinoMultipad from "../multipad/ArduinoMultipad";
+import KeyboardMultipad from "../multipad/KeyboardMultipad";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -25,6 +27,8 @@ function MainPage() {
           <Route path="/practice" component={Player} />
           <Route path="/practiceSelect" component={PlayerSelect} />
           <Route path="/multipad" component={Multipad} />
+          <Route path="/keyboardMultipad" component={KeyboardMultipad} />
+          <Route path="/arduinoMultipad" component={ArduinoMultipad} />
           <Route path="/definitions" component={Definitions} />
           <Route path="/team" component={Team} />
           <Route path="/project" component={Project} />
