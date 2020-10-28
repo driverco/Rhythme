@@ -5,5 +5,26 @@
     "keyboardContent":"Instructions to build a multipad based on a computer keyboard",
     "arduinoTitle":"Arduino",
     "arduinoContent":"Instructions to build a multipad based on an arduino baseplate",
-    "knowmore":"View more"
+    "knowmore":"View more",
+    "keyboard":{
+        "title":"Multipad based on a keyboard",
+        "content":"Instructions to create your multipad",
+        "materialsTitle":"Materials",
+        "precautionTitle":"Warning",
+        "precaution":"This handcrafts must be done with the help of an adult, do not make it without a responsible adult's help and guidance",
+        "materials1":"1. A fully functional keyboard not in use, remember not to use your main keyboard",
+        "materials2":"2. A balsa stick with side of 1 cm",
+        "materials3":"3. A balsa wood sheet",
+        "materials4":"4. One eighth of foamy (can be 4 in diferent colors to decoratte)",
+        "step1Title":"Step 1",
+        "step1":"From the stick cut 4 cubes of 1 cm. With the wood cut 4 squares of 5 cm",
+        "step2Title":"Step 2",
+        "step2":"Paste the cubes in the keys Q, R, U P, be careful when handling the glue",
+        "step3Title":"Step 3",
+        "step3":"over the cubes paste the squares, paste them as certered as posible",
+        "step4Title":"Step 4",
+        "step4":"the fianl step is cover the tables with foamy,  the glue you use should be distributed evenly over the entire surface, this step gives us a better response",
+        "finalTitle":"Final result",
+        "final":"Our multipad based on a keyboard is ready to use!"
+    }
 }

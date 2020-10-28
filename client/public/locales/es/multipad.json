@@ -5,5 +5,26 @@
     "keyboardContent":"Instrucciones para construir un multipad basado en un teclado de computador",
     "arduinoTitle":"Arduino",
     "arduinoContent":"Instrucciones para construir un multipad basado en una placa base Arduino",
-    "knowmore":"Ver más"
+    "knowmore":"Ver más",
+    "keyboard":{
+        "title":"Multipad basado en un teclado",
+        "content":"Instrucciones para construir tu multipad",
+        "materialsTitle":"Materiales",
+        "precautionTitle":"Precaución",
+        "precaution":"Estas manualidades las debes hacer con la ayuda de un adulto, no las realices sin un adulto responsable que te acompañe",
+        "materials1":"1. Un teclado funcional que no uses, recuerda no dañar tu teclado principal",
+        "materials2":"2. Un palo de balso cuadrado de 1 cm",
+        "materials3":"3. Una tabla de balso",
+        "materials4":"4. Un octavo de Foamy (pueden ser varios de diferentes colores)",
+        "step1Title":"Paso 1",
+        "step1":"Con el palo de balso debes recortar 4 cuadritos de 1 cm, con la tabla de balso deber hacer un cuadrado de 5 cm",
+        "step2Title":"Paso 2",
+        "step2":"Vamos a pegar los cuadritos en las teclas Q, R, U P, ten cuidado al manipular el pegante que uses",
+        "step3Title":"Paso 3",
+        "step3":"Sobre los cuadritos vamos a ubicar las tablas, ubicandolas lo mas centradas posible",
+        "step4Title":"Paso 4",
+        "step4":"El paso final es cubrir nuestras tablas con foamy, el pegante que uses lo debes distribuir uniformemente en toda la superficie, el foamy será para tener una mejor sensación y rebote en cada golpe",
+        "finalTitle":"Resultado final",
+        "final":"Nuestro multipad basado en un teclado está listo para que lo uses"
+    }
 }

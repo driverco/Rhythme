@@ -9,7 +9,6 @@ import BarraImg from "../assets/barra.png";
 import BarraImgEnd from "../assets/barraend.png";
 import BarraFullImg from "../assets/barrafull.png";
 import ContainerImg from "../assets/container.png";
-import { useTranslation } from "react-i18next";
 
 
 import ClickAudio from "../assets/audio/click.wav";
