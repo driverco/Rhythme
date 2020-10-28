@@ -9,6 +9,7 @@ import BarraImg from "../assets/barra.png";
 import BarraImgEnd from "../assets/barraend.png";
 import BarraFullImg from "../assets/barrafull.png";
 import ContainerImg from "../assets/container.png";
+import { useTranslation } from "react-i18next";
 
 
 import ClickAudio from "../assets/audio/click.wav";
@@ -87,6 +88,7 @@ class MainScene extends Phaser.Scene {
   }
 
   create() {
+    const { t } = useTranslation("player");
     beats = this.physics.add.group();
     bars = this.physics.add.group();
     endBars = this.physics.add.group();
@@ -96,7 +98,11 @@ class MainScene extends Phaser.Scene {
     bpm = Store.getState().ControllerReducer.bpm;
     repeatTimes = Store.getState().ControllerReducer.repeatTimes;
     demoPlay = Store.getState().ControllerReducer.demoPlay;
-    Store.subscribe(() => {
+    finishRect = this.add.rectangle(0, 0, 1000, 425, 0xffffff);
+    finishRect.setOrigin(0);
+    finishText = this.add.text(150, 0, "", { font: "bold 40px Arial", fill: "#000", boundsAlignH: "center", boundsAlignV: "middle" });
+    finishText.setOrigin(0);
+Store.subscribe(() => {
       playingState = Store.getState().ControllerReducer.playingState;
       bpm = Store.getState().ControllerReducer.bpm;
       demoPlay = Store.getState().ControllerReducer.demoPlay;
@@ -123,20 +129,20 @@ class MainScene extends Phaser.Scene {
         inst2.container.clearTint();
         inst3.container.clearTint();
         inst4.container.clearTint();
-        finishRect.destroy();
-        finishText.destroy();
+        finishRect.setVisible(false);
+        finishText.setText("");
       }
       if (playingState === FINISHED) {
-        finishRect = this.add.rectangle(0, 0, 1000, 425, 0xffffff);
-        finishRect.setOrigin(0);
-        finishText = this.add.text(150, 0, "Results: \nHits Perfect: " + score.perfect + "\nHits Good: " + score.good + "\nHits Regular: " + score.regular + " \nMiss: " + score.miss + "\nFails: " + score.failkeypress, { font: "bold 40px Arial", fill: "#000", boundsAlignH: "center", boundsAlignV: "middle" });
-            finishRect.depth = 2;
+        finishRect.setVisible(true);
+        /*finishRect.setTo(0, 0, 1000, 425);*/
+        finishText.setText( "Results: \nHits Perfect: " + score.perfect + "\nHits Good: " + score.good + "\nHits Regular: " + score.regular + " \nMiss: " + score.miss + "\nFails: " + score.failkeypress);
+        finishRect.depth = 2;
         finishText.depth = 2;
+      }else{
+        finishRect.setVisible(false);
+        finishText.setText("");
       }      
     });
-    finishRect = this.add.rectangle(0, 0, 0, 0, 0xffffff);
-    finishText = this.add.rectangle(0, 0, 0, 0, 0xffffff);
-
 
     playingState = Store.getState().ControllerReducer.playingState;
     changeState = playingState;
