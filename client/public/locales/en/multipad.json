@@ -1,4 +1,9 @@
 {
-    "welcomeTitle":"Rhythme!",
-    "welcomeSubtitle":"Will help you in your musical learning path"
+    "welcomeTitle":"Multipad",
+    "welcomeSubtitle":"Learn how to build a multipad based on:",
+    "keyboardTitle":"Keyboard",
+    "keyboardContent":"Instructions to build a multipad based on a computer keyboard",
+    "arduinoTitle":"Arduino",
+    "arduinoContent":"Instructions to build a multipad based on an arduino baseplate",
+    "knowmore":"View more"
 }

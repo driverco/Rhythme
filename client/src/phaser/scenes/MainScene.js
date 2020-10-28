@@ -14,17 +14,9 @@ import { useTranslation } from "react-i18next";
 
 import ClickAudio from "../assets/audio/click.wav";
 import SnareAudioOgg from "../assets/audio/snare.ogg";
-/*import SnareAudioMp3 from "../assets/audio/snare_basic.mp3";
-import SnareAudioWav from "../assets/audio/snare_basic.wav";*/
 import KickAudioOgg from "../assets/audio/kick.ogg";
-/*import KickAudioMp3 from "../assets/audio/kick.mp3";
-import KickAudioWav from "../assets/audio/kick.wav";*/
 import CymbalAudioOgg from "../assets/audio/cymbal.ogg";
-/*import CymbalAudioMp3 from "../assets/audio/cymbal.mp3";
-import CymbalAudioWav from "../assets/audio/cymbal.wav";*/
 import FloorAudioOgg from "../assets/audio/floor.ogg";
-/*import FloorAudioMp3 from "../assets/audio/floor.mp3";
-import FloorAudioWav from "../assets/audio/floor.wav";*/
 import Store from "../../redux/Store";
 import { STOP, PLAYING, FINISHED, endGame, RESTART, playStop } from "../../redux/actions/ControllerActions";
 
@@ -71,7 +63,6 @@ class MainScene extends Phaser.Scene {
     if (playingState === PLAYING) {
       if (!(typeof inst.beat === "undefined")) {
         if (Phaser.Geom.Intersects.RectangleToRectangle(inst.getBounds(), inst.beat.getBounds())) {
-          /*console.log(Phaser.Math.Distance.Between(inst.beat.getCenter().x, 0, successBar.getCenter().x, 0));*/
           if (Phaser.Math.Distance.Between(inst.beat.getCenter().x, 0, successBar.getCenter().x, 0) < 15) { score.perfect = score.perfect + 1; inst.container.setTint(0x00ff00); }
           else if (Phaser.Math.Distance.Between(inst.beat.getCenter().x, 0, successBar.getCenter().x, 0) < 45) { score.good = score.good + 1; inst.container.setTint(0xaaaa00); }
           else if (Phaser.Math.Distance.Between(inst.beat.getCenter().x, 0, successBar.getCenter().x, 0) < 85) { score.regular = score.regular + 1; inst.container.setTint(0xaa0000); }
@@ -81,14 +72,12 @@ class MainScene extends Phaser.Scene {
 
         }
       } else {
-        /*console.log("fail keypress");*/
         score.failkeypress = score.failkeypress + 1;
       }
     }
   }
 
   create() {
-    const { t } = useTranslation("player");
     beats = this.physics.add.group();
     bars = this.physics.add.group();
     endBars = this.physics.add.group();
@@ -134,7 +123,6 @@ Store.subscribe(() => {
       }
       if (playingState === FINISHED) {
         finishRect.setVisible(true);
-        /*finishRect.setTo(0, 0, 1000, 425);*/
         finishText.setText( "Results: \nHits Perfect: " + score.perfect + "\nHits Good: " + score.good + "\nHits Regular: " + score.regular + " \nMiss: " + score.miss + "\nFails: " + score.failkeypress);
         finishRect.depth = 2;
         finishText.depth = 2;
@@ -215,14 +203,12 @@ Store.subscribe(() => {
   }
 
   update(time, delta) {
-    /*    if (!(typeof inst1.beat === "undefined"))
-          inst1.beat.setTint(0xff0000);*/
     if (playingState === RESTART) {
       Store.dispatch(playStop());
       this.scene.restart();
     }
     if (changeState !== playingState) {
-      if (playingState === PLAYING && timeNum - 1 < countTimes) { /*(60000 * (timeNum) / bpm) */
+      if (playingState === PLAYING && timeNum - 1 < countTimes) { 
         changeState = playingState;
         this.setSpeed();
       }
@@ -257,8 +243,6 @@ Store.subscribe(() => {
       this.clickAudio.play();
     }
     this.timeText.depth = 1;
-    /*this.timeText.setText('timeNum: ' + timeNum + ' \ninst.beat: ' + (!(typeof inst1.beat === "undefined") ? Phaser.Geom.Intersects.RectangleToRectangle(inst1.getBounds(), inst1.beat.getBounds()) : "false") + '\nDelta: ' + delta + '\ntimePLay: ' + timePLay + '\nrestartTime: ' + restartTime + '\nnextClickTime: ' + nextClickTime + '\ncountTimes: ' + countTimes);*/
-    /*this.timeText.setText('perfect: ' + score.perfect + '\ngood: ' + score.good + '\nregular: ' + score.regular + ' \nmiss: ' + score.miss + '\nfailkeypress: ' + score.failkeypress);*/
 
   }
   calcNextClickTime() {
@@ -297,7 +281,6 @@ Store.subscribe(() => {
       });
     }
     endBars.create(posX, 55 + (105 * patternIndex), "barraimgend");
-    /*endBars.create(posX + 20, 55 + (105 * patternIndex), "barraimg");*/
 
   }
   destroyBar(inst, bar) {
@@ -306,7 +289,6 @@ Store.subscribe(() => {
   }
   endPattern(inst, bar) {
     this.destroyBar(inst, bar);
-    //*acabar el juego aquiiiiiii */
     Store.dispatch(endGame());
 
   }
@@ -318,7 +300,6 @@ Store.subscribe(() => {
       beat.disableBody(true, true);
     }
     inst.beat = beat;
-    /*console.log('Elapsed seconds: ' + (timePLay + restartTime));*/
   }
 
 
@@ -327,7 +308,6 @@ Store.subscribe(() => {
     beat.disableBody(true, true);
     beat.destroy();
     score.miss = score.miss + 1;
-    /*console.log('fail:');*/
   }
 
   loadInst(type, index, keyPress) {
@@ -344,7 +324,6 @@ Store.subscribe(() => {
   }
 
   setSpeed() {
-    /*console.log("set speed");*/
     const speed = (playingState === PLAYING ? -(bpm * 8) : 0);
     beats.children.iterate((objbeat) => {
       objbeat.body.velocity.x = speed;
