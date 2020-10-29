@@ -9,6 +9,7 @@ export const TOGGLEDEMOPLAY = "TOGGLEDEMOPLAY";
 export const SETREPEATTIMES = "SETREPEATTIMES";
 export const TOGGLEPATTERNBEAT = "TOGGLEPATTERNBEAT";
 export const ADDMUSICALTIME = "ADDMUSICALTIME";
+export const SETPLAYERTRANSLATIONS = "SETPLAYERTRANSLATIONS";
 export const STOP = 0;
 export const PLAYING = 1;
 export const FINISHED = 2;
@@ -53,6 +54,10 @@ export const togglePatternBeat = (instrumentNumber,beatPos) => ({
 });
 export const addMusicalTime = () => ({
     type: ADDMUSICALTIME
+});
+export const setPlayerTranslations = (playerTranslations) => ({
+    type: SETPLAYERTRANSLATIONS,
+    playerTranslations
 });
 
 

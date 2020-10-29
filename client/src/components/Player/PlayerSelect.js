@@ -11,12 +11,12 @@ function PlayerSelect() {
     return (
         <React.Fragment>
             {pageHeader(t("playerSelect.title"), t("playerSelect.subtitle"))}
-            <Container fluid={false}>
+            <Container >
                 <Row>
-                    <Col sm="3">
+                    <Col sm="6">
                         {defCard(t("playerSelect.practice"), t("playerSelect.practiceContent"), t("playerSelect.practice"), "practice", PlayerImg, false)}
                     </Col>
-                    <Col sm="3">
+                    <Col sm="6">
                         {defCard(t("manualCard.title"), t("manualCard.content"), t("manualCard.linktext"), "userManual", DocsImg, false)}
                     </Col>
                 </Row>

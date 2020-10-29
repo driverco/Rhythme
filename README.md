@@ -16,9 +16,9 @@ este proyecto se creó con [Create React App](https://github.com/facebook/create
 
 para ejecutar localmente el proyecto se debe realizar:
 
-### `npm install`
+''' `npm install`
 
-### `npm start`
+''' `npm start`
 
 Esto corre la aplicación en modo Desarrollo.<br>
 Abra [http://localhost:3000](http://localhost:3000) Para verlo en el navegador.

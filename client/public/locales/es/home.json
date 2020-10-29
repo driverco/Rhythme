@@ -1,24 +1,24 @@
 {
     "welcomeTitle": "Rhythme!",
     "welcomeSubtitle": "Te ayudaremos en tu aprendizaje musical",
-    "section1":{
-        "title":"¿Como te ayudamos?",
-        "content":"tendrás retroalimentación inmediata acerca de la precisión de tus golpes. tambien podras cambiar la velocidad de tus ejercicios para ajustarte al nivel que posees actualmente.",
-        "linkDesc":"Practica"
+    "section1": {
+        "title": "¿Como te ayudamos?",
+        "content": "Tendrás retroalimentación inmediata acerca de la precisión de tus golpes. También podrás cambiar la velocidad de tus ejercicios para ajustarte al nivel que posees actualmente.",
+        "linkDesc": "Práctica"
     },
-    "section2":{
-        "title":"¿Quieres Aprender conceptos básicos de ritmo?",
-        "content":"En nuestro sitio tienes acceso a explicaciones multimedia de ritmo. Ven, revisalas.",
-        "linkDesc":"Definiciones"
+    "section2": {
+        "title": "¿Quieres Aprender conceptos básicos de ritmo?",
+        "content": "En nuestro sitio tienes acceso a explicaciones multimedia de ritmo. Ven, revísalas.",
+        "linkDesc": "Definiciones"
     },
-    "section3":{
-        "title":"Multipad",
-        "content":"Te enseñamos a construir un multipad para que practiques mas fácil.",
-        "linkDesc":"Multipad"
+    "section3": {
+        "title": "Multipad",
+        "content": "Te enseñamos a construir un multipad para que practiques facilmente.",
+        "linkDesc": "Multipad"
     },
-    "section4":{
-        "title":"Nuestro Proyecto",
-        "content":"Este proyecto está orientado a ser una ayuda para los estudiantes de rítmo especialmente entre 4 a 12 años.",
-        "linkDesc":"Proyecto"
+    "section4": {
+        "title": "Nuestro Proyecto",
+        "content": "Este proyecto está orientado a ser una ayuda para los estudiantes de rítmo especialmente entre 4 a 12 años.",
+        "linkDesc": "Proyecto"
     }
 }

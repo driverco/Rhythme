@@ -19,7 +19,7 @@ import FloorAudioOgg from "../assets/audio/floor.ogg";
 import Store from "../../redux/Store";
 import { STOP, PLAYING, FINISHED, endGame, RESTART, playStop } from "../../redux/actions/ControllerActions";
 
-var playingState, changeState, timePLay, nextClickTime, bpm, restartTime, countTimes,  finishRect, finishText;
+var playingState, changeState, timePLay, nextClickTime, bpm, restartTime, countTimes,  finishRect, finishText, translations;
 
 let beats, bars, endBars, inst1, inst2, inst3, inst4, container1, container2, container3, container4, failBar, successBar, demoPlay, repeatTimes, countText, timeNum, timeDen;
 let score = {
@@ -96,9 +96,11 @@ Store.subscribe(() => {
       demoPlay = Store.getState().ControllerReducer.demoPlay;
       repeatTimes = Store.getState().ControllerReducer.repeatTimes;
       this.pattern = Store.getState().ControllerReducer.pattern;
+      translations = Store.getState().ControllerReducer.playerTranslations;
       timeNum = this.pattern.timeSignature[0];
       timeDen = this.pattern.timeSignature[2];
       if (playingState === STOP) {
+        countText.setText(translations.ready);
         this.loadPattern();
         timePLay = 0;
         nextClickTime = 0;
@@ -120,9 +122,11 @@ Store.subscribe(() => {
         finishRect.setVisible(false);
         finishText.setText("");
       }
+
+
       if (playingState === FINISHED) {
         finishRect.setVisible(true);
-        finishText.setText( "Results: \nHits Perfect: " + score.perfect + "\nHits Good: " + score.good + "\nHits Regular: " + score.regular + " \nMiss: " + score.miss + "\nFails: " + score.failkeypress);
+        finishText.setText( translations.results+": \n"+translations.perfecthits+": " + score.perfect + "\n"+translations.goodhits+": " + score.good + "\n"+translations.regularhits+": " + score.regular + " \n"+translations.misses+": " + score.miss + "\n"+translations.fails+": " + score.failkeypress);
         finishRect.depth = 2;
         finishText.depth = 2;
       }else{
@@ -132,6 +136,7 @@ Store.subscribe(() => {
     });
 
     playingState = Store.getState().ControllerReducer.playingState;
+    translations = Store.getState().ControllerReducer.playerTranslations;
     changeState = playingState;
     this.widthBoard = 210 + 22 + 480;
     inst1 = this.physics.add.sprite(190, 5, "bgsquareimg").setAlpha(0).setInteractive();
@@ -197,7 +202,7 @@ Store.subscribe(() => {
     inst4.displayWidth = 175;
 
     this.loadPattern();
-    countText = this.add.text(220, 100, "Ready", { font: "bold 90px Arial", fill: "#000", boundsAlignH: "center", boundsAlignV: "middle" });
+    countText = this.add.text(220, 100, translations.ready, { font: "bold 90px Arial", fill: "#000", boundsAlignH: "center", boundsAlignV: "middle" });
 
   }
 
@@ -212,14 +217,15 @@ Store.subscribe(() => {
         this.setSpeed();
       }
       if (playingState === STOP) {
-        countText.setText("Ready");
+        countText.setText(translations.ready);
         restartTime = 0;
         countTimes = 0;
         this.setSpeed();
         changeState = playingState;
       }
       if (playingState === FINISHED) {
-        countText.setText("Finish");
+        countText.setText("");
+        finishText.setText( translations.results+": \n"+translations.perfecthits+": " + score.perfect + "\n"+translations.goodhits+": " + score.good + "\n"+translations.regularhits+": " + score.regular + " \n"+translations.misses+": " + score.miss + "\n"+translations.fails+": " + score.failkeypress);
       }
 
     }
