@@ -24,7 +24,23 @@ void loop() {
         digitalWrite(LEDPIN,HIGH); 
         Serial.println(String(i)+","+String(val));
         digitalWrite(LEDPIN,LOW);
-        Keyboard.press('Q');
+        switch (i) {
+          case 0:
+                Keyboard.press('Q');
+            break;
+          case 1:
+                Keyboard.press('R');
+            break;
+          case 2:
+                Keyboard.press('U');
+            break;
+          case 3:
+                Keyboard.press('P');
+            break;
+          default:
+                Keyboard.press('A');
+            break;
+        }
         millisPads[i]= millis();
         Keyboard.releaseAll();
       }

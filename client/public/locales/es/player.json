@@ -1,16 +1,21 @@
 {
     "welcomeTitle": "",
     "welcomeSubtitle": "Aquí puedes practicar tus patrones",
-    "numberofinstruments":"Número de Intrumentos",
+    "numberofinstruments": "Número de Instrumentos",
     "speed": "Velocidad",
-    "timeSignaure":"Compás",
+    "timeSignaure": "Compás",
     "difficulty": "Dificultad",
-    "easy": "fácil",
-    "medium": "medio",
-    "hard": "dificil",
-    "loadPattern":"Cargar Patrón",
-    "demoPlay":"Demostración",
-    "repeatTimes":"Repeticiones",
+    "easy": "Fácil",
+    "medium": "Medio",
+    "hard": "Difícil",
+    "loadPattern": "Cargar patrón",
+    "demoPlay": "Demostración",
+    "repeatTimes": "Repeticiones",
+    "editPattern": "Editar patrón",
+    "snare": "Redoblante",
+    "kick": "Bombo",
+    "cymbal": "Platillo",
+    "floor": "Tom Piso",
     "status": {
         "status": "Estado",
         "speed": "Velocidad",
@@ -24,14 +29,23 @@
         "select": "Selecciona el patrón que quieres ejecutar"
     },
     "playerSelect": {
-        "title":"",
-        "subtitle":"¿Quieres practicar o aprender como usar la herramienta?",
-        "practice": "Practica",
+        "title": "",
+        "subtitle": "¿Quieres practicar o aprender como usar la herramienta?",
+        "practice": "Práctica",
         "practiceContent": "Practica los patrones del sitio o edita el tuyo"
     },
     "manualCard": {
-        "title":"Como usar",
-        "content":"Aprende a usar el sitio",
-        "linktext":"ir al manual"
-     }
+        "title": "Como usar",
+        "content": "Aprende a usar la herramienta de práctica",
+        "linktext": "Ver más"
+    },
+    "ready":"Listo",
+    "results":"Resultados",
+    "perfecthits":"Golpes perfectos",
+    "goodhits":"Golpes buenos",
+    "regularhits":"Golpes regulares",
+    "misses":"Golpes perdidos",
+    "fails":"Golpes fallidos"
+
+
 }

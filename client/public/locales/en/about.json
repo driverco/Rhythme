@@ -1,27 +1,31 @@
 {
-    "welcomeTitle":"Project Rhythme Team",
-    "welcomeSubtitle":"Meet our team members",
-    "linkText":"See More",
+    "welcomeTitle": "Rhythme Project",
+    "welcomeSubtitle": "More data about this project",
+    "linkText": "See More",
 
-    "diana":{
-        "content":"Last semester engineer student"
+    "diana": {
+        "content": "Last semester engineer student, product owner of the project"
     },
-    "wilmer":{
-        "content":"Last semester engineer student"
+    "wilmer": {
+        "content": "Last semester engineer student, developer and architect"
     },
-    "wilson":{
-        "content":"Project's director, skilled guru and master of the dark arts"
+    "wilson": {
+        "content": "Project's director"
     },
-    "poster":{
-        "title":"Poster",
-        "content":"Presentación del Poster del proyecto"
+    "poster": {
+        "title": "Poster",
+        "content": "See our project's presentation poster"
     },
-    "project":{
-        "title":"Project",
-        "content":"Project Data, Vision and Facts"
+    "project": {
+        "title": "Project",
+        "content": "Project data, vision and motivation"
     },
-    "team":{
-        "title":"Project Team",
-        "content":"Meet Our Team"
-    }
+    "team": {
+        "title": "Project team",
+        "content": "Meet our project's team members"
+    },
+    "projectDesc1": "This innovation project proposes the creation of a website that supports rhythmic musical learning in a population of children aged 4 to 12 years.",
+    "projectDesc2": "The starting point of this work is music, considered during the passage of time as an essential tool for the understanding and perception of the environment by means of the senses, and that allows its interpretation and expression through diverse sounds. This is how the website \"rhythmic musical learning with rhythme, your first musical steps\" is developed.",
+    "projectDesc3": "This site, with a user-friendly graphical interface for the target population, includes concepts such as beat, speed, musical time and figures that are explained in a didactic way accompanied by multimedia support, this allows the child to understand these concepts. To support rhythmic learning, the website has a module that makes it possible to interact with different patterns, rhythms and speeds controlled by a keyboard or a multipad, giving the user a greater possibility to use these resources.",
+    "projectDesc4": "To all this, the construction guide of a hardware component in Arduino with 4 pads is added that will serve to interact with the site, in addition to the presentation of the basic concepts of rhythm in multimedia format. The development of this project is based on an iterative model, which allows feedback and constant improvement of the website and all its functions."
 }

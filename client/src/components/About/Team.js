@@ -8,9 +8,9 @@ function Team() {
     return (
         <React.Fragment>
             {pageHeader(t("team.title"), t("team.content"))}
-            {section("0", "Diana Paola Rincón", t("diana.content"), "Diana2.jpg")}
-            {section("1", "Wilmer Rodríguez Camargo", t("wilmer.content"), "Keanu-Reeves1.jpg")}
-            {section("0", "Director: Wilson Javier Forero", t("wilson.content"), "maleModel1.jpg")}
+            {section("0", "Diana Paola Rincón", [t("diana.content")], "Diana2.jpg")}
+            {section("1", "Wilmer Rodríguez Camargo", [t("wilmer.content")], "Wilmer.jpg")}
+            {section("0", "Director: Wilson Javier Forero", [t("wilson.content")], "logoUAN.png")}
         </React.Fragment>
     );
 }

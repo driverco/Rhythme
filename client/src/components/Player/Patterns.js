@@ -1,12 +1,13 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { ListGroup, ListGroupItem, Row, Col, Badge, Card, CardTitle, Button, Collapse, CardLink, Input, ButtonGroup, ButtonToggle } from "reactstrap";
+import { ListGroup, ListGroupItem, Row, Col, Badge, Card, CardTitle, Button, Collapse, CardLink, Input, ButtonGroup, ButtonToggle, InputGroupAddon, InputGroupText } from "reactstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import "./Patterns.css";
 import patternsData from "../../json/patterns.json";
 import { setPattern, setPatternDisplay, togglePatternEdit, togglePatternBeat, addMusicalTime } from "../../redux/actions/ControllerActions";
+import { InputGroup } from "react-bootstrap";
 
 
 function getDifficultyColor(difficulty) {
@@ -54,25 +55,60 @@ function getPatternCard(patternDisplay, t, dispatch, patternEditOpen, onChangeTi
                 </Col>
             </Row>
             </CardTitle>
-            <Row>{t("difficulty") + ": " + t(patternDisplay.difficulty)}</Row>
-
-            <Row>{t("speed") + "(BPM): "}<Input id="bpm" placeholder="Speed" min={20} max={300} type="number" step="1" disabled={!patternEditOpen} value={patternDisplay.bpm} onChange={(e) => onChangeEditBPM(e)} /></Row>
-            <Row>{t("timeSignaure") + ": "} <Input type="select" name="timeSignatureSelect" id="timeSignatureSelect" disabled={!patternEditOpen} value={patternDisplay.timeSignature} onChange={(e) => onChangeTimeSignature(e)}>
-                <option>2/4</option>
-                <option>3/4</option>
-                <option>4/4</option>
-            </Input>
+            <Row>
+                <Col>
+                    {t("difficulty") + ": " + t(patternDisplay.difficulty)}
+                </Col>
             </Row>
-            <Row>{t("numberofinstruments") + ": "} <Input type="select" name="numberInstrumentsSelect" id="numberInstrumentsSelect" disabled={!patternEditOpen} value={patternDisplay.instruments.length} onChange={(e) => onChangeNumInstruments(e)}>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-            </Input>
+            <Row>
+                <Col>
+                    <InputGroup>
+                        <InputGroupAddon addonType="prepend">
+                            <InputGroupText>{t("speed") + "(BPM): "}</InputGroupText>
+                        </InputGroupAddon>
+                        <Input id="bpm" placeholder="Speed" min={20} max={300} type="number" step="1" disabled={!patternEditOpen} value={patternDisplay.bpm} onChange={(e) => onChangeEditBPM(e)} />
+                    </InputGroup>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <InputGroup>
+                        <InputGroupAddon addonType="prepend">
+                            <InputGroupText>{t("timeSignaure") + ": "}</InputGroupText>
+                        </InputGroupAddon>
+                        <Input type="select" name="timeSignatureSelect" id="timeSignatureSelect" disabled={!patternEditOpen} value={patternDisplay.timeSignature} onChange={(e) => onChangeTimeSignature(e)}>
+                            <option>2/4</option>
+                            <option>3/4</option>
+                            <option>4/4</option>
+                        </Input>
+                    </InputGroup>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <InputGroup>
+                        <InputGroupAddon addonType="prepend">
+                            <InputGroupText>{t("numberofinstruments") + ": "}</InputGroupText>
+                        </InputGroupAddon>
+                        <Input type="select" name="numberInstrumentsSelect" id="numberInstrumentsSelect" disabled={!patternEditOpen} value={patternDisplay.instruments.length} onChange={(e) => onChangeNumInstruments(e)}>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </Input>
+                    </InputGroup>
+                </Col>
             </Row>
             {patternDisplay.instruments.map((instrument, index) => {
                 return (
-                    <Row key={instrument.type + index} ><Col>{t(instrument.type) + ": "}</Col><Col>{getPatternLinePrev(instrument.patternCode)}</Col></Row>
+                    <Row key={instrument.type + index} >
+                        <Col sm="4">
+                            {t(instrument.type) + ": "}
+                        </Col>
+                        <Col sm="8">
+                            {getPatternLinePrev(instrument.patternCode)}
+                        </Col>
+                    </Row>
                 );
             })}
 
@@ -89,8 +125,8 @@ function Patterns() {
     const typeOfInstruments = useSelector((Store) => Store.ControllerReducer.typeOfInstruments);
     const dispatch = useDispatch();
     const { t } = useTranslation("player");
-    
-    if (changed);
+
+    if (changed) {/*do nothing*/ };
 
     function onChangeTimeSignature(e) {
         let pat = patternDisplay;
@@ -134,12 +170,11 @@ function Patterns() {
             for (var i = j * (numBeats[0] * 2); i < (j + 1) * (numBeats[0] * 2); i++) {
                 items.push(<ButtonToggle key={"patt" + j + ":" + i} outline color="primary" active={(patternCode.charAt(i) === "0") ? false : true} indexbeat={i} onClick={(e) => dispatch(togglePatternBeat(instrumentNumber, e.target.getAttribute("indexbeat")))} ></ButtonToggle>);
             }
-            mainComp.push(<ButtonGroup key= {"comp"+j} >{items}</ButtonGroup>);
+            mainComp.push(<ButtonGroup key={"comp" + j} >{items}</ButtonGroup>);
         }
 
         return (
             <React.Fragment >{mainComp}</React.Fragment>
-            /*<ButtonGroup>{numBeats[0]}-{instrumentNumber}{items}</ButtonGroup>*/
         );
     }
 
@@ -167,16 +202,27 @@ function Patterns() {
                     </Collapse>
                     <Collapse isOpen={patternEditOpen}>
                         <Card body className="PatternEdit">
-                        <CardTitle>{patternDisplay.name}
+                            <CardTitle>{patternDisplay.name}
                                 <Button close onClick={() => dispatch(togglePatternEdit())} />
                             </CardTitle>
                             {patternDisplay.instruments.map((instrument, index) => {
                                 return (
-                                    <Row key={instrument.type + index} ><Col sm="2"><Input type="select" name="instrumentSelect" id="timeSignatureSelect" value={instrument.type} onChange={(e) => onChangeTypeofInstrument(e, index)}>
-                                        {typeOfInstruments.map((typeOfInstrument, index2) =>
-                                            <option key={index2} value={typeOfInstrument}>
-                                                {typeOfInstrument}
-                                            </option>)} </Input></Col><Col sm="9">{getPatternLineEdit(patternDisplay.timeSignature, index, instrument.patternCode)}</Col><Col><FontAwesomeIcon icon={faPlusCircle} onClick={() => dispatch(addMusicalTime()) } /></Col></Row>
+                                    <Row key={instrument.type + index} >
+                                        <Col sm="2">
+                                            <Input type="select" name="instrumentSelect" id="timeSignatureSelect" value={instrument.type} onChange={(e) => onChangeTypeofInstrument(e, index)}>
+                                                {typeOfInstruments.map((typeOfInstrument, index2) =>
+                                                    <option key={index2} value={typeOfInstrument}>
+                                                        {t(typeOfInstrument)}
+                                                    </option>)}
+                                            </Input>
+                                        </Col>
+                                        <Col sm="9">
+                                            {getPatternLineEdit(patternDisplay.timeSignature, index, instrument.patternCode)}
+                                        </Col>
+                                        <Col>
+                                            <FontAwesomeIcon icon={faPlusCircle} onClick={() => dispatch(addMusicalTime())} />
+                                        </Col>
+                                    </Row>
                                 );
                             })}
 

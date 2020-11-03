@@ -13,21 +13,13 @@ import ContainerImg from "../assets/container.png";
 
 import ClickAudio from "../assets/audio/click.wav";
 import SnareAudioOgg from "../assets/audio/snare.ogg";
-/*import SnareAudioMp3 from "../assets/audio/snare_basic.mp3";
-import SnareAudioWav from "../assets/audio/snare_basic.wav";*/
 import KickAudioOgg from "../assets/audio/kick.ogg";
-/*import KickAudioMp3 from "../assets/audio/kick.mp3";
-import KickAudioWav from "../assets/audio/kick.wav";*/
 import CymbalAudioOgg from "../assets/audio/cymbal.ogg";
-/*import CymbalAudioMp3 from "../assets/audio/cymbal.mp3";
-import CymbalAudioWav from "../assets/audio/cymbal.wav";*/
 import FloorAudioOgg from "../assets/audio/floor.ogg";
-/*import FloorAudioMp3 from "../assets/audio/floor.mp3";
-import FloorAudioWav from "../assets/audio/floor.wav";*/
 import Store from "../../redux/Store";
 import { STOP, PLAYING, FINISHED, endGame, RESTART, playStop } from "../../redux/actions/ControllerActions";
 
-var playingState, changeState, timePLay, nextClickTime, bpm, restartTime, countTimes,  finishRect, finishText;
+var playingState, changeState, timePLay, nextClickTime, bpm, restartTime, countTimes,  finishRect, finishText, translations;
 
 let beats, bars, endBars, inst1, inst2, inst3, inst4, container1, container2, container3, container4, failBar, successBar, demoPlay, repeatTimes, countText, timeNum, timeDen;
 let score = {
@@ -70,7 +62,6 @@ class MainScene extends Phaser.Scene {
     if (playingState === PLAYING) {
       if (!(typeof inst.beat === "undefined")) {
         if (Phaser.Geom.Intersects.RectangleToRectangle(inst.getBounds(), inst.beat.getBounds())) {
-          /*console.log(Phaser.Math.Distance.Between(inst.beat.getCenter().x, 0, successBar.getCenter().x, 0));*/
           if (Phaser.Math.Distance.Between(inst.beat.getCenter().x, 0, successBar.getCenter().x, 0) < 15) { score.perfect = score.perfect + 1; inst.container.setTint(0x00ff00); }
           else if (Phaser.Math.Distance.Between(inst.beat.getCenter().x, 0, successBar.getCenter().x, 0) < 45) { score.good = score.good + 1; inst.container.setTint(0xaaaa00); }
           else if (Phaser.Math.Distance.Between(inst.beat.getCenter().x, 0, successBar.getCenter().x, 0) < 85) { score.regular = score.regular + 1; inst.container.setTint(0xaa0000); }
@@ -80,7 +71,6 @@ class MainScene extends Phaser.Scene {
 
         }
       } else {
-        /*console.log("fail keypress");*/
         score.failkeypress = score.failkeypress + 1;
       }
     }
@@ -96,15 +86,21 @@ class MainScene extends Phaser.Scene {
     bpm = Store.getState().ControllerReducer.bpm;
     repeatTimes = Store.getState().ControllerReducer.repeatTimes;
     demoPlay = Store.getState().ControllerReducer.demoPlay;
-    Store.subscribe(() => {
+    finishRect = this.add.rectangle(0, 0, 1000, 425, 0xffffff);
+    finishRect.setOrigin(0);
+    finishText = this.add.text(150, 0, "", { font: "bold 40px Arial", fill: "#000", boundsAlignH: "center", boundsAlignV: "middle" });
+    finishText.setOrigin(0);
+Store.subscribe(() => {
       playingState = Store.getState().ControllerReducer.playingState;
       bpm = Store.getState().ControllerReducer.bpm;
       demoPlay = Store.getState().ControllerReducer.demoPlay;
       repeatTimes = Store.getState().ControllerReducer.repeatTimes;
       this.pattern = Store.getState().ControllerReducer.pattern;
+      translations = Store.getState().ControllerReducer.playerTranslations;
       timeNum = this.pattern.timeSignature[0];
       timeDen = this.pattern.timeSignature[2];
       if (playingState === STOP) {
+        countText.setText(translations.ready);
         this.loadPattern();
         timePLay = 0;
         nextClickTime = 0;
@@ -123,22 +119,24 @@ class MainScene extends Phaser.Scene {
         inst2.container.clearTint();
         inst3.container.clearTint();
         inst4.container.clearTint();
-        finishRect.destroy();
-        finishText.destroy();
+        finishRect.setVisible(false);
+        finishText.setText("");
       }
+
+
       if (playingState === FINISHED) {
-        finishRect = this.add.rectangle(0, 0, 1000, 425, 0xffffff);
-        finishRect.setOrigin(0);
-        finishText = this.add.text(150, 0, "Results: \nHits Perfect: " + score.perfect + "\nHits Good: " + score.good + "\nHits Regular: " + score.regular + " \nMiss: " + score.miss + "\nFails: " + score.failkeypress, { font: "bold 40px Arial", fill: "#000", boundsAlignH: "center", boundsAlignV: "middle" });
-            finishRect.depth = 2;
+        finishRect.setVisible(true);
+        finishText.setText( translations.results+": \n"+translations.perfecthits+": " + score.perfect + "\n"+translations.goodhits+": " + score.good + "\n"+translations.regularhits+": " + score.regular + " \n"+translations.misses+": " + score.miss + "\n"+translations.fails+": " + score.failkeypress);
+        finishRect.depth = 2;
         finishText.depth = 2;
+      }else{
+        finishRect.setVisible(false);
+        finishText.setText("");
       }      
     });
-    finishRect = this.add.rectangle(0, 0, 0, 0, 0xffffff);
-    finishText = this.add.rectangle(0, 0, 0, 0, 0xffffff);
-
 
     playingState = Store.getState().ControllerReducer.playingState;
+    translations = Store.getState().ControllerReducer.playerTranslations;
     changeState = playingState;
     this.widthBoard = 210 + 22 + 480;
     inst1 = this.physics.add.sprite(190, 5, "bgsquareimg").setAlpha(0).setInteractive();
@@ -204,31 +202,30 @@ class MainScene extends Phaser.Scene {
     inst4.displayWidth = 175;
 
     this.loadPattern();
-    countText = this.add.text(220, 100, "Ready", { font: "bold 90px Arial", fill: "#000", boundsAlignH: "center", boundsAlignV: "middle" });
+    countText = this.add.text(220, 100, translations.ready, { font: "bold 90px Arial", fill: "#000", boundsAlignH: "center", boundsAlignV: "middle" });
 
   }
 
   update(time, delta) {
-    /*    if (!(typeof inst1.beat === "undefined"))
-          inst1.beat.setTint(0xff0000);*/
     if (playingState === RESTART) {
       Store.dispatch(playStop());
       this.scene.restart();
     }
     if (changeState !== playingState) {
-      if (playingState === PLAYING && timeNum - 1 < countTimes) { /*(60000 * (timeNum) / bpm) */
+      if (playingState === PLAYING && timeNum - 1 < countTimes) { 
         changeState = playingState;
         this.setSpeed();
       }
       if (playingState === STOP) {
-        countText.setText("Ready");
+        countText.setText(translations.ready);
         restartTime = 0;
         countTimes = 0;
         this.setSpeed();
         changeState = playingState;
       }
       if (playingState === FINISHED) {
-        countText.setText("Finish");
+        countText.setText("");
+        finishText.setText( translations.results+": \n"+translations.perfecthits+": " + score.perfect + "\n"+translations.goodhits+": " + score.good + "\n"+translations.regularhits+": " + score.regular + " \n"+translations.misses+": " + score.miss + "\n"+translations.fails+": " + score.failkeypress);
       }
 
     }
@@ -251,8 +248,6 @@ class MainScene extends Phaser.Scene {
       this.clickAudio.play();
     }
     this.timeText.depth = 1;
-    /*this.timeText.setText('timeNum: ' + timeNum + ' \ninst.beat: ' + (!(typeof inst1.beat === "undefined") ? Phaser.Geom.Intersects.RectangleToRectangle(inst1.getBounds(), inst1.beat.getBounds()) : "false") + '\nDelta: ' + delta + '\ntimePLay: ' + timePLay + '\nrestartTime: ' + restartTime + '\nnextClickTime: ' + nextClickTime + '\ncountTimes: ' + countTimes);*/
-    /*this.timeText.setText('perfect: ' + score.perfect + '\ngood: ' + score.good + '\nregular: ' + score.regular + ' \nmiss: ' + score.miss + '\nfailkeypress: ' + score.failkeypress);*/
 
   }
   calcNextClickTime() {
@@ -291,7 +286,6 @@ class MainScene extends Phaser.Scene {
       });
     }
     endBars.create(posX, 55 + (105 * patternIndex), "barraimgend");
-    /*endBars.create(posX + 20, 55 + (105 * patternIndex), "barraimg");*/
 
   }
   destroyBar(inst, bar) {
@@ -300,7 +294,6 @@ class MainScene extends Phaser.Scene {
   }
   endPattern(inst, bar) {
     this.destroyBar(inst, bar);
-    //*acabar el juego aquiiiiiii */
     Store.dispatch(endGame());
 
   }
@@ -312,7 +305,6 @@ class MainScene extends Phaser.Scene {
       beat.disableBody(true, true);
     }
     inst.beat = beat;
-    /*console.log('Elapsed seconds: ' + (timePLay + restartTime));*/
   }
 
 
@@ -321,7 +313,6 @@ class MainScene extends Phaser.Scene {
     beat.disableBody(true, true);
     beat.destroy();
     score.miss = score.miss + 1;
-    /*console.log('fail:');*/
   }
 
   loadInst(type, index, keyPress) {
@@ -338,7 +329,6 @@ class MainScene extends Phaser.Scene {
   }
 
   setSpeed() {
-    /*console.log("set speed");*/
     const speed = (playingState === PLAYING ? -(bpm * 8) : 0);
     beats.children.iterate((objbeat) => {
       objbeat.body.velocity.x = speed;
