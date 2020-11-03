@@ -14,10 +14,10 @@ function Multipad() {
             {pageHeader(t("welcomeTitle"), t("welcomeSubtitle"))}
             <Container fluid={false}>
                 <Row>
-                    <Col sm="3">
+                    <Col sm="6">
                         {defCard(t("keyboardTitle"), t("keyboardContent"), t("knowmore"), "keyboardMultipad", keyboardMultipadImg, false)}
                     </Col>
-                    <Col sm="3">
+                    <Col sm="6">
                         {defCard(t("arduinoTitle"), t("arduinoContent"), t("knowmore"), "arduinoMultipad", arduinoMultipadImg, false)}
                     </Col>
                 </Row>

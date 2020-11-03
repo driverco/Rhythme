@@ -1,16 +1,21 @@
 {
     "welcomeTitle": "",
     "welcomeSubtitle": "Here you can practice your patterns",
-    "numberofinstruments":"Number of Intruments",
+    "numberofinstruments": "Number of Intruments",
     "speed": "Speed",
-    "timeSignaure":"Time Signature",
+    "timeSignaure": "Time Signature",
     "difficulty": "Difficulty",
     "easy": "easy",
     "medium": "medium",
     "hard": "hard",
-    "loadPattern":"Load Pattern",
-    "demoPlay":"Demo PLay",
-    "repeatTimes":"Times",
+    "loadPattern": "Load Pattern",
+    "demoPlay": "Demo PLay",
+    "repeatTimes": "Times",
+    "editPattern": "Edit pattern",
+    "snare": "Snare",
+    "kick": "Kick",
+    "cymbal": "Cymbal",
+    "floor": "Floor",
     "status": {
         "status": "Status",
         "speed": "Speed",
@@ -24,15 +29,22 @@
         "select": "Select the pattern you want to play"
     },
     "playerSelect": {
-        "title":"",
-        "subtitle":"Do you want to practice or learn how to use it?",
+        "title": "",
+        "subtitle": "Do you want to practice or learn how to use it?",
         "practice": "Practice",
         "practiceContent": "Practice the Patterns from the site or edit your own"
     },
     "manualCard": {
-        "title":"How To",
-        "content":"Learn How to use the site",
-        "linktext":"View more"
-     }
+        "title": "How To",
+        "content": "Learn How to use the site",
+        "linktext": "View more"
+    },
+    "ready":"Ready",
+    "results":"Results",
+    "perfecthits":"Perfect hits",
+    "goodhits":"Good Hits",
+    "regularhits":"Regular hits",
+    "misses":"Misses",
+    "fails":"Fails"
 
 }

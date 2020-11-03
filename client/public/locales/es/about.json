@@ -1,26 +1,30 @@
 {
-    "welcomeTitle":"Proyecto Rhythme",
-    "welcomeSubtitle":"Conoce nuestro equipo, el proyecto y la presentación",
-    "linkText":"Ver más",
-    "diana":{
-        "content":"Estudiante de último semestre de ingeniería de sistemas, Product Owner."
+    "welcomeTitle": "Proyecto Rhythme",
+    "welcomeSubtitle": "Conoce nuestro equipo, el proyecto y la presentación",
+    "linkText": "Ver más",
+    "diana": {
+        "content": "Estudiante de último semestre de ingeniería de sistemas, product owner."
     },
-    "wilmer":{
-        "content":"Estudiante de último semestre de ingeniería de sistemas, Desarrollador y Arquitecto "
+    "wilmer": {
+        "content": "Estudiante de último semestre de ingeniería de sistemas, desarrollador y arquitecto "
     },
-    "wilson":{
-        "content":"Director del proyecto de grado"
+    "wilson": {
+        "content": "Director del proyecto de grado"
     },
-    "poster":{
-        "title":"Poster",
-        "content":"Presentación del Poster del proyecto"
+    "poster": {
+        "title": "Poster",
+        "content": "Presentación del poster del proyecto"
     },
-    "project":{
-        "title":"Datos del Proyecto",
-        "content":"Conoce nuestro Proyecto, motivación y visión"
+    "project": {
+        "title": "Datos del Proyecto",
+        "content": "Conoce nuestro proyecto, motivación y visión"
     },
-    "team":{
-        "title":"Equipo de Trabajo",
-        "content":"Conoce nuestro Equipo"
-    }
+    "team": {
+        "title": "Equipo de Trabajo",
+        "content": "Conoce nuestro equipo de trabajo"
+    },
+    "projectDesc1": "El presente proyecto de innovación propuso la creación de un sitio web donde se apoye el aprendizaje rítmico musical en una población de niños de 4 a 12 años. ",
+    "projectDesc2": "El punto de partida de este trabajo es la música, considerada durante el paso del tiempo como una herramienta esencial para la comprensión y percepción del entorno mediante los sentidos, lo que permite su interpretación y expresión a través de diversos sonidos. Así se desarrolla el sitio web \"Aprendizaje musical rítmico con Rhythme, tus primeros pasos musicales\". ",
+    "projectDesc3": "Este sitio, con una interfaz gráfica amigable y de fácil uso para la población objetivo, incluye conceptos como pulso, velocidad, compás y figuras, explica de una manera didáctica acompañada de un apoyo multimedia que permite al niño comprender estos conceptos. Para apoyar el aprendizaje rítmico, el sitio web cuenta con un módulo que brinda una experiencia interactiva de práctica de diferentes patrones, ritmos y velocidades controlados por un teclado o un multipad. ",
+    "projectDesc4": "A todo esto, se le suma la guia de construcción de un componente de hardware en Arduino con 4 pads que servirá para interactuar con el sitio, además de la presentación de los conceptos básicos de ritmo en formato multimedia. El desarrollo de este proyecto se basa en un modelo iterativo que permite la retroalimentación y constante mejora del sitio web y todas sus funciones."
 }

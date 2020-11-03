@@ -1,24 +1,24 @@
 {
-    "welcomeTitle":"Rhythme!",
-    "welcomeSubtitle":"Will help you in your musical learning path",
-    "section1":{
-        "title":"How this will help you?",
-        "content":"by having a perfect feedback about you precision you will have better and better timing. Also you can change the speed of you exercises, with this you can adjust the exercise to your level.",
-        "linkDesc":"Practice"
+    "welcomeTitle": "Rhythme!",
+    "welcomeSubtitle": "Will help you in your musical learning path",
+    "section1": {
+        "title": "How this will help you?",
+        "content": "by having a perfect feedback about you precision you will have better and better timing. Also you can change the speed of you exercises, with this you can adjust the exercise to your level.",
+        "linkDesc": "Practice"
     },
-    "section2":{
-        "title":"Want to learn about Rhythm?",
-        "content":"In this site you have multimedia articles explaining basic concepts of rhythm.",
-        "linkDesc":"Definitions"
+    "section2": {
+        "title": "Want to learn about Rhythm?",
+        "content": "In this site you have multimedia articles explaining basic concepts of rhythm.",
+        "linkDesc": "Definitions"
     },
-    "section3":{
-        "title":"Multipad",
-        "content":"We show you how to build a multipad to ease your practice.",
-        "linkDesc":"Multipad"
+    "section3": {
+        "title": "Multipad",
+        "content": "We show you how to build a multipad to ease your practice.",
+        "linkDesc": "Multipad"
     },
-    "section4":{
-        "title":"Our Proyect",
-        "content":"This proyect is oriented to be a helpful tool to practice oriented to students between 4 and 12 years old.",
-        "linkDesc":"Proyect"
+    "section4": {
+        "title": "Our Project",
+        "content": "This project is oriented to be a helpful tool to practice oriented to students between 4 and 12 years old.",
+        "linkDesc": "Project"
     }
 }

@@ -1,4 +1,4 @@
-import { PLAYSTOP, CHANGEBPM, TOGGLEPATTERNVIEW, TOGGLEPATTERNEDIT, SETPATTERN, SETPATTERNDISPLAY, TOGGLEPATTERNBEAT, ADDMUSICALTIME, STOP, PLAYING, TOGGLEDEMOPLAY, SETREPEATTIMES, FINISHED, ENDGAME, RESTART } from "../actions/ControllerActions";
+import { PLAYSTOP, CHANGEBPM, TOGGLEPATTERNVIEW, TOGGLEPATTERNEDIT, SETPATTERN, SETPATTERNDISPLAY, TOGGLEPATTERNBEAT, ADDMUSICALTIME, STOP, PLAYING, TOGGLEDEMOPLAY, SETREPEATTIMES, FINISHED, ENDGAME, RESTART, SETPLAYERTRANSLATIONS } from "../actions/ControllerActions";
 
 const initialState = {
     playingState: STOP,
@@ -20,7 +20,8 @@ const initialState = {
     patternEditOpen: false,
     keyPress: ["Q", "R", "U", "P"],
     typeOfInstruments: ["snare", "kick", "cymbal", "floor"],
-    changed: false
+    changed: false,
+    playerTranslations:{}
 
 };
 
@@ -44,12 +45,14 @@ export const reducer = (state = initialState, action) => {
         case ENDGAME:
             return {
                 ...state,
-                playingState: FINISHED
+                playingState: FINISHED,
+                demoPlay: false
             }
         case CHANGEBPM:
+            let bpmToSet = (action.bpm < 30) ? 30 : (action.bpm > 300) ? 300 : action.bpm;
             return {
                 ...state,
-                bpm: action.bpm
+                bpm: bpmToSet
             }
 
         case TOGGLEPATTERNVIEW:
@@ -79,14 +82,15 @@ export const reducer = (state = initialState, action) => {
         case TOGGLEDEMOPLAY:
             return {
                 ...state,
-                demoPlay: !state.demoPlay
+                demoPlay: !state.demoPlay,
+                playingState: PLAYING
             }
         case SETREPEATTIMES:
+            let repeats = (action.repeatTimes < 1) ? 1 : (action.repeatTimes > 20) ? 20 : action.repeatTimes;
             return {
                 ...state,
-                repeatTimes: action.repeatTimes
+                repeatTimes: repeats
             }
-
         case TOGGLEPATTERNBEAT:
             let instrumentPattern = state.patternDisplay.instruments[action.instrumentNumber].patternCode;
             let chars = instrumentPattern.split("");
@@ -111,7 +115,14 @@ export const reducer = (state = initialState, action) => {
                 patternDisplay: patternDisplayNew,
                 changed: !state.changed
             }
-
+            case SETPLAYERTRANSLATIONS:
+                return {
+                    ...state,
+                    playerTranslations: action.playerTranslations,
+                    changed: !state.changed
+                }
+                
+    
 
         default:
             return state;

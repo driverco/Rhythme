@@ -6,6 +6,9 @@ import { Navbar, Nav } from "react-bootstrap";
 import "./Header.css";
 import { useTranslation } from "react-i18next";
 import { NavLink, Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setPlayerTranslations} from "../../redux/actions/ControllerActions";
+
 
 const countryLang = () => {
   switch (i18n.language) {
@@ -18,22 +21,45 @@ const countryLang = () => {
   }
 };
 
-const changeLangCountry = (country) => {
-  switch (country) {
-    case "US":
-      i18n.changeLanguage("en");
-      break;
-    case "CO":
-      i18n.changeLanguage("es");
-      break;
-    default:
-      i18n.changeLanguage("en");
-      break;
-  }
-};
+
 
 function Header() {
-  const { t } = useTranslation("menu");
+  const { t } = useTranslation(["menu","player"]);
+  const dispatch = useDispatch();
+
+  const setPlayTrans = () => {
+    var transl = {
+      "ready":t("player:ready"),
+      "results":t("player:results"),
+      "perfecthits":t("player:perfecthits"),
+      "goodhits":t("player:goodhits"),
+      "regularhits":t("player:regularhits"),
+      "misses":t("player:misses"),
+      "fails":t("player:fails")
+  }
+    dispatch(setPlayerTranslations(transl));
+  }
+
+  const changeLangCountry = (country) => {
+    switch (country) {
+      case "US":
+        i18n.changeLanguage("en");
+        break;
+      case "CO":
+        i18n.changeLanguage("es");
+        break;
+      default:
+        i18n.changeLanguage("es");
+        break;
+    }
+    setPlayTrans();
+    
+    console.log();
+  };
+
+  setPlayTrans();
+
+
   return (
     <Navbar expand="lg" className="navbar-custom fixed-top ">
       <Navbar.Brand ><Link to="/" className="navBrand"><img src="../images/Rhythme.svg" className="brandLogo" alt="Rhythme" /> RHYTHME!</Link></Navbar.Brand>

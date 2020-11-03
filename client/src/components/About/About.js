@@ -14,13 +14,13 @@ function About() {
             {pageHeader(t("welcomeTitle"), t("welcomeSubtitle"))}
             <Container fluid={false}>
                 <Row>
-                    <Col sm="3">
+                    <Col sm="4">
                         {defCard(t("poster.title"), t("poster.content"), t("linkText"), "https://drincon28.github.io/Poster/", PosterImg, true)}
                     </Col>
-                    <Col sm="3">
+                    <Col sm="4">
                         {defCard(t("project.title"), t("project.content"), t("linkText"), "project", ProjectImg, false)}
                     </Col>
-                    <Col sm="3">
+                    <Col sm="4">
                         {defCard(t("team.title"), t("team.content"), t("linkText"), "team", TeamImg, false)}
                     </Col>
                 </Row>

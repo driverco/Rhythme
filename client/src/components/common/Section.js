@@ -16,14 +16,14 @@ function textPart(type, title, content, link, linkText) {
         <div className={"col-lg-6 order-lg-" + (type === "0" ? "1" : "2")}>
             <div className="p-1">
                 <h2 className="display-4">{title}</h2>
-                <p>{
+                <div>{
                     content.map((cont, index) => {
                         return (
                             <Row key={"content" + index} ><Col>{cont}</Col></Row>
                         );
                     })
                 }
-                </p>
+                </div>
                 <NavLink to={"./"+link} id={link} className="navLink">{linkText}</NavLink>
             </div>
         </div>
