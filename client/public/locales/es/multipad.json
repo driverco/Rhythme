@@ -37,10 +37,27 @@
         "materials2": "2. 4 Resistencias de 1 Mega Ohm",
         "materials3": "3. 4 piezo eléctricos",
         "materials4": "4. Cables de conexión",
-        "materials5": "5. Una tabla de balso",
-        "materials6": "6. Un octavo de Foamy (pueden ser varios de diferentes colores)",
+        "materials5": "5. Dos tablas de balso",
+        "materials6": "6. Un octavo de foamy (pueden ser varios de diferentes colores)",
         "materials7": "7. Herramientas para soldadura (Cautín, soldadura, crema para soldar)",
         "diagramTitle": "Diagrama de conexión",
-        "diagram": ""
+        "diagram": "",
+        "step1Title": "Paso 1",
+        "step1": "Con la tabla de balso deber hacer 4 cuadrados de 5 cm, en la otra tabla de balso vamos a marcar donde queremos nuestros pads, luego vamos a cortar 16 tiras de foamy de 0.5 cm x 5 cm y las vamos a pegar como muestra la figura",
+        "step2Title": "Paso 2",
+        "step2": "Debes colocar una segunda capa de tiras de foamy sobre la capa que ya se ha pegado para darle altura a nuestros pads, luego vamos a pegar nuestros piezo eléctricos a las tablas de 5 cm en el centro, usa una capa delgada de pegante",
+        "step3Title": "Paso 3",
+        "step3": "Soldaremos la resistencia en el centro del piezo eléctrico junto con un cable, cada centro del piezo electrico debe estar conectado a un cable diferente, recuerda organizar los cables de tus pads respecto a su ubicación",
+        "step4Title": "Paso 4",
+        "step4": "Soldaremos la resistencia en la parte externa del piezo eléctrico junto con un cable, todos los discos externos de los piezo electricos debe estar conectado al mismo cable, recuerda organizar los cables de tus pads respecto a su ubicación",
+        "step5Title": "Paso 5",
+        "step5": "Ahora soldaremos los cables en nuestra placa arduino, el cable común que está conectado a la parte externa del piezo eléctrico va conectada al pin GND, los otros cables van a los pines A0, A1, A2, A3, ten presente el orden de los pads cuando conectes estos cables",
+        "step6Title": "Paso 6",
+        "step6": "Ubicamos y pegamos nuestras tablas sobre los soportes con los piezo eléctricos hacia abajo, ademas las cubriremos con foamy, para protejer tu arduino puedes usar una caja plástica",
+        "step7Title": "Paso 7",
+        "step7": "Conectamos nuestro arduino a un PC que cuente con el arduino IDE instalado, le cargaremos el código que se descargará aquí",
+        "finalTitle": "Resultado final",
+        "final": "Nuestro multipad basado en un arduino está listo para que lo uses"
+
     }
 }

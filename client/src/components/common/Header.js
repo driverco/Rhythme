@@ -80,10 +80,10 @@ function Header() {
             optionsSize={14}
             className="flagsList"
           />
-          <NavLink to="practiceSelect" id="practice" className="buttonMenu" >{t("practice")}</NavLink>
-          <NavLink to="definitions" id="definitions" className="buttonMenu">{t("definitions")}</NavLink>
-          <NavLink to="multipad" id="multipad" className="buttonMenu">{t("multipad")}</NavLink>
-          <NavLink to="about" id="about" className="buttonMenu">{t("about")}</NavLink>
+          <NavLink to="/practiceSelect" id="practice" className="buttonMenu" >{t("practice")}</NavLink>
+          <NavLink to="/definitions" id="definitions" className="buttonMenu">{t("definitions")}</NavLink>
+          <NavLink to="/multipad" id="multipad" className="buttonMenu">{t("multipad")}</NavLink>
+          <NavLink to="/about" id="about" className="buttonMenu">{t("about")}</NavLink>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
