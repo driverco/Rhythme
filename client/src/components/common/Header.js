@@ -38,7 +38,7 @@ function Header() {
       "fails": t("player:fails")
     };
     dispatch(setPlayerTranslations(transl));
-  }
+  };
 
   const changeLangCountry = (country) => {
     switch (country) {

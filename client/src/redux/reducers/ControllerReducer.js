@@ -37,11 +37,11 @@ export const reducer = (state = initialState, action) => {
             else {
                 newPlayingState = STOP;
             }
-            return {
+            return ({
                 ...state,
                 playingState: newPlayingState,
                 patternViewOpen
-            };
+            });
         case ENDGAME:
             return {
                 ...state,
@@ -127,5 +127,5 @@ export const reducer = (state = initialState, action) => {
         default:
             return state;
     }
-}
+};
 export default reducer;
