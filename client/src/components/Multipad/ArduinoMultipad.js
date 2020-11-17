@@ -9,7 +9,7 @@ function ArduinoMultipad() {
         <React.Fragment>
             {pageHeader(t("arduino.title"), t("arduino.content"))}
             {section("0", t("arduino.cautionTitle"), [t("arduino.caution")], "alert.jpg", "keyboardMultipad", "keyboardMultipad")}
-            {section("3", t("arduino.materialsTitle"), [t("arduino.materials1"), t("arduino.materials2"), t("arduino.materials3"), t("arduino.materials4"), t("arduino.materials5"), t("arduino.materials6"), t("arduino.materials7")], "arduinoMaterials.png"), "", "", false, true}
+            {section("3", t("arduino.materialsTitle"), [t("arduino.materials1"), t("arduino.materials2"), t("arduino.materials3"), t("arduino.materials4"), t("arduino.materials5"), t("arduino.materials6"), t("arduino.materials7")], "arduinoMaterials.png", "", "", false, true)}
             {section("3", t("arduino.diagramTitle"), [t("arduino.diagram")], "arduinoMultipadDiagram.png", "", "", false, true)}
             {section("3", t("arduino.step1Title"), [t("arduino.step1")], "ArduinoStep1.png", "", "", false, true)}
             {section("3", t("arduino.step2Title"), [t("arduino.step2")], "ArduinoStep2.png", "", "", false, true)}

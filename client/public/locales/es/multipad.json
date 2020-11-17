@@ -58,6 +58,5 @@
         "step7": "Conectamos nuestro arduino a un PC que cuente con el arduino IDE instalado, le cargaremos el código que se descargará aquí",
         "finalTitle": "Resultado final",
         "final": "Nuestro multipad basado en un arduino está listo para que lo uses"
-
     }
 }
