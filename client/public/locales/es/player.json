@@ -45,7 +45,38 @@
     "goodhits":"Golpes buenos",
     "regularhits":"Golpes regulares",
     "misses":"Golpes perdidos",
-    "fails":"Golpes fallidos"
+    "fails":"Golpes fallidos",
+    "manual":{
+        "title":"Manual",
+        "subtitle":"Aprende como usar la herramienta de práctica",
+        "controller":"Los botones de funcionalidad de práctica se muestran en la parte superior y son los siguientes:",
+        "topic1title":"Iniciar, Pausar",
+        "topic1":"Este botón se usa para iniciar o detener la práctica",
+        "topic2title":"Velocidad",
+        "topic2":"Aqui pudes cambiar la velocidad del patrón, esta se muestra en BPM",
+        "topic3title":"Patrón",
+        "topic3":"Este control muestra el patrón actual. Además, al presionar el botón de la derecha se mostrará la lista de patrones para que cambies o edites el patrón actual",
+        "topic4title":"Repeticiones",
+        "topic4":"Define la cantidad de repeticiones del patrón actual",
+        "topic5title":"Demostración",
+        "topic5":"Este botón te permite ver y escuchar la demostración del patrón seleccionado",
+        "player":"Aprende a usar la herramienta de práctica",
+        "topic6title":"Practicar",
+        "topic6":"Para poder practicar deberá presionar las letras del teclado Q-R-U-P o los correspondientes pad del multipad. Dependiendo de la cantidad de instrumentos aumentará el número de teclas a usar",
+        "topic7title":"Cuando golpear",
+        "topic7":"cada linea de instrumento mostrará los golpes que debes realizar, debes presionar la tecla/pad correspondiente en cuanto el indicador golpe se acerque a la linea roja, depende de tu precisión la linea cambiará de color entre verde (perfecto), amarillo(bueno), rojo oscuro (regular) y rojo (fallo)",
+        "pattern":"Así puedes cambiar y/o editar los patrones",
+        "topic8title":"Ver los detalles de un patrón",
+        "topic8":"Para ver los detalles de un patrón, seleccionalo de la lista, una tarjeta con los detalles se mostrará a la derecha de la lista. Cada item en la lista mostrará: nombre del patron, compás, velocidad sugerida, número de instrumentos y un indicador de complejidad",
+        "topic9title":"Cargar Patrón seleccionado",
+        "topic9":"Para cargar el patrón seleccionado, presiona el botón cargar patrón de la tarjeta de detalle del patrón",
+        "topic10title":"Editar el patrón seleccionado",
+        "topic10":"Para editar el patrón seleccionado, presiona el link editar en la parte superior de la tarjeta de detalle del patrón, alli podrás cambiar los datos del patrón",
+        "topic11title":"Editar los golpes del patrón seleccionado",
+        "topic11":"Por cada instrumento puedes cambiar: 1. El instrumento que se utilizará en el patrón. 2. Los golpes del patrón (cada cuadro representa una corchea). 3. Aumentar la cantidad de compaces, presionando el signo (+) agregarás un compás al patrón "
+        
+        
+    }
 
 
 }

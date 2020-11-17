@@ -37,34 +37,34 @@ export const reducer = (state = initialState, action) => {
             else {
                 newPlayingState = STOP;
             }
-            return {
+            return ({
                 ...state,
                 playingState: newPlayingState,
                 patternViewOpen
-            }
+            });
         case ENDGAME:
             return {
                 ...state,
                 playingState: FINISHED,
                 demoPlay: false
-            }
+            };
         case CHANGEBPM:
             let bpmToSet = (action.bpm < 30) ? 30 : (action.bpm > 300) ? 300 : action.bpm;
             return {
                 ...state,
                 bpm: bpmToSet
-            }
+            };
 
         case TOGGLEPATTERNVIEW:
             return {
                 ...state,
                 patternViewOpen: !state.patternViewOpen
-            }
+            };
         case TOGGLEPATTERNEDIT:
             return {
                 ...state,
                 patternEditOpen: !state.patternEditOpen
-            }
+            };
         case SETPATTERN:
             return {
                 ...state,
@@ -72,25 +72,25 @@ export const reducer = (state = initialState, action) => {
                 pattern: action.pattern,
                 patternViewOpen: !state.patternViewOpen,
                 playingState: RESTART
-            }
+            };
         case SETPATTERNDISPLAY:
             return {
                 ...state,
                 patternDisplay: action.pattern,
                 changed: !state.changed
-            }
+            };
         case TOGGLEDEMOPLAY:
             return {
                 ...state,
                 demoPlay: !state.demoPlay,
                 playingState: PLAYING
-            }
+            };
         case SETREPEATTIMES:
             let repeats = (action.repeatTimes < 1) ? 1 : (action.repeatTimes > 20) ? 20 : action.repeatTimes;
             return {
                 ...state,
                 repeatTimes: repeats
-            }
+            };
         case TOGGLEPATTERNBEAT:
             let instrumentPattern = state.patternDisplay.instruments[action.instrumentNumber].patternCode;
             let chars = instrumentPattern.split("");
@@ -102,7 +102,7 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 patternDisplay: patternDisplayNew,
                 changed: !state.changed
-            }
+            };
         case ADDMUSICALTIME:
             patternDisplayNew = state.patternDisplay;
             state.patternDisplay.instruments.map(function (inst, index) {
@@ -114,18 +114,18 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 patternDisplay: patternDisplayNew,
                 changed: !state.changed
-            }
+            };
             case SETPLAYERTRANSLATIONS:
                 return {
                     ...state,
                     playerTranslations: action.playerTranslations,
                     changed: !state.changed
-                }
+                };
                 
     
 
         default:
             return state;
     }
-}
+};
 export default reducer;

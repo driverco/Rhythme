@@ -24,14 +24,14 @@ function Controller() {
     const setBPMOnChange = (e) => {
         dispatch(changeBPM(e.currentTarget.value));
         setBPM(bpm);
-    }
+    };
     const setRepeatsOnChange = (e) => {
         dispatch(setRepeatTimes(e.currentTarget.value));
         setRepeats(repeatTimes);
-    }
+    };
     const onclickDemoPLay = (e) => {
         dispatch(toggleDemoPlay());
-    }
+    };
     
 
 

@@ -45,6 +45,43 @@
     "goodhits":"Good Hits",
     "regularhits":"Regular hits",
     "misses":"Misses",
-    "fails":"Fails"
+    "fails":"Fails",
+    "manual":{
+        "title":"Manual",
+        "subtitle":"Learn how to use the practice tool",
+        "controller":"The upper buttons used to control the player are described as follows:",
+        "topic1title":"Play, Pause",
+        "topic1":"This button i used to start or stop the practice",
+        "topic2title":"Speed",
+        "topic2":"You can change the speed of the pattern, this is showed in BPM",
+        "topic3title":"Pattern",
+        "topic3":"This control shows the current pattern. Also, pressing the button on the right the pattern list will appear allowing you to change or edit the current pattern",
+        "topic4title":"Repeats",
+        "topic4":"Define the amount of repeats of the current pattern",
+        "topic5title":"Demonstration",
+        "topic5":"This button allows you to see and listen the demonstration of the selected pattern",
+        "topic6title":"Practice",
+        "topic6":"To practice you must press in the keyboard the keys Q-R-U-P or  the matching pad in the multipad. Depending of the quantity of instruments the number of keys will grow in the same quantity",
+        "topic7title":"When to hit",
+        "topic7":"Each instrument's linwill show the beats you must hit, you should press the matching key/pad as soon as the hit indicator touchs the red line. Depending of your precision the line color will change from green (perfect), yellow(good), dark red (regular) to red (miss)",
+        "pattern":"Learn how to change or edit the patterns",
+        "topic8title":"See the details of a pattern",
+        "topic8":"to see the details of a pattern, select it from the list, a card with the details will appear to the right of the list. Every item in the list shows: the name of the pattern, the musical time, the suggested speed, the number of instruments and a indicator of complex",
+        "topic9title":"Load selected pattern",
+        "topic9":"To load the selected pattern, press the button load pattern in the pattern card detail",
+        "topic10title":"Edit selected pattern",
+        "topic10":"To edit the selected pattern, press the link edit pattern in the top of the pattern card detail, then you can change the pattern data",
+        "topic11title":"Edit selected pattern hits",
+        "topic11":"for each instrument youy can change: 1. The instrument used in the pattern. 2. The hits in the pattern (each box represents an eighth note). 3. Increase the number of measures, pressing the plus sign (+) you wil add a measure in the pattern"
+
+
+
+
+
+
+
+
+    }
+
 
 }

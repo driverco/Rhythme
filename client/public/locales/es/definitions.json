@@ -3,35 +3,44 @@
     "welcomeSubtitle": "Aquí tienes algunos conceptos que te ayudarán en tu Aprendizaje",
     "linkText": "Ver más",
     "def1": {
-        "title": "Beat",
-        "content": "Beat beat beat"
+        "title": "Pulso",
+        "content": "Aprende acerca de la unidad básica de ritmo",
+        "textdesc":"¿Cuando escuchas una canción puedes dar pasos, palmadas o sentir cierta regularidad en sus sonidos?. Dejame contarte que la musica está construida con una regularidad increible, todas las canciones tienen golpes que identifican la regularidad del ritmo, a estos golpes los llamaremos PULSOS, igual que cada latido de tu corazón, estos son los latidos de las canciones. Escuchemos un par de canciones marcando los pulsos de cada una de ellas."
     },
     "def2": {
-        "title": "Speed",
-        "content": "Beat beat beat"
+        "title": "Velocidad",
+        "content": "Rapido, lento y como identificarlo",
+        "textdesc":"¿Sientes que puedes correr con el ritmo de una canción. tal vez caminar?. La velocidad de los pulsos en una canción esta determinada por cuantos pulsos podemos dar en un minuto, esta medida se conoce como BPM segun sis siglas en Inglés (Beats Per Minute). entonces si tienes 60 BPM significa que hay 60 pulsos por minuto, o 1 pulso por segundo. 120 BPM serán 120 pulsos por minuto o 2 por segundo. Escuchemos trozos de canciones a diferentes velocidades."
     },
     "def3": {
-        "title": "Musical Time",
-        "content": "Beat beat beat"
+        "title": "Compas/Tiempo",
+        "content": "Define los parámetros de tu ritmo",
+        "textdesc":"Los pulsos de una canción están ordenados de manera que se repiten cada X cantidad, por ejemplo cada 3 o cuatro pulsos, a cada repeticion de pulsos lo llamaremos compás. La cantidad de pulsos por cada compás se representa por un número fraccionario (Número de pulsos/Medida del pulso) donde la medida del pulso significa la figura musical que es igual a un pulso (normalmente tiempo de negra representada por un 4) y el denominador es la cantidad de pulsos en un compás. Escuchemos canciones en diferentes tiempos."
     },
     "def4": {
-        "title": "BPM",
-        "content": "Beat beat beat"
+        "title": "Acento",
+        "content": "Conoce los diferentes tipos de pulso",
+        "textdesc":"Dentro de cada compás hay uno o más pulsos que se sienten mas fuertes que los demás, estos pulsos son conocidos como acentos y son la guía para la estructura del tiempo de la canción, escuchemos un par de canciones resaltando el acento de cada compás."
     },
     "def5": {
-        "title": "Figures 1",
-        "content": "Beat beat beat"
+        "title": "Figuras 1",
+        "content": "Figuras musicales básicas",
+        "textdesc":"Las figuras musicales usadas para representar los sonidos tienen una duración, la figura más representativa es la negra, representada por el número 4, normalmente tiene duración de 1 pulso. la figura conocida como blanca tiene una duración de 2 pulsos, la redonda tiene una duración de 4 pulsos."
     },
     "def6": {
-        "title": "Figures 2",
-        "content": "Beat beat beat"
+        "title": "Figuras 2",
+        "content": "Figuras musicales básicas 2da parte",
+        "textdesc":"Las figuras musicales usadas para representar los sonidos tienen una duración, la corchea tiene una duración de medio pulso, la semicorchea tiene una duración de un cuarto de pulso."
     },
     "def7": {
-        "title": "Figures 3",
-        "content": "Beat beat beat"
+        "title": "Figuras 3",
+        "content": "Figuras de silencios",
+        "textdesc":"No tocar es tan importante como tocar una nota, le da a cada melodía y ritmo una pausa. Cada silencio esta fuertemente asociado a una figura musical, por lo que el silencio no tiene un nombre exclusivo, lo conoceremos como silencio de... y la figura que representa el mismo tiempo del silencio, por ejemplo el silencio de redonda durará 4 pulsos, el silencio de blanca durará 2 pulsos"
+
     },
     "def8": {
-        "title": "Figures 4",
-        "content": "Beat beat beat"
+        "title": "Figuras 4",
+        "content": "Figuras de silencios 2da parte",
+        "textdesc":"Siguiendo con los silencios, el silencio de negra durará un pulso, el silencio de corchea durará medio tiempo, el silencio de semicorchea durará un cuarto de tiempo."
     }
 }

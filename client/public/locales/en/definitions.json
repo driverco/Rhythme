@@ -4,35 +4,43 @@
     "linkText": "Go to definition",
     "def1": {
         "title": "Beat",
-        "content": "Learn about the basic unit of rhythm"
+        "content": "Learn about the basic unit of rhythm",
+        "textdesc":"When you listen to a song, can you step, clap or feel a certain regularity in its sounds? Let me tell you that the music is built with an incredible regularity, all songs have beats that identify the regularity of the rhythm, we will call these beats BEATS, just like each beat of your heart, these are the beats of the songs. Let's listen to a couple of songs marking the beats of each of them."
     },
     "def2": {
         "title": "Speed",
-        "content": "Fast, Slow, and how to identify it"
+        "content": "Fast, Slow, and how to identify it",
+        "textdesc":"Feel like you can run to the beat of a song. maybe walk? The speed of the beats in a song is determined by how many beats we can give in a minute, this measurement is known as BPM according to its acronym in English (Beats Per Minute). so if you have 60 BPM it means there are 60 beats per minute, or 1 beat per second. 120 BPM will be 120 beats per minute or 2 per second. Let's listen to chunks of songs at different speeds."
     },
     "def3": {
         "title": "Time Signature",
-        "content": "Set the diferent lenght and accent of your play"
+        "content": "Set the diferent lenght and accent of your play",
+        "textdesc":"The pulses of a song are ordered so that they repeat every X amount, for example every 3 or four pulses, we will call each pulse repetition a measure. The number of pulses per measure is represented by a fractional number (Number of pulses / Pulse measurement) where the pulse measurement means the musical figure that is equal to one pulse (usually quarter note time represented by a 4) and the denominator is the number of beats in one measure. Let's listen to songs at different times."
     },
     "def4": {
         "title": "Accent",
-        "content": "Know the diferent beat types"
+        "content": "Know the diferent beat types",
+        "textdesc":"Within each measure there are one or more pulses that feel stronger than the others, these beats are known as accents and are the guide for the song's time structure, let's listen to a couple of songs highlighting the accent of each measure."
     },
     "def5": {
         "title": "Figures 1",
-        "content": "Beat beat beat"
+        "content": "Basic musical figures",
+        "textdesc":"The musical figures used to represent sounds have a duration, the most representative figure is the quarter, represented by the number 4, normally it has a duration of 1 beat. the figure known as half has a duration of 2 beats, the whole has a duration of 4 beats."
     },
     "def6": {
         "title": "Figures 2",
-        "content": "Beat beat beat"
+        "content": "Basic musical figures 2nd part",
+        "textdesc":"The musical figures used to represent the sounds have a duration, the eighth note has a duration of half a beat, the sixteenth note has a duration of a quarter of a beat."
     },
     "def7": {
         "title": "Figures 3",
-        "content": "Beat beat beat"
+        "content": "Figures of rest",
+        "textdesc":"Not playing is as important as playing a note, it gives each melody and rhythm a pause. Each silence is strongly associated with a musical figure, so the silence does not have an exclusive name, we will know it as figure that represents the same time of silence + rest, for example the silence of whole note will last 4 beats, the silence of half will last 2 beats"
     },
     "def8": {
         "title": "Figures 4",
-        "content": "Beat beat beat"
+        "content": "Figures of rest 2nd part",
+        "textdesc":"Continuing with the rests, the quarter note rest will last one beat, the eighth note rest will last half a beat, the sixteenth note rest will last a quarter of a beat."
     }
 
 }

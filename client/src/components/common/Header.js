@@ -7,7 +7,7 @@ import "./Header.css";
 import { useTranslation } from "react-i18next";
 import { NavLink, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setPlayerTranslations} from "../../redux/actions/ControllerActions";
+import { setPlayerTranslations } from "../../redux/actions/ControllerActions";
 
 
 const countryLang = () => {
@@ -24,21 +24,21 @@ const countryLang = () => {
 
 
 function Header() {
-  const { t } = useTranslation(["menu","player"]);
+  const { t } = useTranslation(["menu", "player"]);
   const dispatch = useDispatch();
 
   const setPlayTrans = () => {
     var transl = {
-      "ready":t("player:ready"),
-      "results":t("player:results"),
-      "perfecthits":t("player:perfecthits"),
-      "goodhits":t("player:goodhits"),
-      "regularhits":t("player:regularhits"),
-      "misses":t("player:misses"),
-      "fails":t("player:fails")
-  }
+      "ready": t("player:ready"),
+      "results": t("player:results"),
+      "perfecthits": t("player:perfecthits"),
+      "goodhits": t("player:goodhits"),
+      "regularhits": t("player:regularhits"),
+      "misses": t("player:misses"),
+      "fails": t("player:fails")
+    };
     dispatch(setPlayerTranslations(transl));
-  }
+  };
 
   const changeLangCountry = (country) => {
     switch (country) {
@@ -53,8 +53,6 @@ function Header() {
         break;
     }
     setPlayTrans();
-    
-    console.log();
   };
 
   setPlayTrans();
@@ -80,10 +78,10 @@ function Header() {
             optionsSize={14}
             className="flagsList"
           />
-          <NavLink to="practiceSelect" id="practice" className="buttonMenu" >{t("practice")}</NavLink>
-          <NavLink to="definitions" id="definitions" className="buttonMenu">{t("definitions")}</NavLink>
-          <NavLink to="multipad" id="multipad" className="buttonMenu">{t("multipad")}</NavLink>
-          <NavLink to="about" id="about" className="buttonMenu">{t("about")}</NavLink>
+          <NavLink to="/practiceSelect" id="practice" className="buttonMenu" >{t("practice")}</NavLink>
+          <NavLink to="/definitions" id="definitions" className="buttonMenu">{t("definitions")}</NavLink>
+          <NavLink to="/multipad" id="multipad" className="buttonMenu">{t("multipad")}</NavLink>
+          <NavLink to="/about" id="about" className="buttonMenu">{t("about")}</NavLink>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
