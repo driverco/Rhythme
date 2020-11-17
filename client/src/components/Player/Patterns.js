@@ -126,7 +126,7 @@ function Patterns() {
     const dispatch = useDispatch();
     const { t } = useTranslation("player");
 
-    if (changed) {/*do nothing*/ };
+    if (changed) {/*do nothing*/ }
 
     function onChangeTimeSignature(e) {
         let pat = patternDisplay;

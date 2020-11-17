@@ -53,8 +53,6 @@ function Header() {
         break;
     }
     setPlayTrans();
-
-    console.log();
   };
 
   setPlayTrans();
