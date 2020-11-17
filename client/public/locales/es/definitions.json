@@ -3,35 +3,36 @@
     "welcomeSubtitle": "Aquí tienes algunos conceptos que te ayudarán en tu Aprendizaje",
     "linkText": "Ver más",
     "def1": {
-        "title": "Beat",
-        "content": "Beat beat beat"
+        "title": "Pulso",
+        "content": "Aprende acerca de la unidad básica de ritmo",
+        "textdesc":"Has escuchado Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     },
     "def2": {
-        "title": "Speed",
-        "content": "Beat beat beat"
+        "title": "Velocidad",
+        "content": "Rapido, lento y como identificarlo"
     },
     "def3": {
-        "title": "Musical Time",
-        "content": "Beat beat beat"
+        "title": "Compas/Tiempo",
+        "content": "Define los parámetros de tu ritmo"
     },
     "def4": {
-        "title": "BPM",
-        "content": "Beat beat beat"
+        "title": "Acento",
+        "content": "Conoce los diferentes tipos de pulso"
     },
     "def5": {
-        "title": "Figures 1",
-        "content": "Beat beat beat"
+        "title": "Figuras 1",
+        "content": "Figuras musicales básicas"
     },
     "def6": {
-        "title": "Figures 2",
-        "content": "Beat beat beat"
+        "title": "Figuras 2",
+        "content": "Figuras musicales básicas 2da parte"
     },
     "def7": {
-        "title": "Figures 3",
-        "content": "Beat beat beat"
+        "title": "Figuras 3",
+        "content": "Figuras de silencios"
     },
     "def8": {
-        "title": "Figures 4",
-        "content": "Beat beat beat"
+        "title": "Figuras 4",
+        "content": "Figuras de silencios 2da parte"
     }
 }
