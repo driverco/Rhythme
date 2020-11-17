@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import pageHeader from "../common/PageHeader";
-import YouTube from 'react-youtube';
+import YouTube from "react-youtube";
 import { Col, Container, Row } from "reactstrap";
 import "./Def.css";
 

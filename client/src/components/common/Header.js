@@ -7,7 +7,7 @@ import "./Header.css";
 import { useTranslation } from "react-i18next";
 import { NavLink, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setPlayerTranslations} from "../../redux/actions/ControllerActions";
+import { setPlayerTranslations } from "../../redux/actions/ControllerActions";
 
 
 const countryLang = () => {
@@ -24,19 +24,19 @@ const countryLang = () => {
 
 
 function Header() {
-  const { t } = useTranslation(["menu","player"]);
+  const { t } = useTranslation(["menu", "player"]);
   const dispatch = useDispatch();
 
   const setPlayTrans = () => {
     var transl = {
-      "ready":t("player:ready"),
-      "results":t("player:results"),
-      "perfecthits":t("player:perfecthits"),
-      "goodhits":t("player:goodhits"),
-      "regularhits":t("player:regularhits"),
-      "misses":t("player:misses"),
-      "fails":t("player:fails")
-  }
+      "ready": t("player:ready"),
+      "results": t("player:results"),
+      "perfecthits": t("player:perfecthits"),
+      "goodhits": t("player:goodhits"),
+      "regularhits": t("player:regularhits"),
+      "misses": t("player:misses"),
+      "fails": t("player:fails")
+    };
     dispatch(setPlayerTranslations(transl));
   }
 
@@ -53,7 +53,7 @@ function Header() {
         break;
     }
     setPlayTrans();
-    
+
     console.log();
   };
 
