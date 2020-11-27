@@ -21,7 +21,7 @@ function Def(props) {
             <Container>
                 <Row>
                     <Col sm="12">
-                        <YouTube videoId="Zwo1Nk2vbuI" opts={opts}  containerClassName="youtubeVideo" />
+                        <YouTube videoId={t("def" + def + ".video")} opts={opts}  containerClassName="youtubeVideo" />
                     </Col>
                 </Row>
                 <Row>

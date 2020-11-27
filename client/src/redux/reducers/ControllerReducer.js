@@ -26,20 +26,27 @@ const initialState = {
 };
 
 export const reducer = (state = initialState, action) => {
+    let patternDisplayNew;
     switch (action.type) {
         case PLAYSTOP:
             let newPlayingState = state.playingState;
             let patternViewOpen = state.patternViewOpen;
+            let newdemoPlay = state.demoPlay;
+            let bpmset = state.bpmset;
             if (state.playingState === STOP) {
+                bpmset = (state.bpm < 30) ? 30 : state.bpm;
                 newPlayingState = PLAYING;
                 patternViewOpen = false;
             }
             else {
                 newPlayingState = STOP;
+                newdemoPlay = false;
             }
             return ({
                 ...state,
                 playingState: newPlayingState,
+                demoPlay : newdemoPlay,
+                bpm : bpmset,
                 patternViewOpen
             });
         case ENDGAME:
@@ -49,7 +56,7 @@ export const reducer = (state = initialState, action) => {
                 demoPlay: false
             };
         case CHANGEBPM:
-            let bpmToSet = (action.bpm < 30) ? 30 : (action.bpm > 300) ? 300 : action.bpm;
+            let bpmToSet = (action.bpm < 0) ? 0 : (action.bpm > 300) ? 300 : action.bpm;
             return {
                 ...state,
                 bpm: bpmToSet
@@ -96,7 +103,7 @@ export const reducer = (state = initialState, action) => {
             let chars = instrumentPattern.split("");
             chars[action.beatPos] = (chars[action.beatPos] === "0" ? "1" : "0");
             instrumentPattern = chars.join("");
-            let patternDisplayNew = state.patternDisplay;
+            patternDisplayNew = state.patternDisplay;
             patternDisplayNew.instruments[action.instrumentNumber].patternCode = instrumentPattern;
             return {
                 ...state,

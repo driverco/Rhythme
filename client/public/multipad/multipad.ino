@@ -2,7 +2,7 @@
 #define LEDPIN 13 // status LED pin
 #define PIEZOTHRESHOLD 300 // analog threshold for piezo sensing
 #define PADNUM 4 // number of pads
-#define MILLISDIFF 100 // diff time between reads
+#define MILLISDIFF 200 // diff time between reads
 
 int val;
 int valMax[4] = {0,0,0,0};

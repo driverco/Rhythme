@@ -23,23 +23,28 @@ function Controller() {
 
     const setBPMOnChange = (e) => {
         dispatch(changeBPM(e.currentTarget.value));
-        setBPM(bpm);
+
+        setBPM((e.currentTarget.value > 300 ? 300 : (e.currentTarget.value < 1 ? 1 : e.currentTarget.value)));
     };
     const setRepeatsOnChange = (e) => {
         dispatch(setRepeatTimes(e.currentTarget.value));
-        setRepeats(repeatTimes);
+        setRepeats((e.currentTarget.value > 20 ? 20 : (e.currentTarget.value < 1 ? 1 : e.currentTarget.value)));
     };
     const onclickDemoPLay = (e) => {
         dispatch(toggleDemoPlay());
     };
-    
+
 
 
     return (
         <React.Fragment>
             <Container>
                 <ButtonGroup size="lg">
-                    <Button onClick={() => dispatch(playStop())}>
+                    <Button onClick={() => {
+                        if (bpm < 30) dispatch(changeBPM(30));
+                        dispatch(playStop());
+                    }
+                    }>
                         {(playingState === PLAYING ? <FontAwesomeIcon icon={faPause} /> : (playingState === FINISHED ? <FontAwesomeIcon icon={faStepBackward} /> : <FontAwesomeIcon icon={faPlay} />))}
                     </Button>
                     <InputGroup size="lg">
@@ -57,7 +62,7 @@ function Controller() {
                         <InputGroupAddon addonType="append">{t("repeatTimes")}</InputGroupAddon>
                     </InputGroup>
                     <ButtonGroup size="lg">
-                        <Button outline color="secondary" disabled={playingState === PLAYING||playingState === FINISHED} onClick={onclickDemoPLay} active={demoPlay}>{t("demoPlay")}</Button>
+                        <Button outline color="secondary" disabled={playingState === PLAYING || playingState === FINISHED} onClick={onclickDemoPLay} active={demoPlay}>{t("demoPlay")}</Button>
                     </ButtonGroup>
                 </ButtonGroup>
             </Container>
