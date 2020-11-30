@@ -32,13 +32,14 @@ export const reducer = (state = initialState, action) => {
             let newPlayingState = state.playingState;
             let patternViewOpen = state.patternViewOpen;
             let newdemoPlay = state.demoPlay;
-            let bpmset = state.bpmset;
+            let bpmset = state.bpm;
             if (state.playingState === STOP) {
                 bpmset = (state.bpm < 30) ? 30 : state.bpm;
                 newPlayingState = PLAYING;
                 patternViewOpen = false;
             }
             else {
+                bpmset = state.bpm;
                 newPlayingState = STOP;
                 newdemoPlay = false;
             }
